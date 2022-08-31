@@ -3,3 +3,4 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\bin\Debug\FreeIDE.Common.pdb
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.dll
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.pdb
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.csproj.AssemblyReference.cache

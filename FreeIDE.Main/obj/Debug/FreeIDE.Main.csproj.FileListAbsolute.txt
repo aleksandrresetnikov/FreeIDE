@@ -1,0 +1,14 @@
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Main.exe.config
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Main.exe
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Main.pdb
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Properties.Resources.resources
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.GenerateResource.cache
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.exe
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.pdb
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Common.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Common.pdb
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.CopyComplete

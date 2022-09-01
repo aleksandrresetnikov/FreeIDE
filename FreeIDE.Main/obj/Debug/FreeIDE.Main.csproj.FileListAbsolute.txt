@@ -1,12 +1,7 @@
-C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Main.exe.config
-C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Main.exe
-C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Main.pdb
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.AssemblyReference.cache
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Properties.Resources.resources
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.GenerateResource.cache
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.CoreCompileInputs.cache
-C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.exe
-C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.pdb
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.dll
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Common.dll
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Common.pdb
@@ -15,3 +10,8 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.Co
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.SuggestedBindingRedirects.cache
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.EditorForm.resources
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Components.BorderLessFormController.resources
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.exe.config
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.exe
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.pdb
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.exe
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.pdb

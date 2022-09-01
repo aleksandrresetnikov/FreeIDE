@@ -348,7 +348,14 @@ namespace FreeIDE.Components
 
         public virtual void ApplyTheme(ThemeData themeData)
         {
-
+            this.BackColor = themeData.Color1;
+            this.BorderColor = themeData.BorderColor;
+            this.HeaderBackColor = themeData.HeaderBackColor;
+            this.ColorHeaderUnderline = themeData.ColorHeaderUnderline;
+            this.HeaderHeight = themeData.HeaderHeight;
+            this.IconHeight = themeData.IconHeight;
+            this.IconPadding = themeData.IconPadding;
+            this.WidthHeaderUnderline = themeData.WidthHeaderUnderline;
         }
 
         ~BorderLessForm()

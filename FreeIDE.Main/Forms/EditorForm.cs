@@ -17,6 +17,7 @@ namespace FreeIDE.Forms
         public EditorForm()
         {
             InitializeComponent();
+            ThemeMaster.ApplyTheme(this);
         }
     }
 }

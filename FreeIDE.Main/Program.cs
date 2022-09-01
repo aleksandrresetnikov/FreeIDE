@@ -18,7 +18,7 @@ namespace FreeIDE
             System.Windows.Forms.Application.Run(new Forms.EditorForm());
         }
 
-        static void InitAllComponents()
+        internal static void InitAllComponents()
         {
             SettingsTable.InitSettingsTable();
             ThemeMaster.LoadUseTheme();

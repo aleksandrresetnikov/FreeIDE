@@ -7,7 +7,7 @@ namespace FreeIDE.Common
 {
     public class Logger
     {
-        public static readonly string LogPath = @"\Logs";
+        public static readonly string LogPath = $@"{DirectoryUtil.GetLokationFolder()}\Logs";
         public static readonly string LogExtension = ".log";
 
         public static void Start()

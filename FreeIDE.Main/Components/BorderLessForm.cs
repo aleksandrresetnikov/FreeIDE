@@ -8,7 +8,7 @@ using System.Timers;
 
 namespace FreeIDE.Components
 {
-    public class BorderLessForm : Form
+    public class BorderLessForm : Form, IThemeDesigner
     {
         const UInt32 WM_NCHITTEST = 0x0084;
         const UInt32 WM_MOUSEMOVE = 0x0200;
@@ -346,6 +346,11 @@ namespace FreeIDE.Components
             GC.Collect();
         }
 
+        public virtual void ApplyTheme(ThemeData themeData)
+        {
+
+        }
+
         ~BorderLessForm()
         {
             this.timer.Stop();
@@ -353,5 +358,10 @@ namespace FreeIDE.Components
             this.Dispose();
             GC.Collect();
         }
+    }
+
+    public interface IThemeDesigner
+    {
+        void ApplyTheme(ThemeData themeData);
     }
 }

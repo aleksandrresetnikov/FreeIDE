@@ -1,0 +1,14 @@
+<Theme>
+	<Name>Light</Name>
+	<Color1>Jani</Color1>
+	<Color2>Reminder</Color2>
+	
+	<BorderColor>"Transparent"</BorderColor>
+	<HeaderBackColor>"Transparent"</HeaderBackColor>
+	<ColorHeaderUnderline>"Black"</ColorHeaderUnderline>
+	
+	<HeaderHeight>20</HeaderHeight>
+	<IconHeight>20</IconHeight>
+	<IconPadding>1</IconPadding>
+	<WidthHeaderUnderline>2</WidthHeaderUnderline>
+</Theme>

@@ -12,3 +12,6 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Common.dll
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Common.pdb
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.xml
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.CopyComplete
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.EditorForm.resources
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Components.BorderLessFormController.resources

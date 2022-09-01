@@ -1,11 +1,12 @@
 <Theme>
 	<Name>Light</Name>
-	<Color1>Jani</Color1>
-	<Color2>Reminder</Color2>
+	<Color1 Type="Dec">93416271</Color1>
+	<Color2 Type="Hex">#AA860B</Color2>
+	<Color3 Type="Rgb">125, 96, 178</Color3>
 	
-	<BorderColor>"Transparent"</BorderColor>
-	<HeaderBackColor>"Transparent"</HeaderBackColor>
-	<ColorHeaderUnderline>"Black"</ColorHeaderUnderline>
+	<BorderColor Type="Str">Transparent</BorderColor>
+	<HeaderBackColor Type="Str">Transparent</HeaderBackColor>
+	<ColorHeaderUnderline Type="Str">Black</ColorHeaderUnderline>
 	
 	<HeaderHeight>20</HeaderHeight>
 	<IconHeight>20</IconHeight>

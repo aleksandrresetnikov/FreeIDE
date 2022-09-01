@@ -118,4 +118,8 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>XCOPY "$(SolutionDir)\Source Resources\Themes\" "$(SolutionDir)\FreeIDE.Main\bin\Debug\Data\Themes\" /y /e
+XCOPY "$(SolutionDir)\Source Resources\Languages\" "$(SolutionDir)\FreeIDE.Main\bin\Debug\Data\Languages\" /y /e</PreBuildEvent>
+  </PropertyGroup>
 </Project>

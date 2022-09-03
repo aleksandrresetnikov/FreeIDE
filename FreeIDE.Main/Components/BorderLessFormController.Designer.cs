@@ -66,9 +66,10 @@
             this.TitleLabel.Location = new System.Drawing.Point(5, 5);
             this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(203, 15);
+            this.TitleLabel.Size = new System.Drawing.Size(175, 15);
             this.TitleLabel.TabIndex = 4;
-            this.TitleLabel.Text = "LPI_BorderLessFormController";
+            this.TitleLabel.Text = "BorderLessFormController";
+            this.TitleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseDown);
             this.TitleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseMove);
             // 
             // buttonMaxType

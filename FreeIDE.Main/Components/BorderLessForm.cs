@@ -263,6 +263,7 @@ namespace FreeIDE.Components
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -270,6 +271,12 @@ namespace FreeIDE.Components
         {
             this.OnMouseMoveMethod(e);
             base.OnMouseMove(e);
+        }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            this.OnMouseDownMethod(e);
+            base.OnMouseDown(e);
         }
 
         protected override void WndProc(ref Message m)
@@ -330,11 +337,23 @@ namespace FreeIDE.Components
                     this.OnHeaderMouseMove(e);
         }
 
+        private protected virtual void OnMouseDownMethod(MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                if (this.Moveable && (e.Y < this.HeaderHeight || this.MoveOnWholeForm))
+                    this.OnHeaderMouseDown(e);
+        }
+
         private protected virtual void OnHeaderMouseMove(MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             SettingRegions();
+        }
+
+        private protected virtual void OnHeaderMouseDown(MouseEventArgs e)
+        {
+            
         }
 
         private protected virtual void OnHeaderMouseDoubleClick(MouseEventArgs e)

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorForm));
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,6 +36,11 @@
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
             this.buttonClose.Location = new System.Drawing.Point(775, 1);
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.Size = new System.Drawing.Size(56, 15);
+            this.TitleLabel.Text = "FreeIDE";
             // 
             // buttonMaxType
             // 
@@ -60,10 +63,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "EditorForm";
             this.Text = "EditorForm";
-            this.Controls.SetChildIndex(this.buttonMaxType, 0);
-            this.Controls.SetChildIndex(this.buttonClose, 0);
-            this.Controls.SetChildIndex(this.buttonMinType, 0);
-            this.Controls.SetChildIndex(this.TitleLabel, 0);
             ((System.ComponentModel.ISupportInitialize)(this.timer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

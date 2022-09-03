@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("FastColoredTextBox")]
 [assembly: AssemblyDescription("Fast сolored textbox control (Edited to LPI by SANE5K)")]
-[assembly: AssemblyConfiguration("Edited by SANE5K")]
+[assembly: AssemblyConfiguration("Edited by SANE5K aleksandrresetnikov093@gmail.com")]
 [assembly: AssemblyCompany("Pavel Torgashov")]
 [assembly: AssemblyProduct("FastColoredTextBox(Edited by SANE5K)")]
 [assembly: AssemblyCopyright("© Pavel Torgashov, 2011-2016, pavel_torgashov@ukr.net.")]

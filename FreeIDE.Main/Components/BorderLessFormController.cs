@@ -8,7 +8,7 @@ namespace FreeIDE.Components
 {
     public partial class BorderLessFormController : BorderLessForm
     {
-        public bool fullScreen = false;
+        //public bool fullScreen = false;
         private protected Size saveMinSize;
         private protected Point saveMinPos;
 
@@ -20,6 +20,11 @@ namespace FreeIDE.Components
         private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
         {
             this.OnMouseMoveMethod(e);
+        }
+
+        private void TitleLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.OnMouseDownMethod(e);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -39,7 +44,7 @@ namespace FreeIDE.Components
 
         public void SetMaxSize(bool invert = true)
         {
-            if (fullScreen)
+            if (this.WindowState == FormWindowState.Maximized)
             {
                 this.Location = saveMinPos;
                 this.Size = saveMinSize;
@@ -54,15 +59,21 @@ namespace FreeIDE.Components
                 this.Location = new Point(0, 0);
                 buttonMaxType.Text = "❒";
             }
-            if (invert) fullScreen = !fullScreen;
+
+            if (invert)
+            {
+                this.WindowState = (this.WindowState == FormWindowState.Maximized ?
+                    FormWindowState.Normal : FormWindowState.Maximized);
+            }
         }
 
         private protected override void OnHeaderMouseMove(MouseEventArgs e)
         {
-            if (fullScreen)
+            if (this.WindowState == FormWindowState.Maximized)
             {
                 this.Location = saveMinPos;
                 this.Size = saveMinSize;
+                this.WindowState = FormWindowState.Normal;
                 buttonMaxType.Text = "🗖";
             }
             base.OnHeaderMouseMove(e);

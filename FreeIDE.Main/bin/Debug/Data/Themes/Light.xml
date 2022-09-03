@@ -15,7 +15,7 @@
 	<HeaderBackColor Type="Hex">#dddddd</HeaderBackColor>
 	<ColorHeaderUnderline Type="Hex">#0062a3</ColorHeaderUnderline>
 	
-	<Borders1Color Type="Hex">#0062a3</Borders1Color>
+	<Borders1Color Type="Str">Red</Borders1Color>
 	<Borders2Color Type="Hex">#0062a3</Borders2Color>
 	<Borders3Color Type="Hex">#0062a3</Borders3Color>
 	

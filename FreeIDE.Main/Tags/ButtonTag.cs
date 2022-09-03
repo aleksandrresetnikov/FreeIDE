@@ -6,9 +6,10 @@ namespace FreeIDE.Tags
     {
         private int[] themeTags = new int[] { 1,1 };
 
-        public object? FreeTag { get; set; } = null;
+        public object FreeTag { get; set; } = null;
 
         public ButtonTag(int themeTag) => this.themeTags[0] = themeTag;
+        public ButtonTag(int themeTag1, int themeTag2) => this.themeTags = new int[] { themeTag1, themeTag2 };
         public ButtonTag(params int[] themeTags) => this.themeTags = themeTags;
 
         #region IThemeTag

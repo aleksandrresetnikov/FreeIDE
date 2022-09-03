@@ -48,8 +48,8 @@ namespace FreeIDE.Components
             // Specific to the Button class
             if (control is Button) 
             {
-                (control as Button).FlatAppearance.BorderColor = ThemeData.BorderColor;
-                //ThemeData.BordersColorDigest[(control.Tag as IThemeTag).GetThemeTag2()];
+                (control as Button).FlatAppearance.BorderColor = 
+                    ThemeData.BordersColorDigest[(control.Tag as IThemeTag).GetThemeTag2()];
                 (control as Button).FlatAppearance.BorderSize = 1;
                     //ThemeData.BordersHeightDigest[(control.Tag as IThemeTag).GetThemeTag2()];
             }

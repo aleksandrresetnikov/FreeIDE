@@ -79,7 +79,7 @@
             this.buttonMaxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMaxType.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonMaxType.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonMaxType.Location = new System.Drawing.Point(301, 1);
+            this.buttonMaxType.Location = new System.Drawing.Point(300, 1);
             this.buttonMaxType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonMaxType.Name = "buttonMaxType";
             this.buttonMaxType.Size = new System.Drawing.Size(24, 23);
@@ -96,7 +96,7 @@
             this.buttonMinType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonMinType.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonMinType.Location = new System.Drawing.Point(277, 1);
+            this.buttonMinType.Location = new System.Drawing.Point(275, 1);
             this.buttonMinType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonMinType.Name = "buttonMinType";
             this.buttonMinType.Size = new System.Drawing.Size(24, 23);

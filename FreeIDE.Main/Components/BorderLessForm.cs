@@ -35,6 +35,15 @@ namespace FreeIDE.Components
         public Color BorderColor { get; set; }
 
         /// <summary>
+        /// Border height
+        /// </summary>
+        [Browsable(true)]
+        [Category("FreeIDE.Dev")]
+        [Description("Border height")]
+        [DefaultValue(1)]
+        public int BorderHeight { get; set; }
+
+        /// <summary>
         /// Header back color
         /// </summary>
         [Browsable(true)]
@@ -183,6 +192,7 @@ namespace FreeIDE.Components
             this.IconHeight = 20;
             this.RoundingValue = 0;
             this.IconPadding = 1;
+            this.BorderHeight = 1;
             this.ShowHeaderUnderline = false;
             this.WidthHeaderUnderline = 2;
             this.ColorHeaderUnderline = Color.Black;
@@ -235,10 +245,12 @@ namespace FreeIDE.Components
                         this.HeaderHeight);
             }
 
-            if (BorderColor != Color.Transparent)
+            if (BorderColor != Color.Transparent && BorderHeight > 0)
             {
-                using (var pen = new Pen(BorderColor))
-                    e.Graphics.DrawRectangle(pen, 0, 0, this.Width - 1, this.Height - 1);
+                float indentFromStart = BorderHeight - ((int)(BorderHeight/2) + (BorderHeight % 2 == 0 ? 0 : 1));
+                using (var pen = new Pen(BorderColor, this.BorderHeight))
+                    e.Graphics.DrawRectangle(pen, indentFromStart, indentFromStart, 
+                        this.Width - BorderHeight, this.Height - BorderHeight);
 
                 if (this.SizeGripStyle != SizeGripStyle.Hide && this.Resizeable)
                     using (var pen = new Pen(this.BorderColor, 5))
@@ -351,6 +363,7 @@ namespace FreeIDE.Components
             this.BackColor = themeData.Color1;
             this.BorderColor = themeData.BorderColor;
             this.HeaderBackColor = themeData.HeaderBackColor;
+            this.BorderHeight = themeData.BorderHeight;
             this.ColorHeaderUnderline = themeData.ColorHeaderUnderline;
             this.HeaderHeight = themeData.HeaderHeight;
             this.IconHeight = themeData.IconHeight;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Linq;
 
 using FreeIDE.Common;
@@ -15,26 +14,39 @@ namespace FreeIDE.Components
         public static XDocument ThemeXDocument;
         public static ThemeData ThemeData;
 
+        // Loading the selected (used) theme
         public static void LoadUseTheme()
         {
             try
             {
                 ThemeXDocument = XDocument.Load(GetSelectThemePath());
                 ThemeData = ThemeData.ParseThemeData(ThemeXDocument);
-
-                ThemeData.PrintInfo();
             }
             catch (Exception ex)
             {
                 Logger.AddNewLog("ThemeMaster.LoadUseTheme", $"Exception: {ex}");
+
+                // In case of error, we apply the default theme
+                ThemeData = ThemeData.GetDefaultThemeData();
             }
+
+            ThemeData.PrintInfo();
         }
 
+        // Applies the selected, preloaded theme to a form of type BorderLessForm
         public static void ApplyTheme(BorderLessForm form)
         {
             form.ApplyTheme(ThemeData);
         }
 
+        // Applies the selected, preloaded theme to a user control
+        public static void ApplyTheme(Control control)
+        {
+            control.BackColor = ThemeData.ColorsDigest[(control.Tag as IThemeTag).GetThemeTag()];
+            control.ForeColor = ThemeData.ForeColorsDigest[(control.Tag as IThemeTag).GetThemeTag()];
+        }
+
+        // Returns the path to the xml file with the selected theme
         private static string GetSelectThemePath()
         {
             return $@"{ThemesFolder}\{SettingsMaster.GetThemeName()}.xml";
@@ -43,12 +55,18 @@ namespace FreeIDE.Components
 
     public class ThemeData
     {
+        public Color[] ColorsDigest;
+        public Color[] ForeColorsDigest;
+
         public string RootName = "Theme";
         public string ThemeName = "Light";
 
-        public Color Color1;
-        public Color Color2;
-        public Color Color3;
+        public Color Color1 = Color.White;
+        public Color Color2 = Color.WhiteSmoke;
+        public Color Color3 = Color.Black;
+        public Color ForeColor1 = Color.Black;
+        public Color ForeColor2 = Color.Black;
+        public Color ForeColor3 = Color.WhiteSmoke;
 
         public Color ButtonClose_MouseOverBackColor = Color.Tomato;
         public Color WindowStateButtonsForeColor = Color.Black;
@@ -57,11 +75,19 @@ namespace FreeIDE.Components
         public Color HeaderBackColor = Color.Transparent;
         public Color ColorHeaderUnderline = Color.Black;
 
+        public Int32 BorderHeight = 1;
         public Int32 HeaderHeight = 20;
         public Int32 IconHeight = 20;
         public Int32 IconPadding = 1;
         public Int32 WidthHeaderUnderline = 2;
 
+        public ThemeData()
+        {
+            this.ColorsDigest = new Color[] { this.Color1, this.Color2, this.Color3 };
+            this.ForeColorsDigest = new Color[] { this.ForeColor1, this.ForeColor2, this.ForeColor3 };
+        }
+
+        public static ThemeData GetDefaultThemeData() => new ThemeData();
         public static ThemeData ParseThemeData(XDocument xDocument) => new ThemeData
         {
             RootName = xDocument.Root.Name.LocalName,
@@ -70,6 +96,9 @@ namespace FreeIDE.Components
             Color1 = ParseColorFromXDocumentItem(xDocument.Root.Element("Color1")),
             Color2 = ParseColorFromXDocumentItem(xDocument.Root.Element("Color2")),
             Color3 = ParseColorFromXDocumentItem(xDocument.Root.Element("Color3")),
+            ForeColor1 = ParseColorFromXDocumentItem(xDocument.Root.Element("ForeColor1")),
+            ForeColor2 = ParseColorFromXDocumentItem(xDocument.Root.Element("ForeColor2")),
+            ForeColor3 = ParseColorFromXDocumentItem(xDocument.Root.Element("ForeColor3")),
 
             ButtonClose_MouseOverBackColor = ParseColorFromXDocumentItem(xDocument.Root.Element("ButtonClose_MouseOverBackColor")),
             WindowStateButtonsForeColor = ParseColorFromXDocumentItem(xDocument.Root.Element("WindowStateButtonsForeColor")),
@@ -78,6 +107,7 @@ namespace FreeIDE.Components
             HeaderBackColor = ParseColorFromXDocumentItem(xDocument.Root.Element("HeaderBackColor")),
             ColorHeaderUnderline = ParseColorFromXDocumentItem(xDocument.Root.Element("ColorHeaderUnderline")),
 
+            BorderHeight = Convert.ToInt32(xDocument.Root.Element("BorderHeight").Value),
             HeaderHeight = Convert.ToInt32(xDocument.Root.Element("HeaderHeight").Value),
             IconHeight = Convert.ToInt32(xDocument.Root.Element("IconHeight").Value),
             IconPadding = Convert.ToInt32(xDocument.Root.Element("IconPadding").Value),
@@ -106,5 +136,10 @@ namespace FreeIDE.Components
         {
             return ColorParser.ParseColor(xElement.Attribute("Type").Value, xElement.Value);
         }
+    }
+
+    public interface IThemeTag
+    {
+        int GetThemeTag();
     }
 }

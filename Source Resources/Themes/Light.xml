@@ -3,15 +3,19 @@
 	<Color1 Type="Str">White</Color1>
 	<Color2 Type="Str">WhiteSmoke</Color2>
 	<Color3 Type="Str">Black</Color3>
+	<ForeColor1 Type="Str">Black</ForeColor1>
+	<ForeColor2 Type="Str">Black</ForeColor2>
+	<ForeColor3 Type="Str">WhiteSmoke</ForeColor3>
 	
 	<ButtonClose_MouseOverBackColor Type="Str">Tomato</ButtonClose_MouseOverBackColor>
 	<WindowStateButtonsForeColor Type="Str">Black</WindowStateButtonsForeColor>
 	<TitleLabelForeColor Type="Str">Black</TitleLabelForeColor>
 	
-	<BorderColor Type="Str">Black</BorderColor>
-	<HeaderBackColor Type="Str">WhiteSmoke</HeaderBackColor>
-	<ColorHeaderUnderline Type="Str">Black</ColorHeaderUnderline>
+	<BorderColor Type="Hex">#0062a3</BorderColor>
+	<HeaderBackColor Type="Hex">#dddddd</HeaderBackColor>
+	<ColorHeaderUnderline Type="Hex">#0062a3</ColorHeaderUnderline>
 	
+	<BorderHeight>2</BorderHeight>
 	<HeaderHeight>26</HeaderHeight>
 	<IconHeight>20</IconHeight>
 	<IconPadding>2</IconPadding>

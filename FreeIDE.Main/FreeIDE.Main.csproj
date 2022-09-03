@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tags\ButtonTag.cs" />
     <EmbeddedResource Include="Components\BorderLessFormController.resx">
       <DependentUpon>BorderLessFormController.cs</DependentUpon>
     </EmbeddedResource>

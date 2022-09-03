@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+using FreeIDE.Tags;
+
 namespace FreeIDE.Components
 {
     public partial class BorderLessFormController : BorderLessForm
@@ -87,14 +89,21 @@ namespace FreeIDE.Components
         private protected virtual void OnBasedApplyTheme(ThemeData themeData)
         {
             // Window state buttons:
-            this.buttonClose.BackColor = themeData.Color2;
+            this.buttonClose.BackColor = themeData.HeaderBackColor;
             this.buttonClose.FlatAppearance.MouseOverBackColor = themeData.ButtonClose_MouseOverBackColor;
-            this.buttonMaxType.BackColor = themeData.Color2;
-            this.buttonMinType.BackColor = themeData.Color2;
+            this.buttonMaxType.BackColor = themeData.HeaderBackColor;
+            this.buttonMinType.BackColor = themeData.HeaderBackColor;
 
             this.buttonClose.ForeColor = themeData.WindowStateButtonsForeColor;
             this.buttonMaxType.ForeColor = themeData.WindowStateButtonsForeColor;
             this.buttonMinType.ForeColor = themeData.WindowStateButtonsForeColor;
+
+            this.buttonClose.Location = new Point(this.buttonClose.Location.X - (themeData.BorderHeight - 1),
+                this.buttonClose.Location.Y + (themeData.BorderHeight - 1));
+            this.buttonMaxType.Location = new Point(this.buttonMaxType.Location.X - (themeData.BorderHeight - 1),
+                this.buttonMaxType.Location.Y + (themeData.BorderHeight - 1));
+            this.buttonMinType.Location = new Point(this.buttonMinType.Location.X - (themeData.BorderHeight - 1),
+                this.buttonMinType.Location.Y + (themeData.BorderHeight - 1));
 
             // Title label:
             this.TitleLabel.BackColor = themeData.HeaderBackColor;
@@ -103,6 +112,15 @@ namespace FreeIDE.Components
 
         private protected virtual void OnBasedApplyThemeWithTags(ThemeData themeData)
         {
+            foreach (Control controlItem in base.Controls)
+            {
+                if (controlItem.Tag is IThemeTag) ApplyThemeForControl(controlItem);
+            }
+        }
+
+        private protected virtual void ApplyThemeForControl(Control control)
+        {
+            IThemeTag themeTag = (control.Tag as IThemeTag);
 
         }
     }

@@ -7,8 +7,8 @@ namespace FreeIDE.Components
     public partial class BorderLessFormController : BorderLessForm
     {
         public bool fullScreen = false;
-        protected Size saveMinSize;
-        protected Point saveMinPos;
+        private protected Size saveMinSize;
+        private protected Point saveMinPos;
 
         public BorderLessFormController()
         {
@@ -75,6 +75,35 @@ namespace FreeIDE.Components
         {
             base.OnClosed(e);
             this.Clean();
+        }
+
+        public override void ApplyTheme(ThemeData themeData)
+        {
+            base.ApplyTheme(themeData);
+            this.OnBasedApplyTheme(themeData);
+            this.OnBasedApplyThemeWithTags(themeData);
+        }
+
+        private protected virtual void OnBasedApplyTheme(ThemeData themeData)
+        {
+            // Window state buttons:
+            this.buttonClose.BackColor = themeData.Color2;
+            this.buttonClose.FlatAppearance.MouseOverBackColor = themeData.ButtonClose_MouseOverBackColor;
+            this.buttonMaxType.BackColor = themeData.Color2;
+            this.buttonMinType.BackColor = themeData.Color2;
+
+            this.buttonClose.ForeColor = themeData.WindowStateButtonsForeColor;
+            this.buttonMaxType.ForeColor = themeData.WindowStateButtonsForeColor;
+            this.buttonMinType.ForeColor = themeData.WindowStateButtonsForeColor;
+
+            // Title label:
+            this.TitleLabel.BackColor = themeData.HeaderBackColor;
+            this.TitleLabel.ForeColor = themeData.TitleLabelForeColor;
+        }
+
+        private protected virtual void OnBasedApplyThemeWithTags(ThemeData themeData)
+        {
+
         }
     }
 }

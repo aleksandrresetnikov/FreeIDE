@@ -277,13 +277,13 @@ namespace FreeIDE.Components
 
                 var boxes = new Dictionary<UInt32, Rectangle>() {
                     { HTBOTTOMRIGHT, new Rectangle(formSize.Width - ResizeHandleSizeBottomRight, formSize.Height - ResizeHandleSizeBottomRight, ResizeHandleSizeBottomRight, ResizeHandleSizeBottomRight) },
-                    { HTBOTTOMLEFT, new Rectangle(0, formSize.Height - ResizeHandleSize, ResizeHandleSize, ResizeHandleSize) },
-                    { HTBOTTOM, new Rectangle(ResizeHandleSize, formSize.Height - ResizeHandleSize, formSize.Width - 2*ResizeHandleSize, ResizeHandleSize) },
-                    { HTRIGHT, new Rectangle(formSize.Width - ResizeHandleSize, ResizeHandleSize, ResizeHandleSize, formSize.Height - 2*ResizeHandleSize) },
-                    { HTTOPRIGHT, new Rectangle(formSize.Width - ResizeHandleSize, 0, ResizeHandleSize, ResizeHandleSize) },
-                    { HTTOP, new Rectangle(ResizeHandleSize, 0, formSize.Width - 2*ResizeHandleSize, ResizeHandleSize) },
-                    { HTTOPLEFT, new Rectangle(0, 0, ResizeHandleSize, ResizeHandleSize) },
-                    { HTLEFT, new Rectangle(0, ResizeHandleSize, ResizeHandleSize, formSize.Height - 2*ResizeHandleSize) }
+                    { HTBOTTOMLEFT,  new Rectangle(0, formSize.Height - ResizeHandleSize, ResizeHandleSize, ResizeHandleSize) },
+                    { HTBOTTOM,      new Rectangle(ResizeHandleSize, formSize.Height - ResizeHandleSize, formSize.Width - 2*ResizeHandleSize, ResizeHandleSize) },
+                    { HTRIGHT,       new Rectangle(formSize.Width - ResizeHandleSize, ResizeHandleSize, ResizeHandleSize, formSize.Height - 2*ResizeHandleSize) },
+                    { HTTOPRIGHT,    new Rectangle(formSize.Width - ResizeHandleSize, 0, ResizeHandleSize, ResizeHandleSize) },
+                    { HTTOP,         new Rectangle(ResizeHandleSize, 0, formSize.Width - 2*ResizeHandleSize, ResizeHandleSize) },
+                    { HTTOPLEFT,     new Rectangle(0, 0, ResizeHandleSize, ResizeHandleSize) },
+                    { HTLEFT,        new Rectangle(0, ResizeHandleSize, ResizeHandleSize, formSize.Height - 2*ResizeHandleSize) }
                 };
 
                 foreach (KeyValuePair<UInt32, Rectangle> hitBox in boxes)

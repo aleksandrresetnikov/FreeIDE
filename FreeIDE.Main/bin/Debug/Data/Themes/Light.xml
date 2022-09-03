@@ -4,8 +4,12 @@
 	<Color2 Type="Str">WhiteSmoke</Color2>
 	<Color3 Type="Str">Black</Color3>
 	
-	<BorderColor Type="Str">Transparent</BorderColor>
-	<HeaderBackColor Type="Str">Transparent</HeaderBackColor>
+	<ButtonClose_MouseOverBackColor Type="Str">Tomato</ButtonClose_MouseOverBackColor>
+	<WindowStateButtonsForeColor Type="Str">Black</WindowStateButtonsForeColor>
+	<TitleLabelForeColor Type="Str">Black</TitleLabelForeColor>
+	
+	<BorderColor Type="Str">Black</BorderColor>
+	<HeaderBackColor Type="Str">WhiteSmoke</HeaderBackColor>
 	<ColorHeaderUnderline Type="Str">Black</ColorHeaderUnderline>
 	
 	<HeaderHeight>26</HeaderHeight>

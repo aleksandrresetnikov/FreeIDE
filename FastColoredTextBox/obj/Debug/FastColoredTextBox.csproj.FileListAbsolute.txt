@@ -1,0 +1,39 @@
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\bin\Debug\FastColoredTextBox.XML
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\bin\Debug\FastColoredTextBox.dll
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\bin\Debug\FastColoredTextBox.pdb
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.FastColoredTextBox.resources
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.FindForm.resources
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.GoToForm.resources
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.HotkeysEditorForm.resources
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.ReplaceForm.resources
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.GenerateResource.cache
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.dll
+C:\Users\user\Desktop\FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.pdb
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\bin\Debug\FastColoredTextBox.XML
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\bin\Debug\FastColoredTextBox.dll
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\bin\Debug\FastColoredTextBox.pdb
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.FastColoredTextBox.resources
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.FindForm.resources
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.GoToForm.resources
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.HotkeysEditorForm.resources
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.ReplaceForm.resources
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.GenerateResource.cache
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.CoreCompileInputs.cache
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.dll
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.pdb
+A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\fastLPI engine\libs\FastColoredTextBox.dll
+C:\Users\user\source\repos\fastLPI engine\libs\FastColoredTextBox.pdb
+C:\Users\user\source\repos\fastLPI engine\libs\FastColoredTextBox.XML
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.FastColoredTextBox.resources
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.FindForm.resources
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.GoToForm.resources
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.HotkeysEditorForm.resources
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.ReplaceForm.resources
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.GenerateResource.cache
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.dll
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.pdb

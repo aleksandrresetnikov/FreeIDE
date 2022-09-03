@@ -36,9 +36,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
-      <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,9 +60,6 @@
     </Compile>
     <Compile Include="Components\FormDisigner.cs" />
     <Compile Include="Components\ThemeMaster.cs" />
-    <Compile Include="Controls\SmartSyntaxTextBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Forms\EditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +79,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditorForm.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,12 +106,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FastColoredTextBox\FastColoredTextBox.csproj">
+      <Project>{6dd14a85-ccfc-4774-bd26-0f5772512319}</Project>
+      <Name>FastColoredTextBox</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FreeIDE.Common\FreeIDE.Common.csproj">
       <Project>{6064680f-9ae4-4851-894d-e5847ab21371}</Project>
       <Name>FreeIDE.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>XCOPY "$(SolutionDir)\Source Resources\Themes\" "$(SolutionDir)\FreeIDE.Main\bin\Debug\Data\Themes\" /y /e

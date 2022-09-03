@@ -143,6 +143,16 @@
             Tooltip will perm show and duration will be ignored
             </summary>
         </member>
+        <member name="P:FastColoredTextBoxNS.AutocompleteMenu.LinearGradientBrush">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FastColoredTextBoxNS.AutocompleteMenu.TextBox">
+            <summary>
+            Link to parent FastColoredTextBox.
+            </summary>
+        </member>
         <member name="P:FastColoredTextBoxNS.AutocompleteMenu.SelectedColor">
             <summary>
             Back color of selected item
@@ -202,6 +212,11 @@
         <member name="T:FastColoredTextBoxNS.Bookmark">
             <summary>
             Bookmark of FastColoredTextbox
+            </summary>
+        </member>
+        <member name="P:FastColoredTextBoxNS.Bookmark.TB">
+            <summary>
+            Text box
             </summary>
         </member>
         <member name="P:FastColoredTextBoxNS.Bookmark.Name">
@@ -501,6 +516,26 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:FastColoredTextBoxNS.LineNumberFormatting">
+            <summary>
+            Customize how we display the line numbers
+            </summary>
+        </member>
+        <member name="M:FastColoredTextBoxNS.LineNumberFormatting.FromLineNumberToString(System.Int32)">
+            <summary>
+            Defines how line number is displayed
+            </summary>
+            <param name="lineNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FastColoredTextBoxNS.LineNumberFormatting.TryParseStringIntoLineNumber(System.String,System.Int32@)">
+            <summary>
+            Recover the line number from the formatted string
+            </summary>
+            <param name="lineNumber"></param>
+            <param name="parsedLineNumber"></param>
+            <returns></returns>
+        </member>
         <member name="T:FastColoredTextBoxNS.MacrosManager">
             <summary>
             This class records, stores and executes the macros.
@@ -655,6 +690,12 @@
         <member name="M:FastColoredTextBoxNS.SyntaxHighlighter.LuaSyntaxHighlight(FastColoredTextBoxNS.Range)">
             <summary>
             Highlights Lua code
+            </summary>
+            <param name="range"></param>
+        </member>
+        <member name="M:FastColoredTextBoxNS.SyntaxHighlighter.JSONSyntaxHighlight(FastColoredTextBoxNS.Range)">
+            <summary>
+            Highlights JSON code
             </summary>
             <param name="range"></param>
         </member>
@@ -993,6 +1034,11 @@
         <member name="P:FastColoredTextBoxNS.FastColoredTextBox.LineNumberStartValue">
             <summary>
             Start value of first line number.
+            </summary>
+        </member>
+        <member name="P:FastColoredTextBoxNS.FastColoredTextBox.LineNumberFormatting">
+            <summary>
+            To create your own line number formatting, you have to implement the abstract LineNumberFormatting class
             </summary>
         </member>
         <member name="P:FastColoredTextBoxNS.FastColoredTextBox.IndentBackColor">
@@ -1379,6 +1425,11 @@
         <member name="E:FastColoredTextBoxNS.FastColoredTextBox.ToolTipNeeded">
             <summary>
             Occurs when mouse is moving over text and tooltip is needed
+            </summary>
+        </member>
+        <member name="P:FastColoredTextBoxNS.FastColoredTextBox.DefaultMarkerSize">
+            <summary>
+            Default size of the markers
             </summary>
         </member>
         <member name="M:FastColoredTextBoxNS.FastColoredTextBox.ClearHints">
@@ -2239,6 +2290,12 @@
             <summary>
             Shows Goto dialog form
             </summary>
+        </member>
+        <member name="M:FastColoredTextBoxNS.FastColoredTextBox.SetSelectedLine(System.Int32)">
+            <summary>
+            Set current line number and make it visible
+            </summary>
+            <param name="lineNumberToSelect"></param>
         </member>
         <member name="M:FastColoredTextBoxNS.FastColoredTextBox.OnUndoRedoStateChanged">
             <summary>

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32804.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeIDE.Main", "FreeIDE.Main\FreeIDE.Main.csproj", "{8F56D85E-55F6-45B7-81AB-05525A8B7979}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeIDE.Common", "FreeIDE.Common\FreeIDE.Common.csproj", "{6064680F-9AE4-4851-894D-E5847AB21371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastColoredTextBox", "FastColoredTextBox\FastColoredTextBox.csproj", "{6DD14A85-CCFC-4774-BD26-0F5772512319}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6064680F-9AE4-4851-894D-E5847AB21371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6064680F-9AE4-4851-894D-E5847AB21371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6064680F-9AE4-4851-894D-E5847AB21371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD14A85-CCFC-4774-BD26-0F5772512319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD14A85-CCFC-4774-BD26-0F5772512319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD14A85-CCFC-4774-BD26-0F5772512319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD14A85-CCFC-4774-BD26-0F5772512319}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

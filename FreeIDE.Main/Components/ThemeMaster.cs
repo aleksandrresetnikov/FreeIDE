@@ -50,6 +50,9 @@ namespace FreeIDE.Components
         public Color Color2;
         public Color Color3;
 
+        public Color ButtonClose_MouseOverBackColor = Color.Tomato;
+        public Color WindowStateButtonsForeColor = Color.Black;
+        public Color TitleLabelForeColor = Color.Black;
         public Color BorderColor = Color.Transparent;
         public Color HeaderBackColor = Color.Transparent;
         public Color ColorHeaderUnderline = Color.Black;
@@ -68,6 +71,9 @@ namespace FreeIDE.Components
             Color2 = ParseColorFromXDocumentItem(xDocument.Root.Element("Color2")),
             Color3 = ParseColorFromXDocumentItem(xDocument.Root.Element("Color3")),
 
+            ButtonClose_MouseOverBackColor = ParseColorFromXDocumentItem(xDocument.Root.Element("ButtonClose_MouseOverBackColor")),
+            WindowStateButtonsForeColor = ParseColorFromXDocumentItem(xDocument.Root.Element("WindowStateButtonsForeColor")),
+            TitleLabelForeColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TitleLabelForeColor")),
             BorderColor = ParseColorFromXDocumentItem(xDocument.Root.Element("BorderColor")),
             HeaderBackColor = ParseColorFromXDocumentItem(xDocument.Root.Element("HeaderBackColor")),
             ColorHeaderUnderline = ParseColorFromXDocumentItem(xDocument.Root.Element("ColorHeaderUnderline")),

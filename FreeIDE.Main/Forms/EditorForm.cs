@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using FreeIDE.Tags;
 using FreeIDE.Components;
 
 namespace FreeIDE.Forms
@@ -16,8 +17,15 @@ namespace FreeIDE.Forms
     {
         public EditorForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+            this.InitializeTags();
+
             ThemeMaster.ApplyTheme(this);
+        }
+
+        private void InitializeTags()
+        {
+            this.button1.Tag = new ButtonTag(1);
         }
     }
 }

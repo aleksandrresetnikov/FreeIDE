@@ -25,7 +25,7 @@
 	<IconPadding>2</IconPadding>
 	<WidthHeaderUnderline>2</WidthHeaderUnderline>
 	
-	<Borders1Height>0</Borders1Height>
+	<Borders1Height>1</Borders1Height>
 	<Borders2Height>0</Borders2Height>
 	<Borders3Height>0</Borders3Height>
 </Theme>

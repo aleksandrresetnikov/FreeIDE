@@ -13,3 +13,6 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.exe
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.pdb
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.exe
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.pdb
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.pdb

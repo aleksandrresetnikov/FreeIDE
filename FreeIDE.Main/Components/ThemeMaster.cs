@@ -42,8 +42,17 @@ namespace FreeIDE.Components
         // Applies the selected, preloaded theme to a user control
         public static void ApplyTheme(Control control)
         {
-            control.BackColor = ThemeData.ColorsDigest[(control.Tag as IThemeTag).GetThemeTag()];
-            control.ForeColor = ThemeData.ForeColorsDigest[(control.Tag as IThemeTag).GetThemeTag()];
+            control.BackColor = ThemeData.ColorsDigest[(control.Tag as IThemeTag).GetThemeTag1()];
+            control.ForeColor = ThemeData.ForeColorsDigest[(control.Tag as IThemeTag).GetThemeTag1()];
+
+            // Specific to the Button class
+            if (control is Button) 
+            {
+                (control as Button).FlatAppearance.BorderColor = ThemeData.BorderColor;
+                //ThemeData.BordersColorDigest[(control.Tag as IThemeTag).GetThemeTag2()];
+                (control as Button).FlatAppearance.BorderSize = 1;
+                    //ThemeData.BordersHeightDigest[(control.Tag as IThemeTag).GetThemeTag2()];
+            }
         }
 
         // Returns the path to the xml file with the selected theme
@@ -57,6 +66,8 @@ namespace FreeIDE.Components
     {
         public Color[] ColorsDigest;
         public Color[] ForeColorsDigest;
+        public Color[] BordersColorDigest;
+        public Int32[] BordersHeightDigest;
 
         public string RootName = "Theme";
         public string ThemeName = "Light";
@@ -85,14 +96,16 @@ namespace FreeIDE.Components
         public Int32 IconPadding = 1;
         public Int32 WidthHeaderUnderline = 2;
 
-        public Int32 Borders1Height = 0;
+        public Int32 Borders1Height = 1;
         public Int32 Borders2Height = 0;
         public Int32 Borders3Height = 0;
 
         public ThemeData()
         {
-            this.ColorsDigest = new Color[] { this.Color1, this.Color2, this.Color3 };
-            this.ForeColorsDigest = new Color[] { this.ForeColor1, this.ForeColor2, this.ForeColor3 };
+            this.ColorsDigest = new Color[]        { this.Color1,         this.Color2,         this.Color3 };
+            this.ForeColorsDigest = new Color[]    { this.ForeColor1,     this.ForeColor2,     this.ForeColor3 };
+            this.BordersColorDigest = new Color[]  { this.Borders1Color,  this.Borders2Color,  this.Borders3Color };
+            this.BordersHeightDigest = new Int32[] { this.Borders1Height, this.Borders2Height, this.Borders3Height };
         }
 
         public static ThemeData GetDefaultThemeData() => new ThemeData();
@@ -156,6 +169,11 @@ namespace FreeIDE.Components
 
     public interface IThemeTag
     {
-        int GetThemeTag();
+        void SetThemeTags(params int[] themeTags);
+        void SetThemeTag1(int themeTag);
+        void SetThemeTag2(int themeTag);
+        int GetThemeTag1();
+        int GetThemeTag2();
+        int[] GetThemeTags();
     }
 }

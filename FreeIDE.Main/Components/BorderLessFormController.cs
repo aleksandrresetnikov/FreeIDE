@@ -131,8 +131,7 @@ namespace FreeIDE.Components
 
         private protected virtual void ApplyThemeForControl(Control control)
         {
-            IThemeTag themeTag = (control.Tag as IThemeTag);
-
+            ThemeMaster.ApplyTheme(control);
         }
     }
 }

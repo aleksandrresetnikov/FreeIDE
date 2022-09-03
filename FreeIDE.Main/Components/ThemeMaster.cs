@@ -49,9 +49,9 @@ namespace FreeIDE.Components
             // Specific to the Button class
             if (control is Button) 
             {
-                (control as Button).FlatAppearance.BorderColor = //ThemeData.Borders1Color;
+                (control as Button).FlatAppearance.BorderColor =
                     ThemeData.BordersColorDigest[(control.Tag as IThemeTag).GetThemeTag2()];
-                (control as Button).FlatAppearance.BorderSize = 
+                (control as Button).FlatAppearance.BorderSize =
                     ThemeData.BordersHeightDigest[(control.Tag as IThemeTag).GetThemeTag2()];
             }
         }
@@ -145,9 +145,9 @@ namespace FreeIDE.Components
             IconPadding = Convert.ToInt32(xDocument.Root.Element("IconPadding").Value),
             WidthHeaderUnderline = Convert.ToInt32(xDocument.Root.Element("WidthHeaderUnderline").Value),
 
-            /*Borders1Height = Convert.ToInt32(xDocument.Root.Element("Borders1Height").Value),
+            Borders1Height = Convert.ToInt32(xDocument.Root.Element("Borders1Height").Value),
             Borders2Height = Convert.ToInt32(xDocument.Root.Element("Borders2Height").Value),
-            Borders3Height = Convert.ToInt32(xDocument.Root.Element("Borders3Height").Value)*/
+            Borders3Height = Convert.ToInt32(xDocument.Root.Element("Borders3Height").Value)
         };
         public void PrintInfo()
         {

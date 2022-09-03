@@ -51,6 +51,7 @@
     <StartupObject>FreeIDE.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -75,8 +76,11 @@
     </Compile>
     <Compile Include="Components\FormDisigner.cs" />
     <Compile Include="Components\ThemeMaster.cs" />
+    <Compile Include="Controls\ExpTree\ExpTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\SmartTextBox.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\EditorForm.cs">
       <SubType>Form</SubType>

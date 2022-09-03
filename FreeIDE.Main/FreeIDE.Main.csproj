@@ -75,6 +75,9 @@
     </Compile>
     <Compile Include="Components\FormDisigner.cs" />
     <Compile Include="Components\ThemeMaster.cs" />
+    <Compile Include="Controls\SmartTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\EditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,9 +133,7 @@
       <Name>FreeIDE.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

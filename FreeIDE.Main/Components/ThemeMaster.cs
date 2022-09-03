@@ -75,11 +75,19 @@ namespace FreeIDE.Components
         public Color HeaderBackColor = Color.Transparent;
         public Color ColorHeaderUnderline = Color.Black;
 
+        public Color Borders1Color = Color.Black;
+        public Color Borders2Color = Color.Black;
+        public Color Borders3Color = Color.Black;
+
         public Int32 BorderHeight = 1;
         public Int32 HeaderHeight = 20;
         public Int32 IconHeight = 20;
         public Int32 IconPadding = 1;
         public Int32 WidthHeaderUnderline = 2;
+
+        public Int32 Borders1Height = 0;
+        public Int32 Borders2Height = 0;
+        public Int32 Borders3Height = 0;
 
         public ThemeData()
         {
@@ -100,6 +108,10 @@ namespace FreeIDE.Components
             ForeColor2 = ParseColorFromXDocumentItem(xDocument.Root.Element("ForeColor2")),
             ForeColor3 = ParseColorFromXDocumentItem(xDocument.Root.Element("ForeColor3")),
 
+            Borders1Color = ParseColorFromXDocumentItem(xDocument.Root.Element("Borders1Color")),
+            Borders2Color = ParseColorFromXDocumentItem(xDocument.Root.Element("Borders2Color")),
+            Borders3Color = ParseColorFromXDocumentItem(xDocument.Root.Element("Borders3Color")),
+
             ButtonClose_MouseOverBackColor = ParseColorFromXDocumentItem(xDocument.Root.Element("ButtonClose_MouseOverBackColor")),
             WindowStateButtonsForeColor = ParseColorFromXDocumentItem(xDocument.Root.Element("WindowStateButtonsForeColor")),
             TitleLabelForeColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TitleLabelForeColor")),
@@ -111,7 +123,11 @@ namespace FreeIDE.Components
             HeaderHeight = Convert.ToInt32(xDocument.Root.Element("HeaderHeight").Value),
             IconHeight = Convert.ToInt32(xDocument.Root.Element("IconHeight").Value),
             IconPadding = Convert.ToInt32(xDocument.Root.Element("IconPadding").Value),
-            WidthHeaderUnderline = Convert.ToInt32(xDocument.Root.Element("WidthHeaderUnderline").Value)
+            WidthHeaderUnderline = Convert.ToInt32(xDocument.Root.Element("WidthHeaderUnderline").Value),
+
+            Borders1Height = Convert.ToInt32(xDocument.Root.Element("Borders1Height").Value),
+            Borders2Height = Convert.ToInt32(xDocument.Root.Element("Borders2Height").Value),
+            Borders3Height = Convert.ToInt32(xDocument.Root.Element("Borders3Height").Value)
         };
         public void PrintInfo()
         {

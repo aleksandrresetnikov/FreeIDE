@@ -15,9 +15,17 @@
 	<HeaderBackColor Type="Hex">#dddddd</HeaderBackColor>
 	<ColorHeaderUnderline Type="Hex">#0062a3</ColorHeaderUnderline>
 	
+	<Borders1Color Type="Hex">#0062a3</Borders1Color>
+	<Borders2Color Type="Hex">#0062a3</Borders2Color>
+	<Borders3Color Type="Hex">#0062a3</Borders3Color>
+	
 	<BorderHeight>2</BorderHeight>
 	<HeaderHeight>26</HeaderHeight>
 	<IconHeight>20</IconHeight>
 	<IconPadding>2</IconPadding>
 	<WidthHeaderUnderline>2</WidthHeaderUnderline>
+	
+	<Borders1Height>0</Borders1Height>
+	<Borders2Height>0</Borders2Height>
+	<Borders3Height>0</Borders3Height>
 </Theme>

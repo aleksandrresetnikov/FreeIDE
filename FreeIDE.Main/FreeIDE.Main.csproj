@@ -79,6 +79,9 @@
     <Compile Include="Controls\ExpTree\ExpTree.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\FileTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\SmartTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

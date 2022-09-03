@@ -30,6 +30,7 @@ namespace FreeIDE.Components
                 ThemeData = ThemeData.GetDefaultThemeData();
             }
 
+            ThemeData.UpdateDigests();
             ThemeData.PrintInfo();
         }
 
@@ -48,10 +49,10 @@ namespace FreeIDE.Components
             // Specific to the Button class
             if (control is Button) 
             {
-                (control as Button).FlatAppearance.BorderColor = 
+                (control as Button).FlatAppearance.BorderColor = //ThemeData.Borders1Color;
                     ThemeData.BordersColorDigest[(control.Tag as IThemeTag).GetThemeTag2()];
-                (control as Button).FlatAppearance.BorderSize = 1;
-                    //ThemeData.BordersHeightDigest[(control.Tag as IThemeTag).GetThemeTag2()];
+                (control as Button).FlatAppearance.BorderSize = 
+                    ThemeData.BordersHeightDigest[(control.Tag as IThemeTag).GetThemeTag2()];
             }
         }
 
@@ -102,9 +103,14 @@ namespace FreeIDE.Components
 
         public ThemeData()
         {
-            this.ColorsDigest = new Color[]        { this.Color1,         this.Color2,         this.Color3 };
-            this.ForeColorsDigest = new Color[]    { this.ForeColor1,     this.ForeColor2,     this.ForeColor3 };
-            this.BordersColorDigest = new Color[]  { this.Borders1Color,  this.Borders2Color,  this.Borders3Color };
+            UpdateDigests();
+        }
+
+        public void UpdateDigests()
+        {
+            this.ColorsDigest = new Color[] { this.Color1, this.Color2, this.Color3 };
+            this.ForeColorsDigest = new Color[] { this.ForeColor1, this.ForeColor2, this.ForeColor3 };
+            this.BordersColorDigest = new Color[] { this.Borders1Color, this.Borders2Color, this.Borders3Color };
             this.BordersHeightDigest = new Int32[] { this.Borders1Height, this.Borders2Height, this.Borders3Height };
         }
 
@@ -117,6 +123,7 @@ namespace FreeIDE.Components
             Color1 = ParseColorFromXDocumentItem(xDocument.Root.Element("Color1")),
             Color2 = ParseColorFromXDocumentItem(xDocument.Root.Element("Color2")),
             Color3 = ParseColorFromXDocumentItem(xDocument.Root.Element("Color3")),
+
             ForeColor1 = ParseColorFromXDocumentItem(xDocument.Root.Element("ForeColor1")),
             ForeColor2 = ParseColorFromXDocumentItem(xDocument.Root.Element("ForeColor2")),
             ForeColor3 = ParseColorFromXDocumentItem(xDocument.Root.Element("ForeColor3")),
@@ -138,9 +145,9 @@ namespace FreeIDE.Components
             IconPadding = Convert.ToInt32(xDocument.Root.Element("IconPadding").Value),
             WidthHeaderUnderline = Convert.ToInt32(xDocument.Root.Element("WidthHeaderUnderline").Value),
 
-            Borders1Height = Convert.ToInt32(xDocument.Root.Element("Borders1Height").Value),
+            /*Borders1Height = Convert.ToInt32(xDocument.Root.Element("Borders1Height").Value),
             Borders2Height = Convert.ToInt32(xDocument.Root.Element("Borders2Height").Value),
-            Borders3Height = Convert.ToInt32(xDocument.Root.Element("Borders3Height").Value)
+            Borders3Height = Convert.ToInt32(xDocument.Root.Element("Borders3Height").Value)*/
         };
         public void PrintInfo()
         {

@@ -4,7 +4,7 @@ namespace FreeIDE.Tags
 {
     internal class ButtonTag : IThemeTag
     {
-        private int[] themeTags = new int[] { 1,1 };
+        private int[] themeTags = new int[] { 0, 0 };
 
         public object FreeTag { get; set; } = null;
 

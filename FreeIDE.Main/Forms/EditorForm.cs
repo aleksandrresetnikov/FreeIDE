@@ -25,7 +25,7 @@ namespace FreeIDE.Forms
 
         private void InitializeTags()
         {
-            this.button1.Tag = new ButtonTag(1);
+            this.button1.Tag = new ButtonTag(0, 0);
         }
     }
 }

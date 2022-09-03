@@ -861,27 +861,27 @@ namespace FreeIDE.Controls.ExpTree
 
             foreach (CShItem CSI in DragList)
                 if (CSI.IsFolder) RefreshNode(FindAncestorNode(CSI)); // only care about Folders
-            if (object.ReferenceEquals(tv1.SelectedNode, dropNode))   // Fake a reselect
+            if (object.ReferenceEquals(tv1.SelectedNode, dropNode)) // Fake a reselect
             {
                 var e = new TreeViewEventArgs(tv1.SelectedNode, TreeViewAction.Unknown);
-                tv1_AfterSelect(tv1, e);      // will do a RefreshNode and raise AfterNodeSelect Event
+                tv1_AfterSelect(tv1, e); // will do a RefreshNode and raise AfterNodeSelect Event
             }
             else
             {
-                RefreshNode(dropNode);        // Otherwise, just refresh the Target
+                RefreshNode(dropNode); // Otherwise, just refresh the Target
                 if (pdwEffect != (int)DragDropEffects.Copy && pdwEffect != (int)DragDropEffects.Link)
                 {
                     // it may have been a move. if so need to do an AfterSelect on the DragSource if it is SelectedNode
-                    if (DragList.Count > 0)     // can't happen but check
+                    if (DragList.Count > 0) // can't happen but check
                     {
-                        if (!(tv1.SelectedNode == null))     // ditto
+                        if (!(tv1.SelectedNode == null)) // ditto
                         {
                             CShItem csiSel = (tv1.SelectedNode.Tag as CShItem);
-                            CShItem csiSource = (DragList[0] as CShItem);  // assume all from same dir
+                            CShItem csiSource = (DragList[0] as CShItem); // assume all from same dir
                             if (CShItem.IsAncestorOf(csiSel, csiSource)) // also true for equality
                             {
                                 var e = new TreeViewEventArgs(tv1.SelectedNode, TreeViewAction.Unknown);
-                                tv1_AfterSelect(tv1, e);      // will do a RefreshNode and raise AfterNodeSelect Event
+                                tv1_AfterSelect(tv1, e); // will do a RefreshNode and raise AfterNodeSelect Event
                             }
                         }
                     }
@@ -906,10 +906,7 @@ namespace FreeIDE.Controls.ExpTree
                         child.BackColor = Color.Empty;
                         child.ForeColor = Color.Empty;
                     }
-                    if (child.FirstNode != null && child.IsExpanded)
-                    {
-                        ResetTreeviewNodeColor(child);
-                    }
+                    if (child.FirstNode != null && child.IsExpanded) ResetTreeviewNodeColor(child);
                 }
             }
         }

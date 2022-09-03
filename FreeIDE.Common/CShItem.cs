@@ -486,8 +486,7 @@ namespace FreeIDE.Common
         /// <param name="pidl">Relative Pidl of this Item.</param>
         private void SetUpAttributes(IShellFolder folder, IntPtr pidl)
         {
-            SFGAO attrFlag;
-            attrFlag = SFGAO.BROWSABLE;
+            SFGAO attrFlag = SFGAO.BROWSABLE;
             attrFlag = attrFlag | SFGAO.FILESYSTEM;
             // attrFlag = attrFlag Or SFGAO.HASSUBFOLDER   'made into an on-demand attribute
             attrFlag = attrFlag | SFGAO.FOLDER;
@@ -504,7 +503,7 @@ namespace FreeIDE.Common
             // Note: for GetAttributesOf, we must provide an array, in  all cases with 1 element
             var aPidl = new IntPtr[1];
             aPidl[0] = pidl;
-            folder.GetAttributesOf(1, aPidl, attrFlag);
+            if (folder != null) folder.GetAttributesOf(1, aPidl, ref attrFlag);
             m_SFGAO_Attributes = attrFlag;
             m_IsBrowsable = Convert.ToBoolean(attrFlag & SFGAO.BROWSABLE);
             m_IsFileSystem = Convert.ToBoolean(attrFlag & SFGAO.FILESYSTEM);
@@ -526,7 +525,7 @@ namespace FreeIDE.Common
             Marshal.WriteInt32(strr, 0, 0);
             var buf = new StringBuilder(MAX_PATH);
             SHGDN itemflags = SHGDN.FORPARSING;
-            folder.GetDisplayNameOf(pidl, itemflags, strr);
+            if (folder != null) folder.GetDisplayNameOf(pidl, itemflags, strr);
             int HR = StrRetToBuf(strr, pidl, buf, MAX_PATH);
             Marshal.FreeCoTaskMem(strr); // now done with it
             if (HR == NOERROR)
@@ -536,7 +535,7 @@ namespace FreeIDE.Common
                 {
                     aPidl[0] = pidl;
                     attrFlag = SFGAO.STREAM;
-                    folder.GetAttributesOf(1, aPidl, attrFlag);
+                    if (folder != null) folder.GetAttributesOf(1, aPidl, attrFlag);
                     if (Convert.ToBoolean(attrFlag & SFGAO.STREAM)) m_IsFolder = false;
                 }
                 if (m_Path.Length == 3 && m_Path.Substring(1).Equals(@":\"))
@@ -1475,7 +1474,7 @@ namespace FreeIDE.Common
             {
                 var item = IntPtr.Zero;
                 var itemCnt = default(int);
-                HR = IEnum.GetNext(1, item, itemCnt);
+                HR = IEnum.GetNext(1, ref item, itemCnt);
                 if (HR == NOERROR)
                 {
                     while (itemCnt > 0 && !item.Equals(IntPtr.Zero))

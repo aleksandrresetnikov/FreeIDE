@@ -63,6 +63,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "EditorForm";
             this.Text = "EditorForm";
+            this.Controls.SetChildIndex(this.buttonMaxType, 0);
+            this.Controls.SetChildIndex(this.buttonClose, 0);
+            this.Controls.SetChildIndex(this.buttonMinType, 0);
+            this.Controls.SetChildIndex(this.TitleLabel, 0);
             ((System.ComponentModel.ISupportInitialize)(this.timer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

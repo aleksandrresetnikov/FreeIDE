@@ -55,7 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsMaster.cs" />
     <Compile Include="SettingsTable.cs" />
-    <Compile Include="ShellDll.cs" />
+    <Compile Include="WinShell\ShellDll.cs" />
     <Compile Include="StringLogicalComparer.cs" />
     <Compile Include="SystemImageListManager.cs" />
     <Compile Include="TVDragWrapper.cs" />

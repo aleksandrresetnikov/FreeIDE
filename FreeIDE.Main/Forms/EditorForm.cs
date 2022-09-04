@@ -25,7 +25,7 @@ namespace FreeIDE.Forms
 
         private void InitializeTags()
         {
-            
+
         }
     }
 }

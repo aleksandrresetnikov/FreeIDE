@@ -1,7 +1,7 @@
 <Theme>
 	<Name>Light</Name>
 	<Color1 Type="Str">White</Color1>
-	<Color2 Type="Str">WhiteSmoke</Color2>
+	<Color2 Type="Str">#eeeef2</Color2>
 	<Color3 Type="Str">Black</Color3>
 	<ForeColor1 Type="Str">Black</ForeColor1>
 	<ForeColor2 Type="Str">Black</ForeColor2>
@@ -12,7 +12,7 @@
 	<TitleLabelForeColor Type="Str">Black</TitleLabelForeColor>
 	
 	<BorderColor Type="Hex">#0062a3</BorderColor>
-	<HeaderBackColor Type="Hex">#dddddd</HeaderBackColor>
+	<HeaderBackColor Type="Hex">#eeeef2</HeaderBackColor>
 	<ColorHeaderUnderline Type="Hex">#0062a3</ColorHeaderUnderline>
 	
 	<Borders1Color Type="Hex">#0062a3</Borders1Color>
@@ -28,4 +28,10 @@
 	<Borders1Height>2</Borders1Height>
 	<Borders2Height>0</Borders2Height>
 	<Borders3Height>0</Borders3Height>
+	
+	<MenuStrip_TitlebarSize>3</MenuStrip_TitlebarSize>
+	<MenuStrip_TitlebarColor Type="Hex">#0062a3</MenuStrip_TitlebarColor>
+	<MenuStrip_MainColor Type="Hex">#eeeef2</MenuStrip_MainColor>
+	<MenuStrip_ItemSelectedColor Type="Str">WhiteSmoke</MenuStrip_ItemSelectedColor>
+	<MenuStrip_ItemForeColor Type="Str">Black</MenuStrip_ItemForeColor>
 </Theme>

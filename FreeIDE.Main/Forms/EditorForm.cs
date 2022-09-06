@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using FreeIDE.Tags;
 using FreeIDE.Components;
+using FreeIDE.Components.Renderers;
 
 namespace FreeIDE.Forms
 {
@@ -25,7 +26,8 @@ namespace FreeIDE.Forms
 
         private void InitializeTags()
         {
-
+            this.mainMenuStrip.Tag = new MenuStripTag(1, 0);
+            //this.mainMenuStrip.Renderer = new CustomMenuStripRenderer();
         }
     }
 }

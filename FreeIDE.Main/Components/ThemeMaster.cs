@@ -5,6 +5,7 @@ using System.Xml.Linq;
 
 using FreeIDE.Common;
 using FreeIDE.Common.Utils;
+using FreeIDE.Components.Renderers;
 
 namespace FreeIDE.Components
 {
@@ -54,6 +55,14 @@ namespace FreeIDE.Components
                 (control as Button).FlatAppearance.BorderSize =
                     ThemeData.BordersHeightDigest[(control.Tag as IThemeTag).GetThemeTag2()];
             }
+
+            // Specific to the MenuStrip class
+            if (control is MenuStrip)
+            {
+                (control as MenuStrip).Renderer = new CustomMenuStripRenderer(ThemeData.MenuStrip_TitlebarColor, 
+                    ThemeData.MenuStrip_TitlebarSize, ThemeData.MenuStrip_MainColor, ThemeData.MenuStrip_ItemSelectedColor,
+                    ThemeData.MenuStrip_ItemForeColor);
+            }
         }
 
         // Returns the path to the xml file with the selected theme
@@ -101,6 +110,12 @@ namespace FreeIDE.Components
         public Int32 Borders2Height = 0;
         public Int32 Borders3Height = 0;
 
+        public UInt16 MenuStrip_TitlebarSize = 2;
+        public Color MenuStrip_TitlebarColor = Color.FromArgb(89, 135, 214);
+        public Color MenuStrip_MainColor = Color.FromArgb(39, 40, 34);
+        public Color MenuStrip_ItemSelectedColor = Color.FromArgb(24, 25, 19);
+        public Color MenuStrip_ItemForeColor = Color.White;
+
         public ThemeData()
         {
             UpdateDigests();
@@ -147,11 +162,17 @@ namespace FreeIDE.Components
 
             Borders1Height = Convert.ToInt32(xDocument.Root.Element("Borders1Height").Value),
             Borders2Height = Convert.ToInt32(xDocument.Root.Element("Borders2Height").Value),
-            Borders3Height = Convert.ToInt32(xDocument.Root.Element("Borders3Height").Value)
+            Borders3Height = Convert.ToInt32(xDocument.Root.Element("Borders3Height").Value),
+
+            MenuStrip_TitlebarSize = (UInt16)Convert.ToInt32(xDocument.Root.Element("MenuStrip_TitlebarSize").Value),
+            MenuStrip_TitlebarColor = ParseColorFromXDocumentItem(xDocument.Root.Element("MenuStrip_TitlebarColor")),
+            MenuStrip_MainColor = ParseColorFromXDocumentItem(xDocument.Root.Element("MenuStrip_MainColor")),
+            MenuStrip_ItemSelectedColor = ParseColorFromXDocumentItem(xDocument.Root.Element("MenuStrip_ItemSelectedColor")),
+            MenuStrip_ItemForeColor = ParseColorFromXDocumentItem(xDocument.Root.Element("MenuStrip_ItemForeColor")),
         };
         public void PrintInfo()
         {
-            Console.WriteLine("{0,-20} = {1,5}", "RootName",  RootName);
+            /*Console.WriteLine("{0,-20} = {1,5}", "RootName",  RootName);
             Console.WriteLine("{0,-20} = {1,5}", "ThemeName", ThemeName);
 
             Console.WriteLine("{0,-20} = {1,5}", "Color1", Color1);
@@ -165,7 +186,7 @@ namespace FreeIDE.Components
             Console.WriteLine("{0,-20} = {1,5}", "HeaderHeight", HeaderHeight);
             Console.WriteLine("{0,-20} = {1,5}", "IconHeight", IconHeight);
             Console.WriteLine("{0,-20} = {1,5}", "IconPadding", IconPadding);
-            Console.WriteLine("{0,-20} = {1,5}", "WidthHeaderUnderline", WidthHeaderUnderline);
+            Console.WriteLine("{0,-20} = {1,5}", "WidthHeaderUnderline", WidthHeaderUnderline);*/
         }
 
         private static Color ParseColorFromXDocumentItem(XElement xElement)

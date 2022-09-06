@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace FreeIDE.Components.Renderers
     {
         // Define titlebar colors.
         private protected Color TitlebarColor = Color.FromArgb(89, 135, 214);
+        private protected UInt16 TitlebarSize = 2;
         private protected Color MainColor = Color.FromArgb(39, 40, 34);
         private protected Color ItemSelectedColor = Color.FromArgb(24, 25, 19);
         private protected Color ItemForeColor = Color.White;
@@ -17,10 +19,11 @@ namespace FreeIDE.Components.Renderers
         { 
 
         }
-        public CustomMenuStripRenderer(Color TitlebarColor, Color MainColor, Color ItemSelectedColor, Color ItemForeColor) 
+        public CustomMenuStripRenderer(Color TitlebarColor, UInt16 TitlebarSize, Color MainColor, Color ItemSelectedColor, Color ItemForeColor) 
             : base(new CustomMenuStripColors(MainColor)) 
         { 
-            this.TitlebarColor = TitlebarColor; 
+            this.TitlebarColor = TitlebarColor;
+            this.TitlebarSize = TitlebarSize;
             this.MainColor = MainColor;
             this.ItemSelectedColor = ItemSelectedColor;
             this.ItemForeColor = ItemForeColor;
@@ -29,7 +32,7 @@ namespace FreeIDE.Components.Renderers
         private void DrawTitleBar(Graphics g, Rectangle rect)
         {
             using (Pen underliningLinePen = new Pen(TitlebarColor))
-                for (int step = 0; step < 2; step++)
+                for (int step = 0; step < TitlebarSize; step++)
                     g.DrawLine(underliningLinePen, rect.X, rect.Y + (rect.Height - step),
                         rect.X + rect.Width, rect.Y + (rect.Height - step));
         }
@@ -88,8 +91,7 @@ namespace FreeIDE.Components.Renderers
 
             if (e.Item.Selected)
             {
-                Color color = this.ItemSelectedColor;
-                using (SolidBrush brush = new SolidBrush(color))
+                using (SolidBrush brush = new SolidBrush(this.ItemSelectedColor))
                     e.Graphics.FillRectangle(brush, rect);
             }
             else

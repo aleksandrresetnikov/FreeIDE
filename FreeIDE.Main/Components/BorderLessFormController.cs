@@ -123,10 +123,10 @@ namespace FreeIDE.Components
 
         private protected virtual void OnBasedApplyThemeWithTags(ThemeData themeData)
         {
+            if (base.MainMenuStrip.Tag is IThemeTag) ApplyThemeForControl(base.MainMenuStrip);
+
             foreach (Control controlItem in base.Controls)
-            {
                 if (controlItem.Tag is IThemeTag) ApplyThemeForControl(controlItem);
-            }
         }
 
         private protected virtual void ApplyThemeForControl(Control control)

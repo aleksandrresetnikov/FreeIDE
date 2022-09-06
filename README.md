@@ -12,5 +12,13 @@ The application uses resources that are included in the Visual Studio solution b
 ## 💿 Resources
 Icons I took from Visual Studio 12. They are available <strong><a href="https://www.microsoft.com/en-us/download/details.aspx?id=35825">HERE</a></strong>.
 
+## ✅ What I want to implement in the future
+1. Implementation of syntax highlighting for several programming languages (settings will be stored in an .xml file).
+2. Implementation of prompts for quick actions for different programming languages (quick actions will be stored in an .xml file).
+3. Variable access level implementation (for example, in C#, variables that were declared within '{}' brackets will not be accessible outside of them).
+4. Implementation of code hinting based on loaded libraries (using .NET reflection).
+5. Adding multiple components (like in Visual Studio), the components will install as plugins (perhaps in Iron Python).
+6. Implementing .NET Library Loading from NuGet.
+
 ## ⚠️ Important
 I am using <strong><a href="https://github.com/PavelTorgashov/FastColoredTextBox">PavelTorgashov/FastColoredTextBox</a></strong> library in this project. Since this library is open source, I've made small changes to suit my needs (for example, recoloring many of the dialogue forms). I do not claim ownership of this project (FastColoredTextBox). Project copyright reserved.

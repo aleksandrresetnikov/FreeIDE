@@ -9,5 +9,8 @@ The application uses resources that are included in the Visual Studio solution b
 2. Make sure you select 'Debug' solution configuration.
 3. If the above does not help, then run the 'BuildResources.bat' file in the root folder of the solution.
 
+## 💿 Resources
+Icons I took from Visual Studio 12. They are available <strong><a href="https://www.microsoft.com/en-us/download/details.aspx?id=35825">HERE</a></strong>.
+
 ## ⚠️ Important
 I am using <strong><a href="https://github.com/PavelTorgashov/FastColoredTextBox">PavelTorgashov/FastColoredTextBox</a></strong> library in this project. Since this library is open source, I've made small changes to suit my needs (for example, recoloring many of the dialogue forms). I do not claim ownership of this project (FastColoredTextBox). Project copyright reserved.

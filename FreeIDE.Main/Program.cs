@@ -22,6 +22,7 @@ namespace FreeIDE
         {
             SettingsTable.InitSettingsTable();
             ThemeMaster.LoadUseTheme();
+            DirectoriesHelper.CheckDirectories();
         }
     }
 }

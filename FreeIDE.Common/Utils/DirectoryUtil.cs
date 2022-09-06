@@ -52,9 +52,9 @@
         }
         public static string GetTemporaryDirectory(string unname = "lpiTemp_")
         {
-            return System.IO.Path.Combine(System.IO.Path.GetTempPath(), unname + System.IO.Path.GetRandomFileName().RemovePath());
+            return System.IO.Path.Combine(System.IO.Path.GetTempPath(), unname + System.IO.Path.GetRandomFileName().RemoveExtension());
         }
-        public static string RemovePath(this string path)
+        public static string RemoveExtension(this string path)
         {
             return System.IO.Path.ChangeExtension(path, null);
         }

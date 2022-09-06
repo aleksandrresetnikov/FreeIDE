@@ -78,8 +78,15 @@
     </Compile>
     <Compile Include="Components\FormDisigner.cs" />
     <Compile Include="Components\Renderers\CustomMenuStripColors.cs" />
+    <Compile Include="Components\Solution.cs" />
     <Compile Include="Components\ThemeMaster.cs" />
     <Compile Include="Components\Renderers\CustomMenuStripRenderer.cs" />
+    <Compile Include="Controls\ColorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorView.Designer.cs">
+      <DependentUpon>ColorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ExpTree\ExpTree.cs">
       <SubType>UserControl</SubType>
     </Compile>

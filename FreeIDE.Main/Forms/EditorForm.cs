@@ -12,6 +12,7 @@ using System.IO;
 using FreeIDE.Tags;
 using FreeIDE.Components;
 using FreeIDE.Common.Utils;
+using FreeIDE.Common;
 
 namespace FreeIDE.Forms
 {
@@ -38,12 +39,16 @@ namespace FreeIDE.Forms
             this.InitializeComponent();
             this.InitializeTags();
 
+            this.solutionFileTreeView.Open(this.OpenSolution != null ? this.OpenSolution.SolutionDirectory :
+                new DirectoryInfo(DirectoriesHelper.PathToDocumentsDirectory));
+
             ThemeMaster.ApplyTheme(this);
         }
 
         private void InitializeTags()
         {
             this.mainMenuStrip.Tag = new MenuStripTag(1, 0);
+            this.solutionFileTreeView.Tag = new FileTreeViewTag(1, 0);
         }
     }
 }

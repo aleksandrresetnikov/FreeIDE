@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fileTreeView1 = new FreeIDE.Controls.FileTreeView();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorForm));
+            this.solutionFileTreeView = new FreeIDE.Controls.FileTreeView();
+            this.solutionFileTreeView_ImageList = new System.Windows.Forms.ImageList(this.components);
             this.mainPanel = new System.Windows.Forms.Panel();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,9 +90,16 @@
             this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainContainerPanel = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
+            this.mainContainerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClose
@@ -119,12 +129,27 @@
             // 
             this.timer.Enabled = false;
             // 
-            // fileTreeView1
+            // solutionFileTreeView
             // 
-            this.fileTreeView1.Location = new System.Drawing.Point(591, 27);
-            this.fileTreeView1.Name = "fileTreeView1";
-            this.fileTreeView1.Size = new System.Drawing.Size(199, 387);
-            this.fileTreeView1.TabIndex = 7;
+            this.solutionFileTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.solutionFileTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.solutionFileTreeView.ImageIndex = 0;
+            this.solutionFileTreeView.ImageList = this.solutionFileTreeView_ImageList;
+            this.solutionFileTreeView.Location = new System.Drawing.Point(0, 0);
+            this.solutionFileTreeView.Name = "solutionFileTreeView";
+            this.solutionFileTreeView.SelectedImageIndex = 0;
+            this.solutionFileTreeView.ShowLines = false;
+            this.solutionFileTreeView.Size = new System.Drawing.Size(257, 387);
+            this.solutionFileTreeView.StateImageList = this.solutionFileTreeView_ImageList;
+            this.solutionFileTreeView.TabIndex = 7;
+            // 
+            // solutionFileTreeView_ImageList
+            // 
+            this.solutionFileTreeView_ImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("solutionFileTreeView_ImageList.ImageStream")));
+            this.solutionFileTreeView_ImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(0, "Folder");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(1, "Textfile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(2, "XMLFile");
             // 
             // mainPanel
             // 
@@ -132,7 +157,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Controls.Add(this.mainMenuStrip);
-            this.mainPanel.Controls.Add(this.fileTreeView1);
             this.mainPanel.Location = new System.Drawing.Point(5, 30);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(790, 414);
@@ -534,11 +558,45 @@
             this.projectToolStripMenuItem3.Size = new System.Drawing.Size(60, 20);
             this.projectToolStripMenuItem3.Text = "Project";
             // 
+            // mainContainerPanel
+            // 
+            this.mainContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainContainerPanel.Controls.Add(this.splitContainer1);
+            this.mainContainerPanel.Controls.Add(this.splitter1);
+            this.mainContainerPanel.Location = new System.Drawing.Point(5, 57);
+            this.mainContainerPanel.Name = "mainContainerPanel";
+            this.mainContainerPanel.Size = new System.Drawing.Size(790, 387);
+            this.mainContainerPanel.TabIndex = 8;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.solutionFileTreeView);
+            this.splitContainer1.Size = new System.Drawing.Size(787, 387);
+            this.splitContainer1.SplitterDistance = 526;
+            this.splitContainer1.TabIndex = 10;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 387);
+            this.splitter1.TabIndex = 9;
+            this.splitter1.TabStop = false;
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mainContainerPanel);
             this.Controls.Add(this.mainPanel);
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "EditorForm";
@@ -548,11 +606,16 @@
             this.Controls.SetChildIndex(this.buttonClose, 0);
             this.Controls.SetChildIndex(this.buttonMinType, 0);
             this.Controls.SetChildIndex(this.TitleLabel, 0);
+            this.Controls.SetChildIndex(this.mainContainerPanel, 0);
             ((System.ComponentModel.ISupportInitialize)(this.timer)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
+            this.mainContainerPanel.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,7 +623,7 @@
 
         #endregion
 
-        private Controls.FileTreeView fileTreeView1;
+        private Controls.FileTreeView solutionFileTreeView;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.MenuStrip mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -619,5 +682,9 @@
         private System.Windows.Forms.ToolStripMenuItem overAllWindowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem propertiesWindowToolStripMenuItem;
+        private System.Windows.Forms.ImageList solutionFileTreeView_ImageList;
+        private System.Windows.Forms.Panel mainContainerPanel;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="SettingsMaster.cs" />
     <Compile Include="SettingsTable.cs" />
     <Compile Include="Utils\CommonUtils.cs" />
+    <Compile Include="Utils\IconsUtil.cs" />
     <Compile Include="WinShell\kernel32.cs" />
     <Compile Include="WinShell\Keyboard.cs" />
     <Compile Include="WinShell\ShellDll.cs" />

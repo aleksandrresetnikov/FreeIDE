@@ -148,8 +148,25 @@
             this.solutionFileTreeView_ImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("solutionFileTreeView_ImageList.ImageStream")));
             this.solutionFileTreeView_ImageList.TransparentColor = System.Drawing.Color.Transparent;
             this.solutionFileTreeView_ImageList.Images.SetKeyName(0, "Folder");
-            this.solutionFileTreeView_ImageList.Images.SetKeyName(1, "Textfile");
-            this.solutionFileTreeView_ImageList.Images.SetKeyName(2, "XMLFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(1, "OpenFolder");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(2, "File");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(3, "Textfile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(4, "XMLFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(5, "Image");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(6, "XAML");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(7, "Map");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(8, "HTML");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(9, "CSS");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(10, "CPPFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(11, "CSharpFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(12, "FSharpFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(13, "VBFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(14, "PYFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(15, "FontFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(16, "ObjectFile");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(17, "Assembly");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(18, "Frame");
+            this.solutionFileTreeView_ImageList.Images.SetKeyName(19, "Soundfile");
             // 
             // mainPanel
             // 

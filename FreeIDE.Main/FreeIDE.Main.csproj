@@ -155,6 +155,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="VS12_ImgLib_FilesData\Assembly_6212.png" />
     <Content Include="VS12_ImgLib_FilesData\CPPFile_SolutionExplorerNode.png" />
     <Content Include="VS12_ImgLib_FilesData\CSharpFile_SolutionExplorerNode.png" />
     <Content Include="VS12_ImgLib_FilesData\DialogGroup_5846_16x.png" />
@@ -163,15 +164,23 @@
     <Content Include="VS12_ImgLib_FilesData\Folder_6221.png" />
     <Content Include="VS12_ImgLib_FilesData\Folder_6222.png" />
     <Content Include="VS12_ImgLib_FilesData\FSharpFile_SolutionExplorerNode.png" />
+    <Content Include="VS12_ImgLib_FilesData\HiddenFolder_428.png" />
     <Content Include="VS12_ImgLib_FilesData\HTMLPage%28HTM%29_825_16x_color.png" />
+    <Content Include="VS12_ImgLib_FilesData\HyperLink_733.png" />
+    <Content Include="VS12_ImgLib_FilesData\IFrame_5767_12x.png" />
     <Content Include="VS12_ImgLib_FilesData\Image_12x.png" />
     <Content Include="VS12_ImgLib_FilesData\Image_24x.png" />
+    <Content Include="VS12_ImgLib_FilesData\Map_624.png" />
+    <Content Include="VS12_ImgLib_FilesData\Miscellaneousfile_8304.png" />
+    <Content Include="VS12_ImgLib_FilesData\MyApplication_8249.png" />
+    <Content Include="VS12_ImgLib_FilesData\Object_554.png" />
     <Content Include="VS12_ImgLib_FilesData\Projects\CPPProject_SolutionExplorerNode_.png" />
     <Content Include="VS12_ImgLib_FilesData\Projects\CSharpProject_SolutionExplorerNode.png" />
     <Content Include="VS12_ImgLib_FilesData\Projects\FSharpProject_SolutionExplorerNode.png" />
     <Content Include="VS12_ImgLib_FilesData\Projects\PYProject_SolutionExplorerNode.png" />
     <Content Include="VS12_ImgLib_FilesData\Projects\VBProject_SolutionExplorerNode.png" />
     <Content Include="VS12_ImgLib_FilesData\PYFile_SolutionExplorerNode.png" />
+    <Content Include="VS12_ImgLib_FilesData\Soundfile_461.png" />
     <Content Include="VS12_ImgLib_FilesData\StyleSheet%28css%29_7483_16x_color.png" />
     <Content Include="VS12_ImgLib_FilesData\Textfile_818_16x.png" />
     <Content Include="VS12_ImgLib_FilesData\VBFile_SolutionExplorerNode.png" />

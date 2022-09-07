@@ -11,7 +11,6 @@ using System.IO;
 
 using FreeIDE.Tags;
 using FreeIDE.Components;
-using FreeIDE.Common.Utils;
 using FreeIDE.Common;
 
 namespace FreeIDE.Forms

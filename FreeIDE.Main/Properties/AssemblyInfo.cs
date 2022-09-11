@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("FreeIDE.Main")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FreeIDE.Main")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCompany("aleksandrresetnikov093@gmail.com")]
+[assembly: AssemblyProduct("FreeIDE")]
+[assembly: AssemblyCopyright("GNU GENERAL PUBLIC LICENSE - Copyright (C) 1989, 1991 Free Software Foundation, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

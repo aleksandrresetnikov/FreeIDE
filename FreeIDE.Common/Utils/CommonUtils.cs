@@ -13,5 +13,15 @@ namespace FreeIDE.Common.Utils
         {
             return new DirectoryInfo(SourseDirectoryInfo.FullName);
         }
+
+        public static FileInfo GetFileInfo(this string SourseFilePath)
+        {
+            return new FileInfo(SourseFilePath);
+        }
+
+        public static DirectoryInfo GetDirectoryInfo(this string SourseDirectoryPath)
+        {
+            return new DirectoryInfo(SourseDirectoryPath);
+        }
     }
 }

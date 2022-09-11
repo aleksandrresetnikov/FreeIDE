@@ -93,6 +93,8 @@
             this.mainContainerPanel = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
@@ -226,13 +228,14 @@
             // newSolutionToolStripMenuItem
             // 
             this.newSolutionToolStripMenuItem.Name = "newSolutionToolStripMenuItem";
-            this.newSolutionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newSolutionToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.newSolutionToolStripMenuItem.Text = "New Solution";
+            this.newSolutionToolStripMenuItem.Click += new System.EventHandler(this.newSolutionToolStripMenuItem_Click);
             // 
             // projectToolStripMenuItem
             // 
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.projectToolStripMenuItem.Text = "New Project";
             // 
             // openToolStripMenuItem
@@ -251,6 +254,7 @@
             this.solutionToolStripMenuItem.Name = "solutionToolStripMenuItem";
             this.solutionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.solutionToolStripMenuItem.Text = "Solution";
+            this.solutionToolStripMenuItem.Click += new System.EventHandler(this.solutionToolStripMenuItem_Click);
             // 
             // projectToolStripMenuItem1
             // 
@@ -278,14 +282,14 @@
             // 
             this.projectToolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("projectToolStripMenuItem2.Image")));
             this.projectToolStripMenuItem2.Name = "projectToolStripMenuItem2";
-            this.projectToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.projectToolStripMenuItem2.Size = new System.Drawing.Size(164, 22);
             this.projectToolStripMenuItem2.Text = "New Project";
             // 
             // existingProjectToolStripMenuItem
             // 
             this.existingProjectToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("existingProjectToolStripMenuItem.Image")));
             this.existingProjectToolStripMenuItem.Name = "existingProjectToolStripMenuItem";
-            this.existingProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.existingProjectToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.existingProjectToolStripMenuItem.Text = "Existing Project";
             // 
             // toolStripSeparator1
@@ -385,6 +389,7 @@
             // 
             // gotoToolStripMenuItem
             // 
+            this.gotoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gotoToolStripMenuItem.Image")));
             this.gotoToolStripMenuItem.Name = "gotoToolStripMenuItem";
             this.gotoToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.gotoToolStripMenuItem.Text = "Goto";
@@ -396,12 +401,14 @@
             // 
             // findToolStripMenuItem
             // 
+            this.findToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("findToolStripMenuItem.Image")));
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
             this.findToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.findToolStripMenuItem.Text = "Find";
             // 
             // findAmongAllFilesToolStripMenuItem
             // 
+            this.findAmongAllFilesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("findAmongAllFilesToolStripMenuItem.Image")));
             this.findAmongAllFilesToolStripMenuItem.Name = "findAmongAllFilesToolStripMenuItem";
             this.findAmongAllFilesToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.findAmongAllFilesToolStripMenuItem.Text = "Find among all files";
@@ -436,12 +443,14 @@
             // 
             // undoToolStripMenuItem
             // 
+            this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
             // 
+            this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.redoToolStripMenuItem.Text = "Redo";
@@ -617,6 +626,10 @@
             this.splitter1.TabIndex = 9;
             this.splitter1.TabStop = false;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,5 +725,7 @@
         private System.Windows.Forms.Panel mainContainerPanel;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

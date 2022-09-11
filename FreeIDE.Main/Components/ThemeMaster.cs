@@ -103,7 +103,8 @@ namespace FreeIDE.Components
         public Int32 BorderHeight = 1;
         public Int32 HeaderHeight = 20;
         public Int32 IconHeight = 20;
-        public Int32 IconPadding = 1;
+        public Int32 IconPaddingX = 1;
+        public Int32 IconPaddingY = 1;
         public Int32 WidthHeaderUnderline = 2;
 
         public Int32 Borders1Height = 1;
@@ -157,7 +158,8 @@ namespace FreeIDE.Components
             BorderHeight = Convert.ToInt32(xDocument.Root.Element("BorderHeight").Value),
             HeaderHeight = Convert.ToInt32(xDocument.Root.Element("HeaderHeight").Value),
             IconHeight = Convert.ToInt32(xDocument.Root.Element("IconHeight").Value),
-            IconPadding = Convert.ToInt32(xDocument.Root.Element("IconPadding").Value),
+            IconPaddingX = Convert.ToInt32(xDocument.Root.Element("IconPaddingX").Value),
+            IconPaddingY = Convert.ToInt32(xDocument.Root.Element("IconPaddingY").Value),
             WidthHeaderUnderline = Convert.ToInt32(xDocument.Root.Element("WidthHeaderUnderline").Value),
 
             Borders1Height = Convert.ToInt32(xDocument.Root.Element("Borders1Height").Value),

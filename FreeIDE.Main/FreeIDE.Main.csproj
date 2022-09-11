@@ -52,6 +52,9 @@
   <PropertyGroup>
     <StartupObject>FreeIDE.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -155,6 +158,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logo.ico" />
     <Content Include="VS12_ImgLib_FilesData\Assembly_6212.png" />
     <Content Include="VS12_ImgLib_FilesData\CPPFile_SolutionExplorerNode.png" />
     <Content Include="VS12_ImgLib_FilesData\CSharpFile_SolutionExplorerNode.png" />

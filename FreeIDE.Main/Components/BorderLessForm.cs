@@ -148,7 +148,16 @@ namespace FreeIDE.Components
         [Category("FreeIDE.Dev")]
         [Description("Icon indent")]
         [DefaultValue(1)]
-        public Int32 IconPadding { get; set; }
+        public Int32 IconPaddingX { get; set; }
+
+        /// <summary>
+        /// Icon indent
+        /// </summary>
+        [Browsable(true)]
+        [Category("FreeIDE.Dev")]
+        [Description("Icon indent")]
+        [DefaultValue(1)]
+        public Int32 IconPaddingY { get; set; }
 
         /// <summary>
         /// Will there be a line drawn at the bottom of the header
@@ -191,7 +200,8 @@ namespace FreeIDE.Components
             this.MoveOnWholeForm = false;
             this.IconHeight = 20;
             this.RoundingValue = 0;
-            this.IconPadding = 1;
+            this.IconPaddingX = 1;
+            this.IconPaddingY = 1;
             this.BorderHeight = 1;
             this.ShowHeaderUnderline = false;
             this.WidthHeaderUnderline = 2;
@@ -237,8 +247,8 @@ namespace FreeIDE.Components
                 }
 
                 if (this.ShowIcon)
-                    e.Graphics.DrawIcon(this.Icon, new Rectangle(this.ResizeHandleSize + this.IconPadding,
-                        this.IconPadding, this.IconHeight, this.IconHeight));
+                    e.Graphics.DrawIcon(this.Icon, new Rectangle(this.ResizeHandleSize + this.IconPaddingX,
+                        this.IconPaddingY, this.IconHeight, this.IconHeight));
 
                 if (this.ShowHeaderUnderline)
                     e.Graphics.DrawLine(CreateHeaderUnderlinePen(), 0, this.HeaderHeight, this.Width,
@@ -386,7 +396,8 @@ namespace FreeIDE.Components
             this.ColorHeaderUnderline = themeData.ColorHeaderUnderline;
             this.HeaderHeight = themeData.HeaderHeight;
             this.IconHeight = themeData.IconHeight;
-            this.IconPadding = themeData.IconPadding;
+            this.IconPaddingX = themeData.IconPaddingX;
+            this.IconPaddingY = themeData.IconPaddingY;
             this.WidthHeaderUnderline = themeData.WidthHeaderUnderline;
         }
 

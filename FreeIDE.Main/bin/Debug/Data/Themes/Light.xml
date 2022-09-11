@@ -22,7 +22,8 @@
 	<BorderHeight>2</BorderHeight>
 	<HeaderHeight>26</HeaderHeight>
 	<IconHeight>20</IconHeight>
-	<IconPadding>2</IconPadding>
+	<IconPaddingX>2</IconPaddingX>
+	<IconPaddingY>4</IconPaddingY>
 	<WidthHeaderUnderline>2</WidthHeaderUnderline>
 	
 	<Borders1Height>2</Borders1Height>

@@ -120,7 +120,8 @@
             this.Controls.Add(this.buttonMaxType);
             this.HeaderBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(85)))));
             this.HeaderHeight = 26;
-            this.IconPadding = 2;
+            this.IconPaddingX = 2;
+            this.IconPaddingY = 2;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MinimumSize = new System.Drawing.Size(350, 200);
             this.Name = "BorderLessFormController";

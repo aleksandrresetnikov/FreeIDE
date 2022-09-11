@@ -16,3 +16,17 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.pdb
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.dll
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.xml
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FastColoredTextBox.pdb
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\IronPython.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\IronPython.Modules.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\IronPython.SQLite.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\IronPython.Wpf.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Dynamic.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Scripting.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Scripting.Metadata.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\IronPython.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\IronPython.Modules.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\IronPython.SQLite.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\IronPython.Wpf.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Dynamic.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Scripting.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Scripting.Metadata.xml

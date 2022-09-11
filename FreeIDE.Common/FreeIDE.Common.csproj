@@ -51,6 +51,9 @@
     <Compile Include="CShItem.cs" />
     <Compile Include="DirectoriesHelper.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="IDE\Profiles\Profile.cs" />
+    <Compile Include="IDE\Profiles\ProfilesCollector.cs" />
+    <Compile Include="IDE\Profiles\ProfilesLoader.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LogTasker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

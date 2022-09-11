@@ -32,7 +32,7 @@ namespace FreeIDE.Components
             }
 
             ThemeData.UpdateDigests();
-            ThemeData.PrintInfo();
+            //ThemeData.PrintInfo();
         }
 
         // Applies the selected, preloaded theme to a form of type BorderLessForm
@@ -44,6 +44,8 @@ namespace FreeIDE.Components
         // Applies the selected, preloaded theme to a user control
         public static void ApplyTheme(Control control)
         {
+            Console.WriteLine($@"#ApplyTheme for: {control.Name}");
+
             control.BackColor = ThemeData.ColorsDigest[(control.Tag as IThemeTag).GetThemeTag1()];
             control.ForeColor = ThemeData.ForeColorsDigest[(control.Tag as IThemeTag).GetThemeTag1()];
 
@@ -63,6 +65,8 @@ namespace FreeIDE.Components
                     ThemeData.MenuStrip_TitlebarSize, ThemeData.MenuStrip_MainColor, ThemeData.MenuStrip_ItemSelectedColor,
                     ThemeData.MenuStrip_ItemForeColor);
             }
+
+
         }
 
         // Returns the path to the xml file with the selected theme
@@ -128,6 +132,9 @@ namespace FreeIDE.Components
             this.ForeColorsDigest = new Color[] { this.ForeColor1, this.ForeColor2, this.ForeColor3 };
             this.BordersColorDigest = new Color[] { this.Borders1Color, this.Borders2Color, this.Borders3Color };
             this.BordersHeightDigest = new Int32[] { this.Borders1Height, this.Borders2Height, this.Borders3Height };
+
+            foreach (var item in ColorsDigest)
+                Console.WriteLine(item);
         }
 
         public static ThemeData GetDefaultThemeData() => new ThemeData();
@@ -175,13 +182,13 @@ namespace FreeIDE.Components
         public void PrintInfo()
         {
             /*Console.WriteLine("{0,-20} = {1,5}", "RootName",  RootName);
-            Console.WriteLine("{0,-20} = {1,5}", "ThemeName", ThemeName);
+            Console.WriteLine("{0,-20} = {1,5}", "ThemeName", ThemeName);*/
 
-            Console.WriteLine("{0,-20} = {1,5}", "Color1", Color1);
+            /*Console.WriteLine("{0,-20} = {1,5}", "Color1", Color1);
             Console.WriteLine("{0,-20} = {1,5}", "Color2", Color2);
-            Console.WriteLine("{0,-20} = {1,5}", "Color3", Color3);
+            Console.WriteLine("{0,-20} = {1,5}", "Color3", Color3);*/
 
-            Console.WriteLine("{0,-20} = {1,5}", "BorderColor", BorderColor);
+            /*Console.WriteLine("{0,-20} = {1,5}", "BorderColor", BorderColor);
             Console.WriteLine("{0,-20} = {1,5}", "HeaderBackColor", HeaderBackColor);
             Console.WriteLine("{0,-20} = {1,5}", "ColorHeaderUnderline", ColorHeaderUnderline);
 

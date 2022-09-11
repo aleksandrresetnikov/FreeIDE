@@ -1,7 +1,7 @@
 <Theme>
 	<Name>Light</Name>
 	<Color1 Type="Str">White</Color1>
-	<Color2 Type="Str">#eeeef2</Color2>
+	<Color2 Type="Hex">#eeeef2</Color2>
 	<Color3 Type="Str">Black</Color3>
 	<ForeColor1 Type="Str">Black</ForeColor1>
 	<ForeColor2 Type="Str">Black</ForeColor2>

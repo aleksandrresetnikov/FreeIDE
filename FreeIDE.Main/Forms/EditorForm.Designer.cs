@@ -93,8 +93,6 @@
             this.mainContainerPanel = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.mainTabControl = new FreeIDE.Controls.TabControl.FlatTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -106,7 +104,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.mainTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClose
@@ -629,38 +626,17 @@
             // 
             // mainTabControl
             // 
-            this.mainTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainTabControl.BorderColor = System.Drawing.Color.MediumTurquoise;
-            this.mainTabControl.Controls.Add(this.tabPage1);
-            this.mainTabControl.Controls.Add(this.tabPage2);
-            this.mainTabControl.Location = new System.Drawing.Point(-3, 0);
+            this.mainTabControl.BorderSize = 1;
+            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainTabControl.DrawBorders = false;
+            this.mainTabControl.DrawTopCurtain = false;
+            this.mainTabControl.Location = new System.Drawing.Point(0, 0);
             this.mainTabControl.myBackColor = System.Drawing.SystemColors.ControlLightLight;
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(527, 387);
+            this.mainTabControl.Size = new System.Drawing.Size(526, 387);
             this.mainTabControl.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(519, 358);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(519, 358);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // splitter1
             // 
@@ -703,7 +679,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.mainTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -777,7 +752,5 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Controls.TabControl.FlatTabControl mainTabControl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
     }
 }

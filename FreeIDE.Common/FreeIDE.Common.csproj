@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\IPathsCollector.cs" />
     <Compile Include="ColorParser.cs" />
     <Compile Include="ConsoleOutput.cs" />
     <Compile Include="CProcDataObject.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="IDE\Profiles\ProfilesLoader.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LogTasker.cs" />
+    <Compile Include="PathsCollector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsMaster.cs" />
     <Compile Include="SettingsTable.cs" />

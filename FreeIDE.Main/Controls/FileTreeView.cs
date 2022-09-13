@@ -8,12 +8,35 @@ using FreeIDE.Common;
 
 namespace FreeIDE.Controls
 {
+    public delegate void FileTreeViewFileEvent(object sender, FileTreeViewFileEventArgs e);
+
+    public class FileTreeViewFileEventArgs
+    {
+        public PathsCollector Paths { get; private protected set; }
+    }
+
     internal class FileTreeView : TreeView
     {
         public DirectoryInfo _OpenDirectory;
 
         public string SelectedPath { get; private protected set; }
         public DirectoryInfo OpenDirectory { get => _OpenDirectory; private protected set => Update(value); }
+
+        public event FileTreeViewFileEvent OpenFile;
+
+        public event FileTreeViewFileEvent RemoveFile;
+        public event FileTreeViewFileEvent DeleteFile;
+        public event FileTreeViewFileEvent CutFile;
+        public event FileTreeViewFileEvent CopyFile;
+        public event FileTreeViewFileEvent PasteFile;
+        public event FileTreeViewFileEvent PasteFiles;
+
+        public event FileTreeViewFileEvent RemoveDirectory;
+        public event FileTreeViewFileEvent DeleteDirectory;
+        public event FileTreeViewFileEvent CutDirectory;
+        public event FileTreeViewFileEvent CopyDirectory;
+        public event FileTreeViewFileEvent PasteDirectory;
+        public event FileTreeViewFileEvent PasteDirectories;
 
         [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
         private extern static int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);

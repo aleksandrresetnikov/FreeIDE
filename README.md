@@ -1,5 +1,6 @@
 # 📒 FreeIDE
 <strong>It is a simple source code editor.</strong>
+![Image alt](https://github.com/aleksandrresetnikov/FreeIDE/blob/main/Screenshots/Screenshot_base(beta%20version).jpg)
 
 ## ⚡ Notiz
 The application uses resources that are included in the Visual Studio solution but not included in the C Sharp project (.csproj file). For example: <strong><i>'.\FreeIDE\Source Resources\Themes\...'</i></strong> - this application's themes are stored here. When building a project <strong>(FreeIDE.Main)</strong>, a build event is triggered (see project properties) and copies all resources from the <strong>'Source Resources'</strong> folder to the application's output folder.

@@ -6,6 +6,7 @@ using System.Xml.Linq;
 using FreeIDE.Common;
 using FreeIDE.Common.Utils;
 using FreeIDE.Components.Renderers;
+using FreeIDE.Controls.TabControl;
 
 namespace FreeIDE.Components
 {
@@ -66,7 +67,16 @@ namespace FreeIDE.Components
                     ThemeData.MenuStrip_ItemForeColor);
             }
 
-
+            // Specific to the FlatTabControl class
+            if (control is FlatTabControl)
+            {
+                (control as FlatTabControl).BorderColor =
+                    ThemeData.BordersColorDigest[(control.Tag as IThemeTag).GetThemeTag2()];
+                (control as FlatTabControl).BorderSize =
+                    ThemeData.BordersHeightDigest[(control.Tag as IThemeTag).GetThemeTag2()];
+                (control as FlatTabControl).myBackColor =
+                    ThemeData.ColorsDigest[(control.Tag as IThemeTag).GetThemeTag1()];
+            }
         }
 
         // Returns the path to the xml file with the selected theme

@@ -80,6 +80,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -120,6 +121,10 @@
     <Compile Include="Controls\SmartTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\TabControl\FlatTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabControlWin32.cs" />
     <Compile Include="Forms\EditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +141,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tags\ButtonTag.cs" />
     <Compile Include="Tags\FileTreeViewTag.cs" />
+    <Compile Include="Tags\FlatTabControlTag.cs" />
     <Compile Include="Tags\MenuStripTag.cs" />
     <EmbeddedResource Include="Components\BorderLessFormController.resx">
       <DependentUpon>BorderLessFormController.cs</DependentUpon>
@@ -240,6 +246,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>XCOPY "$(SolutionDir)\Source Resources\" "$(SolutionDir)\FreeIDE.Main\bin\Debug\Data\" /y /e</PreBuildEvent>
+    <PreBuildEvent>RD /s /q "$(SolutionDir)\FreeIDE.Main\bin\Debug\Data\"
+XCOPY "$(SolutionDir)\Source Resources\" "$(SolutionDir)\FreeIDE.Main\bin\Debug\Data\" /y /e</PreBuildEvent>
   </PropertyGroup>
 </Project>

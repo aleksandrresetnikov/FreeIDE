@@ -53,6 +53,7 @@ namespace FreeIDE.Forms
         {
             this.mainMenuStrip.Tag = new MenuStripTag(1, 0);
             this.solutionFileTreeView.Tag = new FileTreeViewTag(1, 0);
+            this.mainTabControl.Tag = new FlatTabControlTag(0, 0);
         }
 
         private void InitializeTheme()
@@ -60,6 +61,7 @@ namespace FreeIDE.Forms
             ThemeMaster.ApplyTheme(this);
 
             ThemeMaster.ApplyTheme(this.solutionFileTreeView);
+            ThemeMaster.ApplyTheme(this.mainTabControl);
         }
 
         private void SetOpenSolutionValue(Solution solutionValue)

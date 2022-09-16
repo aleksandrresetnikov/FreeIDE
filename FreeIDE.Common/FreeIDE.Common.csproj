@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="API\IPathsCollector.cs" />
     <Compile Include="ColorParser.cs" />
+    <Compile Include="CommonEnums.cs" />
     <Compile Include="ConsoleOutput.cs" />
     <Compile Include="CProcDataObject.cs" />
     <Compile Include="CShItem.cs" />

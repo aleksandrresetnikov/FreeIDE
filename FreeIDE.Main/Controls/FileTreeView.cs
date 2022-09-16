@@ -18,12 +18,14 @@ namespace FreeIDE.Controls
 
     internal class FileTreeView : TreeView
     {
+        private string fileType_LastFileName = "";
+        private FileType fileType_RenameNode = FileType.File;
+        private DirectoryInfo _OpenDirectory;
+
         public PathsCollector PathsHistory { get; private protected set; }
-
-        public DirectoryInfo _OpenDirectory;
-
         public string SelectedPath { get; private protected set; }
         public DirectoryInfo OpenDirectory { get => _OpenDirectory; private protected set => Update(value); }
+        public PathItem SelectedPathItem => new PathItem(this.SelectedNode.Tag.ToString());
 
         public event FileTreeViewFileEvent OpenFile;
 
@@ -46,6 +48,9 @@ namespace FreeIDE.Controls
 
         public FileTreeView() : base()
         {
+            this.PathsHistory = new PathsCollector();
+            this.LabelEdit = true;
+
             this.BeforeExpand += FileTreeView_BeforeExpand;
             this.BeforeSelect += FileTreeView_BeforeSelect;
             this.ItemDrag += FileTreeView_ItemDrag;
@@ -111,23 +116,104 @@ namespace FreeIDE.Controls
             else { this.SelectedNode.Remove(); return false; } // Error: The file or folder does not exist in the file system
         }
 
+        private void AddHistory(PathItem PathItemFrom)
+        {
+            this.PathsHistory.Add(new PathsCollectorItem(PathItemFrom));
+        }
+
+        private void AddHistory(PathItem PathItemFrom, PathItem PathItemTo)
+        {
+            this.PathsHistory.Add(new PathsCollectorItem(PathItemFrom, PathItemTo));
+        }
+
         private void FileTreeView_DoubleClick(object sender, EventArgs e)
         {
             if (CheckSelectedNode() && this.OpenFile != null)
             {
-                OpenFile.Invoke(this, new FileTreeViewFileEventArgs
-                {
-                    Paths = new PathsCollectorItem(new PathItem(this.SelectedNode.Tag.ToString()))
+                PathItem pathItem = new PathItem(this.SelectedNode.Tag.ToString());
+                AddHistory(pathItem);
+
+                OpenFile.Invoke(this, new FileTreeViewFileEventArgs { 
+                    Paths = new PathsCollectorItem(pathItem) 
                 });
             }
         }
         private void FileTreeView_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
-            
+            if (e.Label == fileType_LastFileName || e.Label == null || e.Label == "") return;
+
+            string lastText = e.Node.Text;
+            e.Node.Name = e.Label;
+            e.Node.Text = e.Label;
+
+            if (fileType_RenameNode == FileType.File)
+            {
+                FileInfo lastFileInfo = new FileInfo(e.Node.Tag.ToString());
+                if (lastFileInfo.Exists)
+                {
+                    string lastTag = e.Node.Tag.ToString();
+                    e.Node.Tag = lastFileInfo.DirectoryName + $"/" + e.Label;
+                    e.Node.ImageIndex = IconsUtil.GetImageIndexMini(new FileInfo(e.Node.Tag.ToString()).Extension);
+                    e.Node.SelectedImageIndex = e.Node.ImageIndex;
+                    if (File.Exists(e.Node.Tag.ToString()))
+                    {
+                        MessageBox.Show("Файл с таким именем\nуже существует", "Проблема");
+                        var invoke = BeginInvoke((Action)delegate
+                        {
+                            e.Node.Tag = lastTag;
+                            e.Node.Text = lastText;
+                            e.Node.Name = lastText;
+                            e.Node.ImageIndex = IconsUtil.GetImageIndexMini(new FileInfo(e.Node.Tag.ToString()).Extension);
+                        });
+                        return;
+                    }
+
+                    File.Move(lastFileInfo.FullName, e.Node.Tag.ToString());
+                    AddHistory(new PathItem(lastFileInfo), new PathItem(e.Node.Tag.ToString()));
+                }
+            }
+            else if (fileType_RenameNode == FileType.Dir)
+            {
+                DirectoryInfo lastDirInfo = new DirectoryInfo(e.Node.Tag.ToString());
+                if (lastDirInfo.Exists)
+                {
+                    string lastTag = e.Node.Tag.ToString();
+                    e.Node.Tag = lastDirInfo.Parent.FullName + $"/" + e.Label;
+                    e.Node.ImageIndex = 0;
+                    e.Node.SelectedImageIndex = 0;
+                    if (Directory.Exists(e.Node.Tag.ToString()))
+                    {
+                        MessageBox.Show("Папка с таким именем\nуже существует", "Проблема");
+                        var invoke = BeginInvoke((Action)delegate
+                        {
+                            e.Node.Tag = lastTag;
+                            e.Node.Text = lastText;
+                            e.Node.Name = lastText;
+                        });
+                        return;
+                    }
+
+                    lastDirInfo.Delete();
+                    Directory.CreateDirectory(e.Node.Tag.ToString());
+                    AddHistory(new PathItem(lastDirInfo), new PathItem(e.Node.Tag.ToString()));
+                }
+            }
         }
         private void FileTreeView_BeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
-
+            if (CheckSelectedNode())
+            {
+                if (this.SelectedPathItem.IsFile)
+                {
+                    fileType_RenameNode = FileType.File;
+                    fileType_LastFileName = this.SelectedPathItem.GetFileInfo.Name;
+                }
+                else if (this.SelectedPathItem.IsDirectory)
+                {
+                    fileType_RenameNode = FileType.Dir;
+                    fileType_LastFileName = this.SelectedPathItem.GetDirectoryInfo.Name;
+                }
+            }
         }
         private void FileTreeView_DragDrop(object sender, DragEventArgs e)
         {

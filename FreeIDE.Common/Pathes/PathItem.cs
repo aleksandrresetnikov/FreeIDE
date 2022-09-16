@@ -17,6 +17,8 @@ namespace FreeIDE.Common.Pathes
 
         public PathItem() => this.Path = null;
         public PathItem(string Path) => this.Path = Path;
+        public PathItem(FileInfo Path) => this.Path = Path.FullName;
+        public PathItem(DirectoryInfo Path) => this.Path = Path.FullName;
 
         public override string ToString() => this.Path;
         public void Dispose() => GC.SuppressFinalize(this);

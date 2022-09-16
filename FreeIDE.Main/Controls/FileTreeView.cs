@@ -23,7 +23,7 @@ namespace FreeIDE.Controls
         private FileType fileType_RenameNode = FileType.File;
         private DirectoryInfo _OpenDirectory;
 
-        public PathsCollector PathsHistory { get; private protected set; }
+        public PathsCollector PathsHistory { get; private protected set; } = new PathsCollector();
         public string SelectedPath { get; private protected set; }
         public DirectoryInfo OpenDirectory { get => _OpenDirectory; private protected set => Update(value); }
         public PathItem SelectedPathItem => new PathItem(this.SelectedNode.Tag.ToString());
@@ -51,8 +51,8 @@ namespace FreeIDE.Controls
 
         public FileTreeView() : base()
         {
-            this.PathsHistory = new PathsCollector();
             this.LabelEdit = true;
+            this.AllowDrop = true;
 
             this.BeforeExpand += FileTreeView_BeforeExpand;
             this.BeforeSelect += FileTreeView_BeforeSelect;
@@ -320,7 +320,10 @@ namespace FreeIDE.Controls
         }
         private void FileTreeView_ItemDrag(object sender, ItemDragEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Left)
+                DoDragDrop(e.Item, DragDropEffects.Move);
+            else if (e.Button == MouseButtons.Right)
+                DoDragDrop(e.Item, DragDropEffects.Copy);
         }
         private void FileTreeView_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {

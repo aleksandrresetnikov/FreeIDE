@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 using FreeIDE.Common.Utils;
 using FreeIDE.Common.Pathes;
 using FreeIDE.Common;
-using System.Xml.XPath;
 
 namespace FreeIDE.Controls
 {
@@ -160,7 +160,8 @@ namespace FreeIDE.Controls
                     e.Node.SelectedImageIndex = e.Node.ImageIndex;
                     if (File.Exists(e.Node.Tag.ToString()))
                     {
-                        MessageBox.Show("Файл с таким именем\nуже существует", "Проблема");
+                        MessageBox.Show("A file with the same name\nalready exists", "Problem",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         var invoke = BeginInvoke((Action)delegate
                         {
                             e.Node.Tag = lastTag;
@@ -190,7 +191,8 @@ namespace FreeIDE.Controls
                     e.Node.SelectedImageIndex = 0;
                     if (Directory.Exists(e.Node.Tag.ToString()))
                     {
-                        MessageBox.Show("Папка с таким именем\nуже существует", "Проблема");
+                        MessageBox.Show("A folder with the same name\nalready exists", "Problem",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         var invoke = BeginInvoke((Action)delegate
                         {
                             e.Node.Tag = lastTag;
@@ -227,15 +229,94 @@ namespace FreeIDE.Controls
         }
         private void FileTreeView_DragDrop(object sender, DragEventArgs e)
         {
+            Point targetPoint = this.PointToClient(new Point(e.X, e.Y));
+            TreeNode targetNode = this.GetNodeAt(targetPoint);
+            TreeNode draggedNode = (TreeNode)e.Data.GetData(typeof(TreeNode));
 
+            if (targetNode == null) return;
+            if (draggedNode == null) return;
+
+            if (!draggedNode.Equals(targetNode) && !TreeNodeHelper.ContainsNode(draggedNode, targetNode))
+            {
+                if (e.Effect == DragDropEffects.Move && new FileInfo(targetNode.Tag.ToString()).Extension.Replace(" ", "") == "")
+                {
+                    if (targetNode.ContainsNodeInName(draggedNode))
+                    {
+                        MessageBox.Show("This file already exists in\nthis directory", "Problem",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        Console.WriteLine($@"File path : {draggedNode.Tag}, file move to (path) : {targetNode.Tag}");
+                        if (new FileInfo(draggedNode.Tag.ToString()).Exists)
+                        {
+                            File.Move(draggedNode.Tag.ToString(),
+                                targetNode.Tag.ToString() + $"/" + new FileInfo(draggedNode.Tag.ToString()).Name);
+                            draggedNode.Tag = targetNode.Tag.ToString() + $"/" + new FileInfo(draggedNode.Tag.ToString()).Name;
+                            draggedNode.Remove(); targetNode.Nodes.Add(draggedNode);
+                        }
+                        else if (new DirectoryInfo(draggedNode.Tag.ToString()).Exists)
+                        {
+                            Directory.Move(draggedNode.Tag.ToString(),
+                                targetNode.Tag.ToString() + $"/" + new DirectoryInfo(draggedNode.Tag.ToString()).Name);
+                            draggedNode.Tag = targetNode.Tag.ToString() + $"/" + new DirectoryInfo(draggedNode.Tag.ToString()).Name;
+                            draggedNode.Remove(); targetNode.Nodes.Add(draggedNode);
+                        }
+                        else 
+                        { 
+                            MessageBox.Show("The file does not exist", "Problem",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                            draggedNode.Remove(); 
+                        }
+                    }
+                }
+                else if (e.Effect == DragDropEffects.Copy && new FileInfo(targetNode.Tag.ToString()).Extension.Replace(" ", "") == "")
+                {
+                    if (targetNode.ContainsNodeInName(draggedNode))
+                    {
+                        MessageBox.Show("This file already exists in\nthis directory", "Problem",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        TreeNode newNode = (TreeNode)draggedNode.Clone(); newNode.Tag = null;
+                        Console.WriteLine($@"File path : {draggedNode.Tag}, file copy to (path) : {targetNode.Tag}");
+                        if (new FileInfo(draggedNode.Tag.ToString()).Exists)
+                        {
+                            File.Copy(draggedNode.Tag.ToString(),
+                                targetNode.Tag.ToString() + $"/" + new FileInfo(draggedNode.Tag.ToString()).Name);
+                            newNode.Tag = targetNode.Tag.ToString() + $"/" + new FileInfo(draggedNode.Tag.ToString()).Name;
+                        }
+                        else if (new DirectoryInfo(draggedNode.Tag.ToString()).Exists)
+                        {
+                            DirectoryUtil.CopyDir(draggedNode.Tag.ToString(),
+                                targetNode.Tag.ToString() + $"/" + new DirectoryInfo(draggedNode.Tag.ToString()).Name);
+                            newNode.Tag = targetNode.Tag.ToString() + $"/" + new DirectoryInfo(draggedNode.Tag.ToString()).Name;
+                        }
+                        else 
+                        { 
+                            MessageBox.Show("The file does not exist", "Problem", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                            draggedNode.Remove(); 
+                            newNode.Tag = null; 
+                        }
+
+                        if (newNode != null && newNode.Tag != null)
+                            targetNode.Nodes.Add(newNode);
+                    }
+                }
+
+                targetNode.Expand();
+            }
         }
         private void FileTreeView_DragOver(object sender, DragEventArgs e)
         {
-
+            Point targetPoint = this.PointToClient(new Point(e.X, e.Y));
+            this.SelectedNode = this.GetNodeAt(targetPoint);
         }
         private void FileTreeView_DragEnter(object sender, DragEventArgs e)
         {
-
+            e.Effect = e.AllowedEffect;
         }
         private void FileTreeView_ItemDrag(object sender, ItemDragEventArgs e)
         {

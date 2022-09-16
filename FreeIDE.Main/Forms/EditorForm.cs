@@ -10,9 +10,11 @@ using System.Windows.Forms;
 using System.IO;
 
 using FreeIDE.Tags;
-using FreeIDE.Components;
 using FreeIDE.Common;
 using FreeIDE.Common.Utils;
+using FreeIDE.Common.Pathes;
+using FreeIDE.Controls;
+using FreeIDE.Components;
 
 namespace FreeIDE.Forms
 {
@@ -110,6 +112,16 @@ namespace FreeIDE.Forms
             DialogResult dialog = openFileDialog1.ShowDialog();
             if (dialog == DialogResult.OK)
                 OpenSolutionFile(openFileDialog1.FileName.GetFileInfo());
+        }
+
+        private void solutionFileTreeView_OpenFile(object sender, FileTreeViewFileEventArgs e)
+        {
+            if (e.Paths.PathItemFrom.IsFile) OpenFile(e.Paths.PathItemFrom); 
+        }
+
+        private void OpenFile(PathItem pathItem)
+        {
+            Console.WriteLine(pathItem);
         }
     }
 }

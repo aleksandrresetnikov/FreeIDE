@@ -146,6 +146,7 @@
             this.solutionFileTreeView.Size = new System.Drawing.Size(257, 387);
             this.solutionFileTreeView.StateImageList = this.solutionFileTreeView_ImageList;
             this.solutionFileTreeView.TabIndex = 7;
+            this.solutionFileTreeView.OpenFile += new FreeIDE.Controls.FileTreeViewFileEvent(this.solutionFileTreeView_OpenFile);
             // 
             // solutionFileTreeView_ImageList
             // 

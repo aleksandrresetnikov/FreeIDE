@@ -57,7 +57,9 @@
     <Compile Include="IDE\Profiles\ProfilesLoader.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LogTasker.cs" />
-    <Compile Include="PathsCollector.cs" />
+    <Compile Include="Pathes\PathItem.cs" />
+    <Compile Include="Pathes\PathsCollector.cs" />
+    <Compile Include="Pathes\PathsCollectorItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsMaster.cs" />
     <Compile Include="SettingsTable.cs" />

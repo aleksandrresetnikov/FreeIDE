@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 using FreeIDE.Common.Utils;
+using FreeIDE.Common.Pathes;
 using FreeIDE.Common;
 
 namespace FreeIDE.Controls
@@ -12,11 +13,13 @@ namespace FreeIDE.Controls
 
     public class FileTreeViewFileEventArgs
     {
-        public PathsCollector Paths { get; private protected set; }
+        public PathsCollectorItem Paths;
     }
 
     internal class FileTreeView : TreeView
     {
+        public PathsCollector PathsHistory { get; private protected set; }
+
         public DirectoryInfo _OpenDirectory;
 
         public string SelectedPath { get; private protected set; }
@@ -99,10 +102,24 @@ namespace FreeIDE.Controls
             this.Nodes.Add(rootNode);
         }
 
+        private bool CheckSelectedNode()
+        {
+            if (this.SelectedNode == null) return false;
+
+            if (new FileInfo(this.SelectedNode.Tag.ToString()).Exists) return true; // OK
+            else if (new DirectoryInfo(this.SelectedNode.Tag.ToString()).Exists) return true; // OK
+            else { this.SelectedNode.Remove(); return false; } // Error: The file or folder does not exist in the file system
+        }
 
         private void FileTreeView_DoubleClick(object sender, EventArgs e)
         {
-
+            if (CheckSelectedNode() && this.OpenFile != null)
+            {
+                OpenFile.Invoke(this, new FileTreeViewFileEventArgs
+                {
+                    Paths = new PathsCollectorItem(new PathItem(this.SelectedNode.Tag.ToString()))
+                });
+            }
         }
         private void FileTreeView_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {

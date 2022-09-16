@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using FreeIDE.Common.Utils;
 using FreeIDE.Common.Pathes;
 using FreeIDE.Common;
+using System.Xml.XPath;
 
 namespace FreeIDE.Controls
 {
@@ -29,6 +30,7 @@ namespace FreeIDE.Controls
 
         public event FileTreeViewFileEvent OpenFile;
 
+        public event FileTreeViewFileEvent RenameFile;
         public event FileTreeViewFileEvent RemoveFile;
         public event FileTreeViewFileEvent DeleteFile;
         public event FileTreeViewFileEvent CutFile;
@@ -36,6 +38,7 @@ namespace FreeIDE.Controls
         public event FileTreeViewFileEvent PasteFile;
         public event FileTreeViewFileEvent PasteFiles;
 
+        public event FileTreeViewFileEvent RenameDirectory;
         public event FileTreeViewFileEvent RemoveDirectory;
         public event FileTreeViewFileEvent DeleteDirectory;
         public event FileTreeViewFileEvent CutDirectory;
@@ -168,6 +171,10 @@ namespace FreeIDE.Controls
                         return;
                     }
 
+                    if (RenameFile != null) RenameFile.Invoke(this, new FileTreeViewFileEventArgs 
+                    {
+                        Paths = new PathsCollectorItem(new PathItem(lastFileInfo), new PathItem(e.Node.Tag.ToString()))
+                    });
                     File.Move(lastFileInfo.FullName, e.Node.Tag.ToString());
                     AddHistory(new PathItem(lastFileInfo), new PathItem(e.Node.Tag.ToString()));
                 }
@@ -193,8 +200,11 @@ namespace FreeIDE.Controls
                         return;
                     }
 
-                    lastDirInfo.Delete();
-                    Directory.CreateDirectory(e.Node.Tag.ToString());
+                    if (RenameDirectory != null) RenameFile.Invoke(this, new FileTreeViewFileEventArgs
+                    {
+                        Paths = new PathsCollectorItem(new PathItem(lastDirInfo), new PathItem(e.Node.Tag.ToString()))
+                    });
+                    DirectoryUtil.MoveDir(lastDirInfo.FullName, e.Node.Tag.ToString());
                     AddHistory(new PathItem(lastDirInfo), new PathItem(e.Node.Tag.ToString()));
                 }
             }

@@ -2,7 +2,7 @@
 
 namespace FreeIDE.Common.Pathes
 {
-    public class PathsCollectorItem : IDisposable
+    public class PathsCollectorItem : IDisposable, ICloneable
     {
         public PathItem PathItemFrom { get; set; }
         public PathItem PathItemTo { get; set; }
@@ -13,5 +13,6 @@ namespace FreeIDE.Common.Pathes
 
         public override string ToString() => this.PathItemFrom.ToString();
         public void Dispose() => GC.SuppressFinalize(this);
+        public object Clone() => new PathsCollectorItem(this.PathItemFrom, this.PathItemTo);
     }
 }

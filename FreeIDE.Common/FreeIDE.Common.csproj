@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\IPathCloneable.cs" />
     <Compile Include="API\IPathsCollector.cs" />
     <Compile Include="ColorParser.cs" />
     <Compile Include="CommonEnums.cs" />

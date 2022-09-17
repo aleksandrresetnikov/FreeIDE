@@ -1,20 +1,28 @@
 ﻿using System;
 using System.IO;
 using System.Drawing;
+using System.Collections.Specialized;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 using FreeIDE.Common.Utils;
 using FreeIDE.Common.Pathes;
 using FreeIDE.Common;
+using System.Collections.Generic;
 
 namespace FreeIDE.Controls
 {
     public delegate void FileTreeViewFileEvent(object sender, FileTreeViewFileEventArgs e);
+    public delegate void FileTreeViewPasteEvent(object sender, FileTreeViewPasteEventArgs e);
 
     public class FileTreeViewFileEventArgs
     {
         public PathsCollectorItem Paths;
+    }
+
+    public class FileTreeViewPasteEventArgs
+    {
+        public PathsCollector Paths;
     }
 
     internal class FileTreeView : TreeView
@@ -29,6 +37,7 @@ namespace FreeIDE.Controls
         public PathItem SelectedPathItem => new PathItem(this.SelectedNode.Tag.ToString());
 
         public event FileTreeViewFileEvent OpenFile;
+        public event FileTreeViewPasteEvent Paste;
 
         public event FileTreeViewFileEvent RenameFile;
         public event FileTreeViewFileEvent MoveFile;
@@ -36,8 +45,6 @@ namespace FreeIDE.Controls
         public event FileTreeViewFileEvent CutFile;
         public event FileTreeViewFileEvent CopyFile;
         public event FileTreeViewFileEvent CopyToFile;
-        public event FileTreeViewFileEvent PasteFile;
-        public event FileTreeViewFileEvent PasteFiles;
 
         public event FileTreeViewFileEvent RenameDirectory;
         public event FileTreeViewFileEvent MoveDirectory;
@@ -45,8 +52,6 @@ namespace FreeIDE.Controls
         public event FileTreeViewFileEvent CutDirectory;
         public event FileTreeViewFileEvent CopyDirectory;
         public event FileTreeViewFileEvent CopyToDirectory;
-        public event FileTreeViewFileEvent PasteDirectory;
-        public event FileTreeViewFileEvent PasteDirectories;
 
         [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
         private extern static int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
@@ -57,7 +62,6 @@ namespace FreeIDE.Controls
             this.AllowDrop = true;
 
             this.BeforeExpand += FileTreeView_BeforeExpand;
-            this.BeforeSelect += FileTreeView_BeforeSelect;
             this.ItemDrag += FileTreeView_ItemDrag;
             this.DragEnter += FileTreeView_DragEnter;
             this.DragOver += FileTreeView_DragOver;
@@ -65,12 +69,6 @@ namespace FreeIDE.Controls
             this.BeforeLabelEdit += FileTreeView_BeforeLabelEdit;
             this.AfterLabelEdit += FileTreeView_AfterLabelEdit;
             this.DoubleClick += FileTreeView_DoubleClick;
-        }
-
-        protected override void CreateHandle()
-        {
-            base.CreateHandle();
-            SetWindowTheme(this.Handle, "explorer", null);
         }
 
         public void Open(DirectoryInfo Directory)
@@ -110,6 +108,86 @@ namespace FreeIDE.Controls
             rootNode.ImageIndex = 0;
 
             this.Nodes.Add(rootNode);
+        }
+        public void DoCopyFile()
+        {
+            //if (CheckSelectedNode()) return;
+            Clipboard.SetFileDropList(new StringCollection { this.SelectedPathItem.Path });
+            this.PathsHistory.Add(new PathsCollectorItem(new PathItem(this.SelectedPathItem.Path)));
+
+            if (this.CopyFile != null) CopyFile.Invoke(this, new FileTreeViewFileEventArgs
+            {
+                Paths = new PathsCollectorItem(this.SelectedPathItem.ClonePath())
+            });
+
+            Console.WriteLine("Copy");
+        }
+        public void DoPaste()
+        {
+            if (CheckSelectedNode() || !Clipboard.ContainsFileDropList()) return;
+
+            StringCollection filesArray = Clipboard.GetFileDropList();
+            Dictionary<string, string> filesPairs = new Dictionary<string, string>();
+            this.SelectedNode = this.SelectedPathItem.IsExists ? this.SelectedNode.Parent : this.SelectedNode;
+
+            foreach (string item in filesArray)
+            {
+                if (File.Exists(item))
+                {
+                    TreeNode newTreeNode = new TreeNode(new FileInfo(item).Name);
+                    newTreeNode.Tag = this.SelectedPathItem.Path + $"/" + new FileInfo(item).Name;
+                    if (!File.Exists(newTreeNode.Tag.ToString()))
+                    {
+                        this.SelectedNode.Nodes.Add(newTreeNode);
+                        File.Copy(item, newTreeNode.Tag.ToString());
+                    }
+
+                    filesPairs.Add(item, newTreeNode.Tag.ToString());
+                }
+                else if (Directory.Exists(item))
+                {
+                    TreeNode newTreeNode = new TreeNode(new DirectoryInfo(item).Name);
+                    newTreeNode.Tag = this.SelectedPathItem.Path + $"/" + new DirectoryInfo(item).Name;
+                    if (!Directory.Exists(newTreeNode.Tag.ToString()))
+                    {
+                        this.SelectedNode.Nodes.Add(newTreeNode);
+                        DirectoryUtil.CopyDir(item, newTreeNode.Tag.ToString());
+                    }
+
+                    filesPairs.Add(item, newTreeNode.Tag.ToString());
+                }
+
+                Console.WriteLine(item);
+            }
+
+            if (this.Paste != null) Paste.Invoke(this, new FileTreeViewPasteEventArgs
+            {
+                Paths = PathsCollector.Parse(filesPairs)
+            });
+            this.PathsHistory.AddDictionary(filesPairs);
+
+            Console.WriteLine("Paste");
+        }
+
+        protected override void CreateHandle()
+        {
+            base.CreateHandle();
+            SetWindowTheme(this.Handle, "explorer", null);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.C)) // Copy
+            {
+                this.DoCopyFile();
+                return true;
+            }
+            else if (keyData == (Keys.Control | Keys.V)) // Paste
+            {
+                this.DoPaste();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         private bool CheckSelectedNode()
@@ -271,6 +349,7 @@ namespace FreeIDE.Controls
                             {
                                 Paths = new PathsCollectorItem(new PathItem(draggedNode.Tag.ToString()), new PathItem(toFilePath.Path))
                             });
+                            AddHistory(fromPath.ClonePath(), toFilePath.ClonePath());
                         }
                         else if (fromPath.IsDirectory)
                         {
@@ -290,6 +369,7 @@ namespace FreeIDE.Controls
                             {
                                 Paths = new PathsCollectorItem(new PathItem(draggedNode.Tag.ToString()), new PathItem(toDirectoryPath.Path))
                             });
+                            AddHistory(fromPath.ClonePath(), toDirectoryPath.ClonePath());
                         }
                         else 
                         { 
@@ -326,6 +406,7 @@ namespace FreeIDE.Controls
                             {
                                 Paths = new PathsCollectorItem(new PathItem(draggedNode.Tag.ToString()), new PathItem(toFilePath.Path))
                             });
+                            AddHistory(fromPath.ClonePath(), toFilePath.ClonePath());
                         }
                         else if (new DirectoryInfo(draggedNode.Tag.ToString()).Exists)
                         {
@@ -343,6 +424,7 @@ namespace FreeIDE.Controls
                             {
                                 Paths = new PathsCollectorItem(new PathItem(draggedNode.Tag.ToString()),  new PathItem(toDirectoryPath.Path))
                             });
+                            AddHistory(fromPath.ClonePath(), toDirectoryPath.ClonePath());
                         }
                         else 
                         { 
@@ -374,10 +456,6 @@ namespace FreeIDE.Controls
                 DoDragDrop(e.Item, DragDropEffects.Move);
             else if (e.Button == MouseButtons.Right)
                 DoDragDrop(e.Item, DragDropEffects.Copy);
-        }
-        private void FileTreeView_BeforeSelect(object sender, TreeViewCancelEventArgs e)
-        {
-
         }
         private void FileTreeView_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {

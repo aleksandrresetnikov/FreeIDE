@@ -40,9 +40,31 @@ namespace FreeIDE.Common.Pathes
             return outputValue;
         }
 
+        public void AddDictionary(Dictionary<string, string> valuePairs)
+        {
+            foreach (KeyValuePair<string, string> pair in valuePairs)
+                this.Add(new PathsCollectorItem(new PathItem(pair.Key), new PathItem(pair.Value)));
+        }
+
+        public void AddPathsCollector(PathsCollector pathsCollector)
+        {
+            foreach (PathsCollectorItem pathItem in pathsCollector)
+                this.Add(pathItem.Clone() as PathsCollectorItem);
+        }
+
         public void Dispose()
         {
             this.Dispose();
+        }
+
+        public static PathsCollector Parse(Dictionary<string, string> valuePairs)
+        {
+            PathsCollector outputValue = new PathsCollector();
+
+            foreach (KeyValuePair<string, string> pair in valuePairs)
+                outputValue.Add(new PathsCollectorItem(new PathItem(pair.Key), new PathItem(pair.Value)));
+
+            return outputValue;
         }
     }
 }

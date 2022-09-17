@@ -1,9 +1,11 @@
 ﻿using System;
 using System.IO;
 
+using FreeIDE.Common.API;
+
 namespace FreeIDE.Common.Pathes
 {
-    public class PathItem : IDisposable
+    public class PathItem : IDisposable, ICloneable, IPathCloneable
     {
         public string Path { get; set; }
 
@@ -23,5 +25,7 @@ namespace FreeIDE.Common.Pathes
 
         public override string ToString() => this.Path;
         public void Dispose() => GC.SuppressFinalize(this);
+        public object Clone() => new PathItem(this.Path);
+        public PathItem ClonePath() => this.Clone() as PathItem;
     }
 }

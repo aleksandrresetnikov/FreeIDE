@@ -1,14 +1,15 @@
 ﻿using System;
 using System.IO;
 using System.Drawing;
+using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 using FreeIDE.Common.Utils;
 using FreeIDE.Common.Pathes;
 using FreeIDE.Common;
-using System.Collections.Generic;
 
 namespace FreeIDE.Controls
 {
@@ -30,11 +31,15 @@ namespace FreeIDE.Controls
         private string fileType_LastFileName = "";
         private FileType fileType_RenameNode = FileType.File;
         private DirectoryInfo _OpenDirectory;
+        private System.Threading.Timer checkTimer;
+        private object checkTimerCallbackObject = null;
 
         public PathsCollector PathsHistory { get; private protected set; } = new PathsCollector();
         public string SelectedPath { get; private protected set; }
         public DirectoryInfo OpenDirectory { get => _OpenDirectory; private protected set => Update(value); }
-        public PathItem SelectedPathItem => new PathItem(this.SelectedNode.Tag.ToString());
+        public PathItem SelectedPathItem => new PathItem(this.SelectedNode == null ? null : this.SelectedNode.Tag.ToString());
+        public int CheckTimerInterval { get; set; } = 100;
+        public bool CheckTimerDoing { get; set; } = true;
 
         public event FileTreeViewFileEvent OpenFile;
         public event FileTreeViewPasteEvent Paste;
@@ -58,6 +63,10 @@ namespace FreeIDE.Controls
 
         public FileTreeView() : base()
         {
+            if (this.CheckTimerDoing)
+                this.checkTimer = new System.Threading.Timer(new System.Threading.TimerCallback(this.checkTimerDoing), 
+                    this.checkTimerCallbackObject, 0, this.CheckTimerInterval);
+
             this.LabelEdit = true;
             this.AllowDrop = true;
 
@@ -111,7 +120,7 @@ namespace FreeIDE.Controls
         }
         public void DoCopyFile()
         {
-            //if (CheckSelectedNode()) return;
+            if (!CheckSelectedNode()) return;
             Clipboard.SetFileDropList(new StringCollection { this.SelectedPathItem.Path });
             this.PathsHistory.Add(new PathsCollectorItem(new PathItem(this.SelectedPathItem.Path)));
 
@@ -124,17 +133,19 @@ namespace FreeIDE.Controls
         }
         public void DoPaste()
         {
-            if (CheckSelectedNode() || !Clipboard.ContainsFileDropList()) return;
+            if (!CheckSelectedNode() || !Clipboard.ContainsFileDropList()) return;
 
             StringCollection filesArray = Clipboard.GetFileDropList();
             Dictionary<string, string> filesPairs = new Dictionary<string, string>();
-            this.SelectedNode = this.SelectedPathItem.IsExists ? this.SelectedNode.Parent : this.SelectedNode;
+            this.SelectedNode = this.SelectedPathItem.IsFile ? this.SelectedNode.Parent : this.SelectedNode;
 
             foreach (string item in filesArray)
             {
                 if (File.Exists(item))
                 {
                     TreeNode newTreeNode = new TreeNode(new FileInfo(item).Name);
+                    newTreeNode.ImageIndex = IconsUtil.GetImageIndexMini(new FileInfo(item).Extension);
+                    newTreeNode.SelectedImageIndex = IconsUtil.GetImageIndexMini(new FileInfo(item).Extension);
                     newTreeNode.Tag = this.SelectedPathItem.Path + $"/" + new FileInfo(item).Name;
                     if (!File.Exists(newTreeNode.Tag.ToString()))
                     {
@@ -148,6 +159,8 @@ namespace FreeIDE.Controls
                 {
                     TreeNode newTreeNode = new TreeNode(new DirectoryInfo(item).Name);
                     newTreeNode.Tag = this.SelectedPathItem.Path + $"/" + new DirectoryInfo(item).Name;
+                    newTreeNode.ImageIndex = 0;
+                    newTreeNode.SelectedImageIndex = 0;
                     if (!Directory.Exists(newTreeNode.Tag.ToString()))
                     {
                         this.SelectedNode.Nodes.Add(newTreeNode);
@@ -190,6 +203,35 @@ namespace FreeIDE.Controls
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private void checkTimerDoing(Object stateInfo)
+        {
+            try
+            {
+                Console.Clear();
+                var invoke = this.BeginInvoke((Action)delegate
+                {
+                    try
+                    {
+                        Console.WriteLine(/*this.GetRootNode().Text*/this.SelectedNode.Name);
+                        this.CheckSelectedNode();
+                        this.CheckNodesList(this.GetRootNode());
+                    }
+                    catch (Exception ex) { }
+                });
+            }
+            catch { }
+        }
+
+        private TreeNode GetRootNode()
+        {
+            if (this.SelectedNode == null) return null;
+
+            TreeNode node = this.SelectedNode;
+            while (node.Parent != null) node = node.Parent;
+
+            return node;
+        }
+
         private bool CheckSelectedNode()
         {
             if (this.SelectedNode == null) return false;
@@ -197,6 +239,32 @@ namespace FreeIDE.Controls
             if (new FileInfo(this.SelectedNode.Tag.ToString()).Exists) return true; // OK
             else if (new DirectoryInfo(this.SelectedNode.Tag.ToString()).Exists) return true; // OK
             else { this.SelectedNode.Remove(); return false; } // Error: The file or folder does not exist in the file system
+        }
+
+        private void CheckNodesList(TreeNode node)
+        {
+            if (node == null) return;
+            /*Task.Run(() =>
+            {
+                foreach (TreeNode _node in node.Nodes)
+                {
+                    if (_node.Tag == null || !new PathItem(_node.Tag.ToString()).IsExists) 
+                        _node.Remove();
+                    else
+                        CheckNodesList(_node);
+                }
+            });*/
+            foreach (TreeNode _node in node.Nodes)
+            {
+                if (_node.Tag == null)
+                    _node.Remove();
+                else if (new FileInfo(_node.Tag.ToString()).Exists)
+                { Console.WriteLine(_node.Tag.ToString()); continue; }
+                else if (new DirectoryInfo(_node.Tag.ToString()).Exists)
+                    CheckNodesList(_node);
+                else
+                    _node.Remove();
+            }
         }
 
         private void AddHistory(PathItem PathItemFrom)

@@ -46,9 +46,19 @@ namespace FreeIDE.Forms
             this.InitializeComponent();
             this.InitializeTags();
             this.InitializeTheme();
+            this.InitializeSolutionFileTreeView();
+        }
 
+        private void InitializeSolutionFileTreeView()
+        {
             this.solutionFileTreeView.Open(this.OpenSolution != null ? this.OpenSolution.SolutionDirectory :
                 new DirectoryInfo(DirectoriesHelper.PathToDocumentsDirectory));
+            this.solutionFileTreeView.MoveDirectory += SolutionFileTreeView_MoveDirectory;
+        }
+
+        private void SolutionFileTreeView_MoveDirectory(object sender, FileTreeViewFileEventArgs e)
+        {
+            Console.WriteLine($"Move: \'{e.Paths.PathItemFrom}\'; To: \'{e.Paths.PathItemTo}\'");
         }
 
         private void InitializeTags()

@@ -14,6 +14,7 @@ namespace FreeIDE.Common.Pathes
 
         public bool IsDirectory => Directory.Exists(this.Path);
         public bool IsFile => File.Exists(this.Path);
+        public bool IsExists => this.IsDirectory || this.IsFile;
 
         public PathItem() => this.Path = null;
         public PathItem(string Path) => this.Path = Path;

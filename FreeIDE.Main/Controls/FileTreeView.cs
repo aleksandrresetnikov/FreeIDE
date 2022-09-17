@@ -31,18 +31,20 @@ namespace FreeIDE.Controls
         public event FileTreeViewFileEvent OpenFile;
 
         public event FileTreeViewFileEvent RenameFile;
-        public event FileTreeViewFileEvent RemoveFile;
+        public event FileTreeViewFileEvent MoveFile;
         public event FileTreeViewFileEvent DeleteFile;
         public event FileTreeViewFileEvent CutFile;
         public event FileTreeViewFileEvent CopyFile;
+        public event FileTreeViewFileEvent CopyToFile;
         public event FileTreeViewFileEvent PasteFile;
         public event FileTreeViewFileEvent PasteFiles;
 
         public event FileTreeViewFileEvent RenameDirectory;
-        public event FileTreeViewFileEvent RemoveDirectory;
+        public event FileTreeViewFileEvent MoveDirectory;
         public event FileTreeViewFileEvent DeleteDirectory;
         public event FileTreeViewFileEvent CutDirectory;
         public event FileTreeViewFileEvent CopyDirectory;
+        public event FileTreeViewFileEvent CopyToDirectory;
         public event FileTreeViewFileEvent PasteDirectory;
         public event FileTreeViewFileEvent PasteDirectories;
 
@@ -136,7 +138,7 @@ namespace FreeIDE.Controls
                 PathItem pathItem = new PathItem(this.SelectedNode.Tag.ToString());
                 AddHistory(pathItem);
 
-                OpenFile.Invoke(this, new FileTreeViewFileEventArgs { 
+                this.OpenFile.Invoke(this, new FileTreeViewFileEventArgs { 
                     Paths = new PathsCollectorItem(pathItem) 
                 });
             }
@@ -160,7 +162,7 @@ namespace FreeIDE.Controls
                     e.Node.SelectedImageIndex = e.Node.ImageIndex;
                     if (File.Exists(e.Node.Tag.ToString()))
                     {
-                        MessageBox.Show("A file with the same name\nalready exists", "Problem",
+                        MessageBox.Show("A file with the same name already exists", "Problem",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         var invoke = BeginInvoke((Action)delegate
                         {
@@ -172,7 +174,7 @@ namespace FreeIDE.Controls
                         return;
                     }
 
-                    if (RenameFile != null) RenameFile.Invoke(this, new FileTreeViewFileEventArgs 
+                    if (this.RenameFile != null) this.RenameFile.Invoke(this, new FileTreeViewFileEventArgs 
                     {
                         Paths = new PathsCollectorItem(new PathItem(lastFileInfo), new PathItem(e.Node.Tag.ToString()))
                     });
@@ -191,7 +193,7 @@ namespace FreeIDE.Controls
                     e.Node.SelectedImageIndex = 0;
                     if (Directory.Exists(e.Node.Tag.ToString()))
                     {
-                        MessageBox.Show("A folder with the same name\nalready exists", "Problem",
+                        MessageBox.Show("A folder with the same name already exists", "Problem",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         var invoke = BeginInvoke((Action)delegate
                         {
@@ -202,7 +204,7 @@ namespace FreeIDE.Controls
                         return;
                     }
 
-                    if (RenameDirectory != null) RenameFile.Invoke(this, new FileTreeViewFileEventArgs
+                    if (this.RenameDirectory != null) this.RenameFile.Invoke(this, new FileTreeViewFileEventArgs
                     {
                         Paths = new PathsCollectorItem(new PathItem(lastDirInfo), new PathItem(e.Node.Tag.ToString()))
                     });
@@ -217,13 +219,13 @@ namespace FreeIDE.Controls
             {
                 if (this.SelectedPathItem.IsFile)
                 {
-                    fileType_RenameNode = FileType.File;
-                    fileType_LastFileName = this.SelectedPathItem.GetFileInfo.Name;
+                    this.fileType_RenameNode = FileType.File;
+                    this.fileType_LastFileName = this.SelectedPathItem.GetFileInfo.Name;
                 }
                 else if (this.SelectedPathItem.IsDirectory)
                 {
-                    fileType_RenameNode = FileType.Dir;
-                    fileType_LastFileName = this.SelectedPathItem.GetDirectoryInfo.Name;
+                    this.fileType_RenameNode = FileType.Dir;
+                    this.fileType_LastFileName = this.SelectedPathItem.GetDirectoryInfo.Name;
                 }
             }
         }
@@ -238,33 +240,60 @@ namespace FreeIDE.Controls
 
             if (!draggedNode.Equals(targetNode) && !TreeNodeHelper.ContainsNode(draggedNode, targetNode))
             {
+                PathItem fromPath = new PathItem(draggedNode.Tag.ToString());
+                PathItem toFilePath = new PathItem(targetNode.Tag.ToString() + $"/" + fromPath.GetFileInfo.Name);
+                PathItem toDirectoryPath = new PathItem(targetNode.Tag.ToString() + $"/" + fromPath.GetDirectoryInfo.Name);
+
                 if (e.Effect == DragDropEffects.Move && new FileInfo(targetNode.Tag.ToString()).Extension.Replace(" ", "") == "")
                 {
                     if (targetNode.ContainsNodeInName(draggedNode))
                     {
-                        MessageBox.Show("This file already exists in\nthis directory", "Problem",
+                        MessageBox.Show("This file already exists in this directory", "Problem", 
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        Console.WriteLine($@"File path : {draggedNode.Tag}, file move to (path) : {targetNode.Tag}");
-                        if (new FileInfo(draggedNode.Tag.ToString()).Exists)
+                        if (fromPath.IsFile)
                         {
-                            File.Move(draggedNode.Tag.ToString(),
-                                targetNode.Tag.ToString() + $"/" + new FileInfo(draggedNode.Tag.ToString()).Name);
-                            draggedNode.Tag = targetNode.Tag.ToString() + $"/" + new FileInfo(draggedNode.Tag.ToString()).Name;
-                            draggedNode.Remove(); targetNode.Nodes.Add(draggedNode);
+                            if (File.Exists(toFilePath.Path))
+                            {
+                                MessageBox.Show("This file already exists in this directory", "Problem",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            File.Move(fromPath.Path, toFilePath.Path);
+                            draggedNode.Tag = toFilePath;
+                            draggedNode.Remove(); 
+                            targetNode.Nodes.Add(draggedNode);
+
+                            if (this.MoveFile != null) this.MoveFile.Invoke(this, new FileTreeViewFileEventArgs
+                            {
+                                Paths = new PathsCollectorItem(new PathItem(draggedNode.Tag.ToString()), new PathItem(toFilePath.Path))
+                            });
                         }
-                        else if (new DirectoryInfo(draggedNode.Tag.ToString()).Exists)
+                        else if (fromPath.IsDirectory)
                         {
-                            Directory.Move(draggedNode.Tag.ToString(),
-                                targetNode.Tag.ToString() + $"/" + new DirectoryInfo(draggedNode.Tag.ToString()).Name);
-                            draggedNode.Tag = targetNode.Tag.ToString() + $"/" + new DirectoryInfo(draggedNode.Tag.ToString()).Name;
-                            draggedNode.Remove(); targetNode.Nodes.Add(draggedNode);
+                            if (Directory.Exists(toDirectoryPath.Path))
+                            {
+                                MessageBox.Show("This directory already exists in this directory", "Problem",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            DirectoryUtil.MoveDir(draggedNode.Tag.ToString(), toDirectoryPath.Path);
+                            draggedNode.Tag = toDirectoryPath;
+                            draggedNode.Remove(); 
+                            targetNode.Nodes.Add(draggedNode);
+
+                            if (this.MoveDirectory != null) this.MoveDirectory.Invoke(this, new FileTreeViewFileEventArgs
+                            {
+                                Paths = new PathsCollectorItem(new PathItem(draggedNode.Tag.ToString()), new PathItem(toDirectoryPath.Path))
+                            });
                         }
                         else 
                         { 
-                            MessageBox.Show("The file does not exist", "Problem",
+                            MessageBox.Show("The file does not exist", "Problem", 
                                 MessageBoxButtons.OK, MessageBoxIcon.Error); 
                             draggedNode.Remove(); 
                         }
@@ -274,7 +303,7 @@ namespace FreeIDE.Controls
                 {
                     if (targetNode.ContainsNodeInName(draggedNode))
                     {
-                        MessageBox.Show("This file already exists in\nthis directory", "Problem",
+                        MessageBox.Show("This file already exists in this directory", "Problem",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
@@ -283,15 +312,37 @@ namespace FreeIDE.Controls
                         Console.WriteLine($@"File path : {draggedNode.Tag}, file copy to (path) : {targetNode.Tag}");
                         if (new FileInfo(draggedNode.Tag.ToString()).Exists)
                         {
-                            File.Copy(draggedNode.Tag.ToString(),
-                                targetNode.Tag.ToString() + $"/" + new FileInfo(draggedNode.Tag.ToString()).Name);
-                            newNode.Tag = targetNode.Tag.ToString() + $"/" + new FileInfo(draggedNode.Tag.ToString()).Name;
+                            if (File.Exists(toFilePath.Path))
+                            {
+                                MessageBox.Show("This file already exists in this directory", "Problem",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            File.Copy(draggedNode.Tag.ToString(), toFilePath.Path);
+                            newNode.Tag = toFilePath;
+
+                            if (this.CopyToFile != null) this.CopyToFile.Invoke(this, new FileTreeViewFileEventArgs
+                            {
+                                Paths = new PathsCollectorItem(new PathItem(draggedNode.Tag.ToString()), new PathItem(toFilePath.Path))
+                            });
                         }
                         else if (new DirectoryInfo(draggedNode.Tag.ToString()).Exists)
                         {
-                            DirectoryUtil.CopyDir(draggedNode.Tag.ToString(),
-                                targetNode.Tag.ToString() + $"/" + new DirectoryInfo(draggedNode.Tag.ToString()).Name);
-                            newNode.Tag = targetNode.Tag.ToString() + $"/" + new DirectoryInfo(draggedNode.Tag.ToString()).Name;
+                            if (Directory.Exists(toDirectoryPath.Path))
+                            {
+                                MessageBox.Show("This directory already exists in this directory", "Problem",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            DirectoryUtil.CopyDir(draggedNode.Tag.ToString(), toDirectoryPath.Path);
+                            newNode.Tag = toDirectoryPath;
+
+                            if (this.CopyToDirectory != null) this.CopyToDirectory.Invoke(this, new FileTreeViewFileEventArgs
+                            {
+                                Paths = new PathsCollectorItem(new PathItem(draggedNode.Tag.ToString()),  new PathItem(toDirectoryPath.Path))
+                            });
                         }
                         else 
                         { 
@@ -301,8 +352,7 @@ namespace FreeIDE.Controls
                             newNode.Tag = null; 
                         }
 
-                        if (newNode != null && newNode.Tag != null)
-                            targetNode.Nodes.Add(newNode);
+                        if (newNode != null && newNode.Tag != null) targetNode.Nodes.Add(newNode);
                     }
                 }
 

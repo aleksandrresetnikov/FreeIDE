@@ -110,7 +110,7 @@
             // 
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.buttonClose.Location = new System.Drawing.Point(775, 1);
+            this.buttonClose.Location = new System.Drawing.Point(872, 1);
             // 
             // TitleLabel
             // 
@@ -122,12 +122,12 @@
             // buttonMaxType
             // 
             this.buttonMaxType.FlatAppearance.BorderSize = 0;
-            this.buttonMaxType.Location = new System.Drawing.Point(751, 1);
+            this.buttonMaxType.Location = new System.Drawing.Point(848, 1);
             // 
             // buttonMinType
             // 
             this.buttonMinType.FlatAppearance.BorderSize = 0;
-            this.buttonMinType.Location = new System.Drawing.Point(727, 1);
+            this.buttonMinType.Location = new System.Drawing.Point(824, 1);
             // 
             // timer
             // 
@@ -146,7 +146,7 @@
             this.solutionFileTreeView.Name = "solutionFileTreeView";
             this.solutionFileTreeView.SelectedImageIndex = 0;
             this.solutionFileTreeView.ShowLines = false;
-            this.solutionFileTreeView.Size = new System.Drawing.Size(257, 387);
+            this.solutionFileTreeView.Size = new System.Drawing.Size(290, 551);
             this.solutionFileTreeView.StateImageList = this.solutionFileTreeView_ImageList;
             this.solutionFileTreeView.TabIndex = 7;
             this.solutionFileTreeView.OpenFile += new FreeIDE.Controls.FileTreeViewFileEvent(this.solutionFileTreeView_OpenFile);
@@ -184,7 +184,7 @@
             this.mainPanel.Controls.Add(this.mainMenuStrip);
             this.mainPanel.Location = new System.Drawing.Point(5, 30);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(790, 414);
+            this.mainPanel.Size = new System.Drawing.Size(887, 578);
             this.mainPanel.TabIndex = 8;
             // 
             // mainMenuStrip
@@ -197,7 +197,7 @@
             this.projectToolStripMenuItem3});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(790, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(887, 24);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -608,7 +608,7 @@
             this.mainContainerPanel.Controls.Add(this.splitter1);
             this.mainContainerPanel.Location = new System.Drawing.Point(5, 57);
             this.mainContainerPanel.Name = "mainContainerPanel";
-            this.mainContainerPanel.Size = new System.Drawing.Size(790, 387);
+            this.mainContainerPanel.Size = new System.Drawing.Size(887, 551);
             this.mainContainerPanel.TabIndex = 8;
             // 
             // splitContainer1
@@ -624,8 +624,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.solutionFileTreeView);
-            this.splitContainer1.Size = new System.Drawing.Size(787, 387);
-            this.splitContainer1.SplitterDistance = 526;
+            this.splitContainer1.Size = new System.Drawing.Size(884, 551);
+            this.splitContainer1.SplitterDistance = 590;
             this.splitContainer1.TabIndex = 10;
             // 
             // mainTabControl
@@ -639,14 +639,14 @@
             this.mainTabControl.myBackColor = System.Drawing.SystemColors.ControlLightLight;
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(526, 387);
+            this.mainTabControl.Size = new System.Drawing.Size(590, 551);
             this.mainTabControl.TabIndex = 0;
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 387);
+            this.splitter1.Size = new System.Drawing.Size(3, 551);
             this.splitter1.TabIndex = 9;
             this.splitter1.TabStop = false;
             // 
@@ -658,7 +658,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(897, 614);
             this.Controls.Add(this.mainContainerPanel);
             this.Controls.Add(this.mainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

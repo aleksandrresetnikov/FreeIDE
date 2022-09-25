@@ -13,6 +13,7 @@ namespace FreeIDE.Common.Pathes
         public DirectoryInfo GetDirectoryInfo => new DirectoryInfo(this.Path);
         public StreamReader CreateStreamReader => new StreamReader(this.Path);
         public StreamWriter CreateStreamWriter => new StreamWriter(this.Path);
+        public string GetFileExtension => this.IsFile ? this.GetFileInfo.Extension : null;
 
         public bool IsDirectory => Directory.Exists(this.Path);
         public bool IsFile => File.Exists(this.Path);

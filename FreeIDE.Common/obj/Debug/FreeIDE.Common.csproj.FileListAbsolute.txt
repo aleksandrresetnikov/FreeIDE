@@ -4,3 +4,7 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.cspro
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.dll
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.pdb
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\bin\Debug\FastColoredTextBox.dll
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\bin\Debug\FastColoredTextBox.pdb
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\bin\Debug\FastColoredTextBox.xml
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Common\obj\Debug\FreeIDE.Common.csproj.CopyComplete

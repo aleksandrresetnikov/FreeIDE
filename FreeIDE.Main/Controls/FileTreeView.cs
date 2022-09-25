@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Runtime.InteropServices;
 
+using FreeIDE.Common;
 using FreeIDE.Common.Utils;
 using FreeIDE.Common.Pathes;
-using FreeIDE.Common;
 
 namespace FreeIDE.Controls
 {
@@ -197,6 +197,11 @@ namespace FreeIDE.Controls
                     this.SelectedPathItem.Delete();
             }
         }
+        public void DoRename()
+        {
+            if (this.SelectedNode != null)
+                this.SelectedNode.BeginEdit();
+        }
 
         protected override void CreateHandle()
         {
@@ -223,7 +228,7 @@ namespace FreeIDE.Controls
             }
             else if (keyData == (Keys.F2))
             {
-                this.Edi
+                this.DoRename();
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
@@ -233,14 +238,14 @@ namespace FreeIDE.Controls
         {
             try
             {
-                Console.Clear();
+                //Console.Clear();
                 var invoke = this.BeginInvoke((Action)delegate
                 {
                     try
                     {
                         TreeNode treeNode = this.GetRootNode();
 
-                        Console.WriteLine(/*this.GetRootNode().Text*/this.SelectedNode.Name);
+                        //Console.WriteLine(/*this.GetRootNode().Text*/this.SelectedNode.Name);
                         this.CheckSelectedNode();
                         this.CheckNodesList(treeNode);
                     }
@@ -308,9 +313,13 @@ namespace FreeIDE.Controls
                 PathItem pathItem = new PathItem(this.SelectedNode.Tag.ToString());
                 AddHistory(pathItem);
 
-                this.OpenFile.Invoke(this, new FileTreeViewFileEventArgs { 
-                    Paths = new PathsCollectorItem(pathItem) 
-                });
+                if (pathItem.IsFile)
+                {
+                    this.OpenFile.Invoke(this, new FileTreeViewFileEventArgs
+                    {
+                        Paths = new PathsCollectorItem(pathItem)
+                    });
+                }
             }
         }
         private void FileTreeView_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)

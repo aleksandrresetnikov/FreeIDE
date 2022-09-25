@@ -67,6 +67,7 @@
     <Compile Include="SettingsMaster.cs" />
     <Compile Include="SettingsTable.cs" />
     <Compile Include="Utils\CommonUtils.cs" />
+    <Compile Include="Utils\FastColoredTextBoxUtil.cs" />
     <Compile Include="Utils\IconsUtil.cs" />
     <Compile Include="Utils\TreeNodeUtil.cs" />
     <Compile Include="WinShell\kernel32.cs" />
@@ -79,6 +80,11 @@
     <Compile Include="Utils\LogUtil.cs" />
     <Compile Include="Utils\StringUtil.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FastColoredTextBox\FastColoredTextBox.csproj">
+      <Project>{6dd14a85-ccfc-4774-bd26-0f5772512319}</Project>
+      <Name>FastColoredTextBox</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

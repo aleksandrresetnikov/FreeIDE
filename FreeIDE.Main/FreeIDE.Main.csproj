@@ -137,6 +137,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Syntax\InvisibleCharsRenderer.cs" />
+    <Compile Include="Syntax\SmartTbInfo.cs" />
+    <Compile Include="Syntax\Syntaxs\CSharpSyntaxData.cs" />
     <Compile Include="Tags\ButtonTag.cs" />
     <Compile Include="Tags\FileTreeViewTag.cs" />
     <Compile Include="Tags\FlatTabControlTag.cs" />

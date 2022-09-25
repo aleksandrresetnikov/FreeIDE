@@ -2,7 +2,6 @@
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Runtime.InteropServices;
@@ -133,7 +132,7 @@ namespace FreeIDE.Controls
         }
         public void DoPaste()
         {
-            if (!CheckSelectedNode() || !Clipboard.ContainsFileDropList()) return;
+            if (!CheckSelectedNode() || !Clipboard.ContainsFileDropList()) { return; }
 
             StringCollection filesArray = Clipboard.GetFileDropList();
             Dictionary<string, string> filesPairs = new Dictionary<string, string>();
@@ -161,6 +160,7 @@ namespace FreeIDE.Controls
                     newTreeNode.Tag = this.SelectedPathItem.Path + $"/" + new DirectoryInfo(item).Name;
                     newTreeNode.ImageIndex = 0;
                     newTreeNode.SelectedImageIndex = 0;
+                    newTreeNode.Nodes.Add(new TreeNode());
                     if (!Directory.Exists(newTreeNode.Tag.ToString()))
                     {
                         this.SelectedNode.Nodes.Add(newTreeNode);
@@ -178,8 +178,24 @@ namespace FreeIDE.Controls
                 Paths = PathsCollector.Parse(filesPairs)
             });
             this.PathsHistory.AddDictionary(filesPairs);
-
             Console.WriteLine("Paste");
+        }
+        public void DoDelete()
+        {
+            if (!CheckSelectedNode()) { return; }
+
+            if (this.SelectedPathItem.IsFile)
+            {
+                this.SelectedPathItem.Delete();
+            }
+            else if (this.SelectedPathItem.IsDirectory)
+            {
+                DialogResult dialog = MessageBox.Show("Are you sure about deleting the directory and all its contents ?", 
+                    "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialog == DialogResult.Yes)
+                    this.SelectedPathItem.Delete();
+            }
         }
 
         protected override void CreateHandle()
@@ -200,6 +216,16 @@ namespace FreeIDE.Controls
                 this.DoPaste();
                 return true;
             }
+            else if (keyData == (Keys.Delete))
+            {
+                this.DoDelete();
+                return true;
+            }
+            else if (keyData == (Keys.F2))
+            {
+                this.Edi
+                return true;
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -212,9 +238,11 @@ namespace FreeIDE.Controls
                 {
                     try
                     {
+                        TreeNode treeNode = this.GetRootNode();
+
                         Console.WriteLine(/*this.GetRootNode().Text*/this.SelectedNode.Name);
                         this.CheckSelectedNode();
-                        this.CheckNodesList(this.GetRootNode());
+                        this.CheckNodesList(treeNode);
                     }
                     catch (Exception ex) { }
                 });
@@ -222,9 +250,18 @@ namespace FreeIDE.Controls
             catch { }
         }
 
+        private bool ContainsFile(TreeNodeCollection treeNodeCollection, FileInfo file)
+        {
+            foreach (TreeNode node in treeNodeCollection)
+                if (node.Tag.ToString() == file.FullName)
+                    return true;
+            return false;
+        }
+
         private TreeNode GetRootNode()
         {
-            if (this.SelectedNode == null) return null;
+            if (this.SelectedNode == null) 
+                return ((this.Nodes != null && this.Nodes[0] != null) ? this.Nodes[0] : null);
 
             TreeNode node = this.SelectedNode;
             while (node.Parent != null) node = node.Parent;
@@ -244,26 +281,13 @@ namespace FreeIDE.Controls
         private void CheckNodesList(TreeNode node)
         {
             if (node == null) return;
-            /*Task.Run(() =>
-            {
-                foreach (TreeNode _node in node.Nodes)
-                {
-                    if (_node.Tag == null || !new PathItem(_node.Tag.ToString()).IsExists) 
-                        _node.Remove();
-                    else
-                        CheckNodesList(_node);
-                }
-            });*/
+
             foreach (TreeNode _node in node.Nodes)
             {
-                if (_node.Tag == null)
-                    _node.Remove();
-                else if (new FileInfo(_node.Tag.ToString()).Exists)
-                { Console.WriteLine(_node.Tag.ToString()); continue; }
-                else if (new DirectoryInfo(_node.Tag.ToString()).Exists)
-                    CheckNodesList(_node);
-                else
-                    _node.Remove();
+                if (_node.Tag == null) /*_node.Remove()*/;
+                else if (new FileInfo(_node.Tag.ToString()).Exists) continue;
+                else if (new DirectoryInfo(_node.Tag.ToString()).Exists) CheckNodesList(_node);
+                else _node.Remove();
             }
         }
 

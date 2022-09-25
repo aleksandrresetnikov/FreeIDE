@@ -5,7 +5,7 @@ using FreeIDE.Common.API;
 
 namespace FreeIDE.Common.Pathes
 {
-    public class PathItem : IDisposable, ICloneable, IPathCloneable
+    public class PathItem : IDisposable, ICloneable, IPathCloneable, IPathItemFileFunctions
     {
         public string Path { get; set; }
 
@@ -27,5 +27,25 @@ namespace FreeIDE.Common.Pathes
         public void Dispose() => GC.SuppressFinalize(this);
         public object Clone() => new PathItem(this.Path);
         public PathItem ClonePath() => this.Clone() as PathItem;
+
+        public void Delete()
+        {
+            if (this.IsFile) File.Delete(this.Path);
+            else if (this.IsDirectory) Directory.Delete(this.Path, true);
+        }
+        public void MoveTo(string pathTo)
+        {
+            if (this.IsFile) File.Move(this.Path, pathTo);
+            else if (this.IsDirectory) Directory.Move(this.Path, pathTo);
+            this.Path = pathTo;
+        }
+        public void CreateFile()
+        {
+            File.Create(this.Path);
+        }
+        public void CreateDirectory()
+        {
+            Directory.CreateDirectory(this.Path);
+        }
     }
 }

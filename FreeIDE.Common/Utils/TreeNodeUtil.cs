@@ -72,5 +72,13 @@
 
             return openNodes;
         }
+
+        public static bool ContainsTag(this System.Windows.Forms.TreeNodeCollection treeNodeCollection, object Tag)
+        {
+            foreach (System.Windows.Forms.TreeNode node in treeNodeCollection)
+                if (node.Tag == Tag)
+                    return true;
+            return false;
+        }
     }
 }

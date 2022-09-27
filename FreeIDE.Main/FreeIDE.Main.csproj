@@ -193,6 +193,21 @@
     <Content Include="VS12_ImgLib_FilesData\DialogGroup_5846_16x.png" />
     <Content Include="VS12_ImgLib_FilesData\DialogID_6220_16x.png" />
     <Content Include="VS12_ImgLib_FilesData\docview_xaml_on_16x16.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\arrow_Next_16xMD.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\arrow_previous_16xMD.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\arrow_Previous_16xSM.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\BookmarkClear_2381.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\BookmarkNext_2389.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\BookmarkPrevious_2391.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\bookmark_003_16xLG.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\bookmark_006_16xLG.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\Copy_6524.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\Cut_6523.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\key_16xLG.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\Ordered%28Numbered%29ListOL_5795.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\Paste_6520.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\Select.png" />
+    <Content Include="VS12_ImgLib_FilesData\Edit\UpdatedJscriptIntelliSense_10740.png" />
     <Content Include="VS12_ImgLib_FilesData\Folder_6221.png" />
     <Content Include="VS12_ImgLib_FilesData\Folder_6222.png" />
     <Content Include="VS12_ImgLib_FilesData\FSharpFile_SolutionExplorerNode.png" />
@@ -230,6 +245,9 @@
     <Content Include="VS12_ImgLib_FilesData\Soundfile_461.png" />
     <Content Include="VS12_ImgLib_FilesData\StyleSheet%28css%29_7483_16x_color.png" />
     <Content Include="VS12_ImgLib_FilesData\Textfile_818_16x.png" />
+    <Content Include="VS12_ImgLib_FilesData\Types\Binary_16xLG.png" />
+    <Content Include="VS12_ImgLib_FilesData\Types\Binary_16xMD.png" />
+    <Content Include="VS12_ImgLib_FilesData\Types\Binary_32xLG.png" />
     <Content Include="VS12_ImgLib_FilesData\VBFile_SolutionExplorerNode.png" />
     <Content Include="VS12_ImgLib_FilesData\XMLFile_828_16x.png" />
   </ItemGroup>

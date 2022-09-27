@@ -67,6 +67,14 @@ namespace FreeIDE.Components
                     ThemeData.MenuStrip_ItemForeColor);
             }
 
+            // Specific to the ContextMenuStrip class
+            if (control is ContextMenuStrip)
+            {
+                (control as ContextMenuStrip).Renderer = new CustomMenuStripRenderer(ThemeData.MenuStrip_TitlebarColor,
+                    ThemeData.MenuStrip_TitlebarSize, ThemeData.MenuStrip_MainColor, ThemeData.MenuStrip_ItemSelectedColor,
+                    ThemeData.MenuStrip_ItemForeColor);
+            }
+
             // Specific to the FlatTabControl class
             if (control is FlatTabControl)
             {

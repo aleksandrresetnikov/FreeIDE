@@ -119,7 +119,7 @@ namespace FreeIDE.Forms
                 tb.Tag = SmartTextBoxTag.CreateSmartTextBoxTagInstance(new SmartTbInfo());
                 tb.IndentBackColor = Color.White;
                 tb.SelectionColor = Color.DarkGreen;
-                tb.PaddingBackColor 
+                //tb.PaddingBackColor 
 
                 ThemeMaster.ApplyTheme(tb);
                 TabPage tab = new TabPage(path != null ? Path.GetFileName(path) : "[new]");

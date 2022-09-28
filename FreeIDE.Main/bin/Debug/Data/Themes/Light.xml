@@ -51,6 +51,10 @@
 	<TextBox_LineNumberColor Type="Str">Teal</TextBox_LineNumberColor>
 	<TextBox_IndentBackColor Type="Str">White</TextBox_IndentBackColor>
 	<TextBox_SelectionColor Type="Str">DarkGreen</TextBox_SelectionColor>
+	<TextBox_PaddingBackColor Type="Str">Transparent</TextBox_PaddingBackColor>
+	<TextBox_ChangedLineColor Type="Str">Transparent</TextBox_ChangedLineColor>
+	<TextBox_CurrentLineColor Type="Str">Transparent</TextBox_CurrentLineColor>
+	<TextBox_TextAreaBorderColor Type="Str">Black</TextBox_TextAreaBorderColor>
 	
 	<TextBox_ServiceColors ThemeMasterTag="ServiceColors">
 		<CollapseMarkerForeColor Type="Str">Silver</CollapseMarkerForeColor>

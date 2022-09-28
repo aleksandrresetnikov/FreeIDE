@@ -6,7 +6,10 @@ using System.Xml.Linq;
 using FreeIDE.Common;
 using FreeIDE.Common.Utils;
 using FreeIDE.Components.Renderers;
+using FreeIDE.Controls;
 using FreeIDE.Controls.TabControl;
+
+using FastColoredTextBoxNS;
 
 namespace FreeIDE.Components
 {
@@ -33,7 +36,7 @@ namespace FreeIDE.Components
             }
 
             ThemeData.UpdateDigests();
-            //ThemeData.PrintInfo();
+            ThemeData.PrintInfo();
         }
 
         // Applies the selected, preloaded theme to a form of type BorderLessForm
@@ -84,6 +87,14 @@ namespace FreeIDE.Components
                     ThemeData.BordersHeightDigest[(control.Tag as IThemeTag).GetThemeTag2()];
                 (control as FlatTabControl).myBackColor =
                     ThemeData.ColorsDigest[(control.Tag as IThemeTag).GetThemeTag1()];
+            }
+
+            // Specific to the SmartTextBox class
+            if (control is SmartTextBox)
+            {
+                (control as SmartTextBox).BookmarkColor = ThemeData.TextBox_BookmarkColor;
+                (control as SmartTextBox).LineNumberColor = ThemeData.TextBox_LineNumberColor;
+                (control as SmartTextBox).ServiceColors = ThemeData.TextBox_ServiceColors;
             }
         }
 
@@ -138,6 +149,11 @@ namespace FreeIDE.Components
         public Color MenuStrip_MainColor = Color.FromArgb(39, 40, 34);
         public Color MenuStrip_ItemSelectedColor = Color.FromArgb(24, 25, 19);
         public Color MenuStrip_ItemForeColor = Color.White;
+
+        public Color TextBox_BookmarkColor = Color.PowderBlue;
+        public Color TextBox_LineNumberColor = Color.Teal;
+
+        public ServiceColors TextBox_ServiceColors;
 
         public ThemeData()
         {
@@ -196,6 +212,11 @@ namespace FreeIDE.Components
             MenuStrip_MainColor = ParseColorFromXDocumentItem(xDocument.Root.Element("MenuStrip_MainColor")),
             MenuStrip_ItemSelectedColor = ParseColorFromXDocumentItem(xDocument.Root.Element("MenuStrip_ItemSelectedColor")),
             MenuStrip_ItemForeColor = ParseColorFromXDocumentItem(xDocument.Root.Element("MenuStrip_ItemForeColor")),
+
+            TextBox_BookmarkColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_BookmarkColor")),
+            TextBox_LineNumberColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_LineNumberColor")),
+
+            TextBox_ServiceColors = ParseServiceColorsFromXDocumentItem(xDocument.Root.Element("TextBox_ServiceColors"))
         };
         public void PrintInfo()
         {
@@ -214,11 +235,30 @@ namespace FreeIDE.Components
             Console.WriteLine("{0,-20} = {1,5}", "IconHeight", IconHeight);
             Console.WriteLine("{0,-20} = {1,5}", "IconPadding", IconPadding);
             Console.WriteLine("{0,-20} = {1,5}", "WidthHeaderUnderline", WidthHeaderUnderline);*/
+
+            Console.WriteLine(TextBox_ServiceColors.ToString());
         }
 
         private static Color ParseColorFromXDocumentItem(XElement xElement)
         {
             return ColorParser.ParseColor(xElement.Attribute("Type").Value, xElement.Value);
+        }
+
+        private static ServiceColors ParseServiceColorsFromXDocumentItem(XElement xElement)
+        {
+            if (xElement.Attribute("ThemeMasterTag") == null ||
+                xElement.Attribute("ThemeMasterTag").Value != "ServiceColors") return null;
+
+            return new ServiceColors
+            {
+                CollapseMarkerForeColor = ParseColorFromXDocumentItem(xElement.Element("CollapseMarkerForeColor")),
+                CollapseMarkerBackColor = ParseColorFromXDocumentItem(xElement.Element("CollapseMarkerBackColor")),
+                CollapseMarkerBorderColor = ParseColorFromXDocumentItem(xElement.Element("CollapseMarkerBorderColor")),
+
+                ExpandMarkerForeColor = ParseColorFromXDocumentItem(xElement.Element("ExpandMarkerForeColor")),
+                ExpandMarkerBackColor = ParseColorFromXDocumentItem(xElement.Element("ExpandMarkerBackColor")),
+                ExpandMarkerBorderColor = ParseColorFromXDocumentItem(xElement.Element("ExpandMarkerBorderColor")),
+            };
         }
     }
 

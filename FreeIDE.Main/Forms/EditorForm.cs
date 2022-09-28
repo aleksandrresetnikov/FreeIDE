@@ -108,21 +108,25 @@ namespace FreeIDE.Forms
                 tb.IsReplaceMode = false;
                 tb.LineNumberStartValue = (uint)1;
                 tb.PreferredLineWidth = 0;
-                tb.LineNumberColor = Color.Teal;
+                //tb.LineNumberColor = Color.Teal;
                 tb.AutoCompleteBrackets = false;
                 tb.LineInterval = 0;
                 tb.CaretBlinking = true;
                 tb.AutoIndent = true;
                 tb.DefaultMarkerSize = 0;
                 //tb.Zoom = GetTextEditorSettings.getZoom();
-                tb.BookmarkColor = Color.PowderBlue;
+                //tb.BookmarkColor = Color.PowderBlue;
+                tb.Tag = SmartTextBoxTag.CreateSmartTextBoxTagInstance(new SmartTbInfo());
+                tb.IndentBackColor = Color.White;
+                tb.SelectionColor = Color.DarkGreen;
+                tb.PaddingBackColor 
 
+                ThemeMaster.ApplyTheme(tb);
                 TabPage tab = new TabPage(path != null ? Path.GetFileName(path) : "[new]");
                 tab.Controls.Add(tb);
                 tab.Tag = path;
                 if (path != null) tb.OpenFile(path);
-                tb.Tag = new SmartTbInfo();
-                (tb.Tag as SmartTbInfo).filePath = path;
+                (tb.Tag as SmartTextBoxTag).SmartTextBoxInfo.filePath = path;
 
                 this.mainTabControl.TabPages.Add(tab);
                 this.mainTabControl.SelectedTab = tab;
@@ -200,11 +204,11 @@ namespace FreeIDE.Forms
             {
                 item.Language = FastColoredTextBoxUtil.GetLanguage(path);
 
-                //(item.Tag as SmartTbInfo).popupMenu = GetAutocompleteMenu(item, path);
+                //(item.Tag as SmartTextBoxTag).SmartTextBoxInfo.popupMenu = GetAutocompleteMenu(item, path);
 
                 var t = Task.Run(() =>
                 {
-                    (item.Tag as SmartTbInfo).filePath = path;
+                    (item.Tag as SmartTextBoxTag).SmartTextBoxInfo.filePath = path;
 
                     StreamReader reader = new StreamReader(path);
                     string text = reader.ReadToEnd();
@@ -235,6 +239,7 @@ namespace FreeIDE.Forms
             this.solutionFileTreeView.Tag = new FileTreeViewTag(1, 0);
             this.mainTabControl.Tag = new FlatTabControlTag(0, 0);
             this.CodePanel_contextMenuStrip.Tag = new MenuStripTag(1, 0);
+
         }
 
         private void InitializeTheme()

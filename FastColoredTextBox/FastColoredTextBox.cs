@@ -8599,6 +8599,17 @@ window.status = ""#print"";
             ExpandMarkerBackColor = Color.White;
             ExpandMarkerBorderColor = Color.Silver;
         }
+
+        public override string ToString()
+        {
+            return $"ServiceColors:" +
+                $"\n\tCollapseMarkerForeColor={this.CollapseMarkerForeColor}" +
+                $"\n\tCollapseMarkerBackColor={this.CollapseMarkerBackColor}" +
+                $"\n\tCollapseMarkerBorderColor={this.CollapseMarkerBorderColor}" +
+                $"\n\tExpandMarkerForeColor={this.ExpandMarkerForeColor}" +
+                $"\n\tExpandMarkerBackColor={this.ExpandMarkerBackColor}" +
+                $"\n\tExpandMarkerBorderColor={this.ExpandMarkerBorderColor}";
+        }
     }
 
 #if Styles32

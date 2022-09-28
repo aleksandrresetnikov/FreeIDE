@@ -1,4 +1,15 @@
 <Theme>
+	<ThemeInfo>
+		<Name>Light</Name>
+		<ThemeMasterVersion>beta_0.1</ThemeMasterVersion>
+		<Developer>Aleksander Resetnikov (SANE5K)</Developer>
+		<Description>The theme of the main set of themes for FreeIDE.</Description>
+		<License>$none$</License><!-->$none$ - The license is missing or not specified.<-->
+		
+		<DeveloperLink LinkType="GitHub">https://github.com/aleksandrresetnikov</DeveloperLink>
+		<DeveloperLink LinkType="Youtube">https://www.youtube.com/channel/UCjgr-p3YwXIyTe4McLD6FoA</DeveloperLink>
+	</ThemeInfo>
+
 	<Name>Light</Name>
 	<Color1 Type="Str">White</Color1>
 	<Color2 Type="Hex">#eeeef2</Color2>
@@ -35,4 +46,23 @@
 	<MenuStrip_MainColor Type="Hex">#eeeef2</MenuStrip_MainColor>
 	<MenuStrip_ItemSelectedColor Type="Str">WhiteSmoke</MenuStrip_ItemSelectedColor>
 	<MenuStrip_ItemForeColor Type="Str">Black</MenuStrip_ItemForeColor>
+	
+	<TextBox_BookmarkColor Type="Str">PowderBlue</TextBox_BookmarkColor>
+	<TextBox_LineNumberColor Type="Str">Teal</TextBox_LineNumberColor>
+	<TextBox_IndentBackColor Type="Str">White</TextBox_IndentBackColor>
+	<TextBox_SelectionColor Type="Str">DarkGreen</TextBox_SelectionColor>
+	<TextBox_PaddingBackColor Type="Str">Transparent</TextBox_PaddingBackColor>
+	<TextBox_ChangedLineColor Type="Str">Transparent</TextBox_ChangedLineColor>
+	<TextBox_CurrentLineColor Type="Str">Transparent</TextBox_CurrentLineColor>
+	<TextBox_TextAreaBorderColor Type="Str">Black</TextBox_TextAreaBorderColor>
+	
+	<TextBox_ServiceColors ThemeMasterTag="ServiceColors">
+		<CollapseMarkerForeColor Type="Str">Silver</CollapseMarkerForeColor>
+		<CollapseMarkerBackColor Type="Str">White</CollapseMarkerBackColor>
+		<CollapseMarkerBorderColor Type="Str">Silver</CollapseMarkerBorderColor>
+		
+		<ExpandMarkerForeColor Type="Str">Tomato</ExpandMarkerForeColor>
+		<ExpandMarkerBackColor Type="Str">White</ExpandMarkerBackColor>
+		<ExpandMarkerBorderColor Type="Str">Silver</ExpandMarkerBorderColor>
+	</TextBox_ServiceColors>
 </Theme>

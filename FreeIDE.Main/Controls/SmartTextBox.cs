@@ -10,7 +10,7 @@ using FastColoredTextBoxNS;
 namespace FreeIDE.Controls
 {
     internal class SmartTextBox : FastColoredTextBox
-    {
-
+    { 
+        
     }
 }

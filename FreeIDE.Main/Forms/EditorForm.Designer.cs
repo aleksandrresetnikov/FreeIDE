@@ -880,6 +880,7 @@
             this.selectAllToolStripMenuItem2.Name = "selectAllToolStripMenuItem2";
             this.selectAllToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.selectAllToolStripMenuItem2.Text = "Select all  (Ctrl + A)";
+            this.selectAllToolStripMenuItem2.Click += new System.EventHandler(this.selectAllToolStripMenuItem2_Click);
             // 
             // cutAllToolStripMenuItem
             // 
@@ -887,12 +888,14 @@
             this.cutAllToolStripMenuItem.Name = "cutAllToolStripMenuItem";
             this.cutAllToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
             this.cutAllToolStripMenuItem.Text = "Cut everything";
+            this.cutAllToolStripMenuItem.Click += new System.EventHandler(this.cutAllToolStripMenuItem_Click);
             // 
             // deleteAllToolStripMenuItem
             // 
             this.deleteAllToolStripMenuItem.Name = "deleteAllToolStripMenuItem";
             this.deleteAllToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
             this.deleteAllToolStripMenuItem.Text = "Delete everything";
+            this.deleteAllToolStripMenuItem.Click += new System.EventHandler(this.deleteAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator16
             // 
@@ -905,6 +908,7 @@
             this.undoToolStripMenuItem2.Name = "undoToolStripMenuItem2";
             this.undoToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.undoToolStripMenuItem2.Text = "Undo  (Ctrl + Z)";
+            this.undoToolStripMenuItem2.Click += new System.EventHandler(this.undoToolStripMenuItem2_Click);
             // 
             // rodoToolStripMenuItem2
             // 
@@ -912,12 +916,14 @@
             this.rodoToolStripMenuItem2.Name = "rodoToolStripMenuItem2";
             this.rodoToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.rodoToolStripMenuItem2.Text = "Redo  (Ctrl + Y)";
+            this.rodoToolStripMenuItem2.Click += new System.EventHandler(this.rodoToolStripMenuItem2_Click);
             // 
             // clearUndoBufferToolStripMenuItem
             // 
             this.clearUndoBufferToolStripMenuItem.Name = "clearUndoBufferToolStripMenuItem";
             this.clearUndoBufferToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
             this.clearUndoBufferToolStripMenuItem.Text = "Clear undo bufer";
+            this.clearUndoBufferToolStripMenuItem.Click += new System.EventHandler(this.clearUndoBufferToolStripMenuItem_Click);
             // 
             // toolStripSeparator17
             // 

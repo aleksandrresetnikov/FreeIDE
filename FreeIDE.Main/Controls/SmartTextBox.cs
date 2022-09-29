@@ -27,5 +27,31 @@ namespace FreeIDE.Controls
         {
             this.SelectedText = null;
         }
+        public void Do_SelectAll()
+        {
+            this.SelectAll();
+        }
+        public void Do_CutAll()
+        {
+            this.SelectAll();
+            this.Cut();
+        }
+        public void Do_DeleteAll()
+        {
+            this.SelectAll();
+            this.SelectedText = null;
+        }
+        public void Do_Undo()
+        {
+            this.Undo();
+        }
+        public void Do_Redo()
+        {
+            this.Redo();
+        }
+        public void Do_ClearUndoBufer()
+        {
+            this.ClearUndo();
+        }
     }
 }

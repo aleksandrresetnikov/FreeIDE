@@ -667,7 +667,7 @@ namespace FastColoredTextBoxNS
         /// <summary>
         /// Background color of padding area
         /// </summary>
-        [DefaultValue(typeof (Color), "Transparent")]
+        [DefaultValue(typeof(Color), "Transparent")]
         [Description("Background color of padding area")]
         public Color PaddingBackColor
         {
@@ -678,7 +678,6 @@ namespace FastColoredTextBoxNS
                 Invalidate();
             }
         }
-
         /// <summary>
         /// Color of disabled component
         /// </summary>
@@ -5079,10 +5078,10 @@ namespace FastColoredTextBoxNS
                                                      new Rectangle(textAreaRect.Left, y, textAreaRect.Width,
                                                                    CharHeight * lineInfo.WordWrapStringsCount));
                     //draw current line background
-                    if (CurrentLineColor != Color.Transparent && iLine == Selection.Start.iLine)
+                    /*if (CurrentLineColor != Color.Transparent && iLine == Selection.Start.iLine)
                         if (Selection.IsEmpty)
                             e.Graphics.FillRectangle(currentLineBrush,
-                                                     new Rectangle(textAreaRect.Left, y, textAreaRect.Width, CharHeight));
+                                                     new Rectangle(textAreaRect.Left, y, textAreaRect.Width, CharHeight));*/
                     //draw changed line marker
                     if (ChangedLineColor != Color.Transparent && line.IsChanged)
                         e.Graphics.FillRectangle(changedLineBrush,
@@ -5101,6 +5100,7 @@ namespace FastColoredTextBoxNS
                                                            new Rectangle(LeftIndent, y, Width,
                                                                          CharHeight * lineInfo.WordWrapStringsCount),
                                                            e.Graphics, e.ClipRectangle));
+                    
                     //draw line number
                     if (ShowLineNumbers)
                     {
@@ -5127,6 +5127,8 @@ namespace FastColoredTextBoxNS
                         string.IsNullOrEmpty(line.FoldingStartMarker))
                         e.Graphics.DrawLine(servicePen, LeftIndentLine, y + CharHeight * lineInfo.WordWrapStringsCount - 1,
                                             LeftIndentLine + 4, y + CharHeight * lineInfo.WordWrapStringsCount - 1);
+
+
                     //draw wordwrap strings of line
                     for (int iWordWrapLine = 0; iWordWrapLine < lineInfo.WordWrapStringsCount; iWordWrapLine++)
                     {

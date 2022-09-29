@@ -94,6 +94,12 @@ namespace FreeIDE.Components
             {
                 (control as SmartTextBox).BookmarkColor = ThemeData.TextBox_BookmarkColor;
                 (control as SmartTextBox).LineNumberColor = ThemeData.TextBox_LineNumberColor;
+                (control as SmartTextBox).IndentBackColor = ThemeData.TextBox_IndentBackColor;
+                (control as SmartTextBox).SelectionColor = ThemeData.TextBox_SelectionColor;
+                (control as SmartTextBox).PaddingBackColor = ThemeData.TextBox_PaddingBackColor;
+                (control as SmartTextBox).ChangedLineColor = ThemeData.TextBox_ChangedLineColor;
+                (control as SmartTextBox).CurrentLineColor = ThemeData.TextBox_CurrentLineColor;
+                (control as SmartTextBox).TextAreaBorderColor = ThemeData.TextBox_TextAreaBorderColor;
                 (control as SmartTextBox).ServiceColors = ThemeData.TextBox_ServiceColors;
             }
         }
@@ -152,6 +158,12 @@ namespace FreeIDE.Components
 
         public Color TextBox_BookmarkColor = Color.PowderBlue;
         public Color TextBox_LineNumberColor = Color.Teal;
+        public Color TextBox_IndentBackColor = Color.White;
+        public Color TextBox_SelectionColor = Color.DarkGreen;
+        public Color TextBox_PaddingBackColor = Color.Transparent;
+        public Color TextBox_ChangedLineColor = Color.Transparent;
+        public Color TextBox_CurrentLineColor = Color.Transparent;
+        public Color TextBox_TextAreaBorderColor = Color.Black;
 
         public ServiceColors TextBox_ServiceColors;
 
@@ -215,6 +227,12 @@ namespace FreeIDE.Components
 
             TextBox_BookmarkColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_BookmarkColor")),
             TextBox_LineNumberColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_LineNumberColor")),
+            TextBox_IndentBackColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_IndentBackColor")),
+            TextBox_SelectionColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_SelectionColor")),
+            TextBox_PaddingBackColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_PaddingBackColor")),
+            TextBox_ChangedLineColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_ChangedLineColor")),
+            TextBox_CurrentLineColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_CurrentLineColor")),
+            TextBox_TextAreaBorderColor = ParseColorFromXDocumentItem(xDocument.Root.Element("TextBox_TextAreaBorderColor")),
 
             TextBox_ServiceColors = ParseServiceColorsFromXDocumentItem(xDocument.Root.Element("TextBox_ServiceColors"))
         };

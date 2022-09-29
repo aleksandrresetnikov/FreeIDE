@@ -117,8 +117,8 @@ namespace FreeIDE.Forms
                 //tb.Zoom = GetTextEditorSettings.getZoom();
                 //tb.BookmarkColor = Color.PowderBlue;
                 tb.Tag = SmartTextBoxTag.CreateSmartTextBoxTagInstance(new SmartTbInfo());
-                tb.IndentBackColor = Color.White;
-                tb.SelectionColor = Color.DarkGreen;
+                //tb.IndentBackColor = Color.White;
+                //tb.SelectionColor = Color.DarkGreen;
                 //tb.PaddingBackColor 
 
                 ThemeMaster.ApplyTheme(tb);
@@ -324,6 +324,36 @@ namespace FreeIDE.Forms
         private void deleteToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             this.SelectSmartTextBox.Do_Delete();
+        }
+
+        private void selectAllToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_SelectAll();
+        }
+
+        private void cutAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_CutAll();
+        }
+
+        private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_DeleteAll();
+        }
+
+        private void undoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Undo();
+        }
+
+        private void rodoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Redo();
+        }
+
+        private void clearUndoBufferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_ClearUndoBufer();
         }
     }
 }

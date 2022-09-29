@@ -308,5 +308,22 @@ namespace FreeIDE.Forms
         {
             Console.WriteLine(pathItem);
         }
+
+        private void cutToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_Cut();
+        }
+        private void copyToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_Copy();
+        }
+        private void pasteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_Paste();
+        }
+        private void deleteToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_Delete();
+        }
     }
 }

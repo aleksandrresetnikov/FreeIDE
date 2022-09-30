@@ -1,34 +1,16 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using System.Drawing;
+using System.Windows.Forms;
 
-namespace FastColoredTextBoxNS
+using FreeIDE.Tags;
+using FreeIDE.Components;
+
+using FastColoredTextBoxNS;
+
+namespace FreeIDE.Forms.Components
 {
-    public partial class FindForm : Form, IFindForm
+    public partial class CustomFindForm : BorderLessFormController, IFindForm
     {
-        // For IDE_LibsRemaster :
-        public static string FormTitleText = "Find";
-        public static string label1Text = "Find";
-        public static string textBoxText = "Find";
-        public static bool cbMatchCaseCheckedStatys = false;
-        public static bool cbWholeWordCheckedStatys = false;
-        public static bool cbRegexCheckedStatys = false;
-        public static string cbMatchCaseText = "Match case";
-        public static string cbWholeWordText = "Match whole word";
-        public static string cbRegexText = "Regex";
-        public static string btFindNextText = "Find next";
-        public static string btCloseText = "Close";
-        public static Color backFormColor = SystemColors.Control;
-        public static Color containPanelColor = SystemColors.Control;
-        public static Color backTextBoxColor = SystemColors.Control;
-        public static Color foreTextBoxColor = SystemColors.WindowText;
-        public static Color backButtonsColor = SystemColors.Control;
-        public static Color foreButtonsColor = SystemColors.WindowText;
-        public static FlatStyle buttonsStyle = FlatStyle.Standard;
-        public static Font textBoxFont = new Font("Microsoft Tai Le", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        public static Point textBoxLocation = new Point(61, 14);
-
         public static bool ShowNotFoundMessageBox = true;
         public static bool ShowExceptionMessageBox = true;
 
@@ -48,54 +30,36 @@ namespace FastColoredTextBoxNS
         public Place startPlace;
         public FastColoredTextBox tb;
 
-        public FindForm(FastColoredTextBox tb)
+        public CustomFindForm(FastColoredTextBox tb)
         {
-            InitializeComponent();
-            //IDE_LibsRemaster();
             this.tb = tb;
+
+            this.InitializeComponent();
+            this.InitializeTags();
+            this.BaseApplyTheme();
+
+            this.TitleLabel.Text = this.Text;
         }
 
-        /*private void IDE_LibsRemaster()
+        private void InitializeTags()
         {
-            //  This method is not copyright infringement.
-            //This method only allows me to slightly edit the form
-            //(its colors to suit my program) and also translate the library honestly.
+            this.btClose.Tag = new ButtonTag(1, 0);
+            this.btFindNext.Tag = new ButtonTag(1, 0);
 
-            if (LibsRemasteringEvent != null)
-                LibsRemasteringEvent.Invoke(this);
+            this.panel1.Tag = new FreeTag(1, 0);
+            this.label1.Tag = new FreeTag(1, 0);
+            this.tbFind.Tag = new FreeTag(0, 0);
 
-            this.Text               = FormTitleText;
-            this.BackColor          = backFormColor;
-            panel1.BackColor        = containPanelColor;
+            this.cbMatchCase.Tag = new FreeTag(0, 0);
+            this.cbRegex.Tag = new FreeTag(0, 0);
+            this.cbWholeWord.Tag = new FreeTag(0, 0);
+        }
 
-            label1.Text             = label1Text;
-            label1.ForeColor        = foreButtonsColor;
-
-            tbFind.Text             = textBoxText;
-            tbFind.Font             = textBoxFont;
-            tbFind.BackColor        = backTextBoxColor;
-            tbFind.ForeColor        = foreTextBoxColor;
-            tbFind.Location         = textBoxLocation;
-
-            btFindNext.BackColor    = backButtonsColor;
-            btClose.BackColor       = backButtonsColor;
-            btFindNext.ForeColor    = foreButtonsColor;
-            btClose.ForeColor       = foreButtonsColor;
-            btFindNext.FlatStyle    = buttonsStyle;
-            btClose.FlatStyle       = buttonsStyle;
-            btFindNext.Text         = btFindNextText;
-            btClose.Text            = btCloseText;
-
-            cbMatchCase.Checked     = cbMatchCaseCheckedStatys;
-            cbWholeWord.Checked     = cbWholeWordCheckedStatys;
-            cbRegex.Checked         = cbRegexCheckedStatys;
-            cbMatchCase.Text        = cbMatchCaseText;
-            cbWholeWord.Text        = cbWholeWordText;
-            cbRegex.Text            = cbRegexText;
-            cbMatchCase.ForeColor   = foreButtonsColor;
-            cbWholeWord.ForeColor   = foreButtonsColor;
-            cbRegex.ForeColor       = foreButtonsColor;
-        }*/
+        private void BaseApplyTheme()
+        {
+            ThemeMaster.ApplyTheme(this);
+            ThemeMaster.ApplyTheme(this.tbFind);
+        }
 
         private void btClose_Click(object sender, EventArgs e)
         {

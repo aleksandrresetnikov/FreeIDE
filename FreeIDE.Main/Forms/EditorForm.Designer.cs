@@ -936,12 +936,14 @@
             this.findToolStripMenuItem2.Name = "findToolStripMenuItem2";
             this.findToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.findToolStripMenuItem2.Text = "Find  (Ctrl + F)";
+            this.findToolStripMenuItem2.Click += new System.EventHandler(this.findToolStripMenuItem2_Click);
             // 
             // findAndReplaceStripMenuItem2
             // 
             this.findAndReplaceStripMenuItem2.Name = "findAndReplaceStripMenuItem2";
             this.findAndReplaceStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.findAndReplaceStripMenuItem2.Text = "Find and Replace  (Ctrl + H)";
+            this.findAndReplaceStripMenuItem2.Click += new System.EventHandler(this.findAndReplaceStripMenuItem2_Click);
             // 
             // findAmongAllFilesToolStripMenuItem2
             // 
@@ -949,6 +951,7 @@
             this.findAmongAllFilesToolStripMenuItem2.Name = "findAmongAllFilesToolStripMenuItem2";
             this.findAmongAllFilesToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.findAmongAllFilesToolStripMenuItem2.Text = "Find among all files";
+            this.findAmongAllFilesToolStripMenuItem2.Click += new System.EventHandler(this.findAmongAllFilesToolStripMenuItem2_Click);
             // 
             // gotoToolStripMenuItem2
             // 
@@ -956,12 +959,14 @@
             this.gotoToolStripMenuItem2.Name = "gotoToolStripMenuItem2";
             this.gotoToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.gotoToolStripMenuItem2.Text = "Goto  (Ctrl + G)";
+            this.gotoToolStripMenuItem2.Click += new System.EventHandler(this.gotoToolStripMenuItem2_Click);
             // 
             // findWhenAllDocumentsToolStripMenuItem2
             // 
             this.findWhenAllDocumentsToolStripMenuItem2.Name = "findWhenAllDocumentsToolStripMenuItem2";
             this.findWhenAllDocumentsToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.findWhenAllDocumentsToolStripMenuItem2.Text = "Search and replace among all open documents";
+            this.findWhenAllDocumentsToolStripMenuItem2.Click += new System.EventHandler(this.findWhenAllDocumentsToolStripMenuItem2_Click);
             // 
             // toolStripSeparator27
             // 
@@ -974,6 +979,7 @@
             this.addLabelToolStripMenuItem2.Name = "addLabelToolStripMenuItem2";
             this.addLabelToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.addLabelToolStripMenuItem2.Text = "Add label  (Ctrl + B)";
+            this.addLabelToolStripMenuItem2.Click += new System.EventHandler(this.addLabelToolStripMenuItem2_Click);
             // 
             // removeLabelToolStripMenuItem2
             // 
@@ -981,6 +987,7 @@
             this.removeLabelToolStripMenuItem2.Name = "removeLabelToolStripMenuItem2";
             this.removeLabelToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.removeLabelToolStripMenuItem2.Text = "Delete label  (Ctrl + Shift + B)";
+            this.removeLabelToolStripMenuItem2.Click += new System.EventHandler(this.removeLabelToolStripMenuItem2_Click);
             // 
             // toolStripSeparator24
             // 
@@ -992,6 +999,7 @@
             this.commentSelectLineToolStripMenuItem2.Name = "commentSelectLineToolStripMenuItem2";
             this.commentSelectLineToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.commentSelectLineToolStripMenuItem2.Text = "Comment/uncomment selected";
+            this.commentSelectLineToolStripMenuItem2.Click += new System.EventHandler(this.commentSelectLineToolStripMenuItem2_Click);
             // 
             // toolStripSeparator46
             // 
@@ -1004,12 +1012,14 @@
             this.saveToolStripMenuItem2.Name = "saveToolStripMenuItem2";
             this.saveToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.saveToolStripMenuItem2.Text = "Save";
+            this.saveToolStripMenuItem2.Click += new System.EventHandler(this.saveToolStripMenuItem2_Click);
             // 
             // saveAsToolStripMenuItem2
             // 
             this.saveAsToolStripMenuItem2.Name = "saveAsToolStripMenuItem2";
             this.saveAsToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.saveAsToolStripMenuItem2.Text = "Save As";
+            this.saveAsToolStripMenuItem2.Click += new System.EventHandler(this.saveAsToolStripMenuItem2_Click);
             // 
             // saveAllToolStripMenuItem2
             // 
@@ -1017,6 +1027,7 @@
             this.saveAllToolStripMenuItem2.Name = "saveAllToolStripMenuItem2";
             this.saveAllToolStripMenuItem2.Size = new System.Drawing.Size(315, 22);
             this.saveAllToolStripMenuItem2.Text = "Save All";
+            this.saveAllToolStripMenuItem2.Click += new System.EventHandler(this.saveAllToolStripMenuItem2_Click);
             // 
             // EditorForm
             // 

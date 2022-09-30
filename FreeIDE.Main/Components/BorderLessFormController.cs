@@ -44,6 +44,8 @@ namespace FreeIDE.Components
 
         public void SetMaxSize(bool invert = true)
         {
+            if (!this.fullScreen && !this.Resizeable) return;
+
             if (/*this.WindowState == FormWindowState.Maximized*/this.fullScreen)
             {
                 this.Location = saveMinPos;
@@ -129,7 +131,8 @@ namespace FreeIDE.Components
 
         private protected virtual void OnBasedApplyThemeWithTags(ThemeData themeData)
         {
-            if (base.MainMenuStrip.Tag is IThemeTag) ApplyThemeForControl(base.MainMenuStrip);
+            if (base.MainMenuStrip != null && (base.MainMenuStrip.Tag is IThemeTag)) 
+                ApplyThemeForControl(base.MainMenuStrip);
 
             foreach (Control controlItem in base.Controls)
                 if (controlItem.Tag is IThemeTag) ApplyThemeForControl(controlItem);

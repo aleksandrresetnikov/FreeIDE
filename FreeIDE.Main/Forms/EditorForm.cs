@@ -19,6 +19,7 @@ using FreeIDE.Syntax.Syntaxs;
 using FreeIDE.Syntax;
 
 using FastColoredTextBoxNS;
+using FreeIDE.Forms.Components;
 
 namespace FreeIDE.Forms
 {
@@ -97,6 +98,7 @@ namespace FreeIDE.Forms
                 tb.VirtualSpace = false;
                 tb.LeftPadding = 17;
                 tb.Language = Language.Custom;
+                tb.SetFindDialog(new CustomFindForm(tb));
                 tb.AddStyle(CSharpSyntax.sameWordsStyle);
                 //tb.BackColor = GetTextEditorSettings.getTextEditorTextBackground();
                 //tb.ForeColor = GetTextEditorSettings.getTextEditorTextForeround();
@@ -330,12 +332,10 @@ namespace FreeIDE.Forms
         {
             this.SelectSmartTextBox.Do_SelectAll();
         }
-
         private void cutAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.SelectSmartTextBox.Do_CutAll();
         }
-
         private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.SelectSmartTextBox.Do_DeleteAll();
@@ -345,15 +345,64 @@ namespace FreeIDE.Forms
         {
             this.SelectSmartTextBox.Undo();
         }
-
         private void rodoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             this.SelectSmartTextBox.Redo();
         }
-
         private void clearUndoBufferToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.SelectSmartTextBox.Do_ClearUndoBufer();
+        }
+
+        private void findToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_Find();
+        }
+        private void findAndReplaceStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_FindAndReplace();
+        }
+        private void findAmongAllFilesToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void gotoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.SelectSmartTextBox.Do_Goto();
+        }
+        private void findWhenAllDocumentsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addLabelToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void removeLabelToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void commentSelectLineToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveAsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveAllToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

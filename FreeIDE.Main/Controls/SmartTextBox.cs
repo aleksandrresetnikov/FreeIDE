@@ -41,6 +41,7 @@ namespace FreeIDE.Controls
             this.SelectAll();
             this.SelectedText = null;
         }
+
         public void Do_Undo()
         {
             this.Undo();
@@ -52,6 +53,19 @@ namespace FreeIDE.Controls
         public void Do_ClearUndoBufer()
         {
             this.ClearUndo();
+        }
+
+        public void Do_Find()
+        {
+            this.ShowFindDialog();
+        }
+        public void Do_FindAndReplace()
+        {
+            this.ShowReplaceDialog();
+        }
+        public void Do_Goto()
+        {
+            this.ShowGoToDialog();
         }
     }
 }

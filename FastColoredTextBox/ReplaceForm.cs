@@ -6,9 +6,9 @@ using System.Drawing;
 
 namespace FastColoredTextBoxNS
 {
-    public partial class ReplaceForm : Form
+    public partial class ReplaceForm : Form, IReplaceForm
     {
-        public static string FormTitleText = "Find and replace";
+        /*public static string FormTitleText = "Find and replace";
         public static string label1Text = "Find:";
         public static string label2Text = "Replace:";
         public static bool cbMatchCaseCheckedStatys = false;
@@ -30,9 +30,7 @@ namespace FastColoredTextBoxNS
         public static string btFindNextText = "Find next";
         public static string btCloseText = "Close";
         public static string btReplaceText = "Replace";
-        public static string btReplaceAllText = "Replace all";
-
-
+        public static string btReplaceAllText = "Replace all";*/
 
         FastColoredTextBox tb;
         bool firstSearch = true;
@@ -41,11 +39,11 @@ namespace FastColoredTextBoxNS
         public ReplaceForm(FastColoredTextBox tb)
         {
             InitializeComponent();
-            LPI_LibsRemaster();
+            //IDE_LibsRemaster();
             this.tb = tb;
         }
 
-        private void LPI_LibsRemaster()
+        /*private void IDE_LibsRemaster()
         {
             //  This method is not copyright infringement.
             //This method only allows me to slightly edit the form
@@ -98,7 +96,7 @@ namespace FastColoredTextBoxNS
             btClose.Text = btCloseText;
             btReplace.Text = btReplaceText;
             btReplaceAll.Text = btReplaceAllText;
-        }
+        }*/
         
         private void btClose_Click(object sender, EventArgs e)
         {
@@ -265,6 +263,46 @@ namespace FastColoredTextBoxNS
         private void cbMatchCase_CheckedChanged(object sender, EventArgs e)
         {
             ResetSerach();
+        }
+
+        public Form GetForm()
+        {
+            return this;
+        }
+
+        public void TbFind_SetText(string text)
+        {
+            this.tbFind.Text = text;
+        }
+
+        public void TbFind_SelectAll()
+        {
+            this.tbFind.SelectAll();
+        }
+
+        public string TbFind_GetText()
+        {
+            return this.tbFind.Text;
+        }
+
+        public void TbReplace_SetText(string text)
+        {
+            this.tbReplace.Text = text;
+        }
+
+        public void TbReplace_SelectAll()
+        {
+            this.tbReplace.SelectAll();
+        }
+
+        public string TbReplace_GetText()
+        {
+            return this.tbReplace.Text;
+        }
+
+        void IReplaceForm.Focus()
+        {
+            this.Focus();
         }
     }
 }

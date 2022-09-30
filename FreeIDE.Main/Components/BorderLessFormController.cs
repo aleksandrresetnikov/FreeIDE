@@ -2,8 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-using FreeIDE.Tags;
-
 namespace FreeIDE.Components
 {
     public partial class BorderLessFormController : BorderLessForm

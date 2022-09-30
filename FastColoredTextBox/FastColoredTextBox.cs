@@ -1324,7 +1324,7 @@ namespace FastColoredTextBoxNS
         public IFindForm findForm { get; set; }
 
         [Browsable(false)]
-        public ReplaceForm replaceForm { get; set; }
+        public IReplaceForm replaceForm { get; set; }
 
         /// <summary>
         /// Do not change this property

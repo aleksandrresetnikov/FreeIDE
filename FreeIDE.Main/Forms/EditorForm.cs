@@ -99,6 +99,7 @@ namespace FreeIDE.Forms
                 tb.LeftPadding = 17;
                 tb.Language = Language.Custom;
                 tb.SetFindDialog(new CustomFindForm(tb));
+                tb.SetReplaceForm(new CustomReplaceForm(tb));
                 tb.AddStyle(CSharpSyntax.sameWordsStyle);
                 //tb.BackColor = GetTextEditorSettings.getTextEditorTextBackground();
                 //tb.ForeColor = GetTextEditorSettings.getTextEditorTextForeround();

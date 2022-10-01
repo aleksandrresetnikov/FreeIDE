@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FastColoredTextBoxNS
 {
@@ -14,6 +15,8 @@ namespace FastColoredTextBoxNS
 
         void Show();
         void Focus();
+        bool Find(string pattern);
+        List<Range> FindAll(string pattern);
 
         System.Windows.Forms.Form GetForm();
     }

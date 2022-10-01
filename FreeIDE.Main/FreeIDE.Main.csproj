@@ -129,6 +129,12 @@
     <Compile Include="Forms\Components\CustomFindForm.Designer.cs">
       <DependentUpon>CustomFindForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Components\CustomReplaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Components\CustomReplaceForm.Designer.cs">
+      <DependentUpon>CustomReplaceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Components\CustomFindForm.resx">
       <DependentUpon>CustomFindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Components\CustomReplaceForm.resx">
+      <DependentUpon>CustomReplaceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditorForm.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>

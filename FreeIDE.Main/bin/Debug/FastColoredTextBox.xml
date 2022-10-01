@@ -1678,6 +1678,12 @@
             Shows find dialog
             </summary>
         </member>
+        <member name="M:FastColoredTextBoxNS.FastColoredTextBox.SetFindDialog(FastColoredTextBoxNS.IFindForm)">
+            <summary>
+            Set fin dialog
+            </summary>
+            <param name="_findForm">IFindForm value</param>
+        </member>
         <member name="M:FastColoredTextBoxNS.FastColoredTextBox.ShowReplaceDialog">
             <summary>
             Shows replace dialog
@@ -1687,6 +1693,12 @@
             <summary>
             Shows replace dialog
             </summary>
+        </member>
+        <member name="M:FastColoredTextBoxNS.FastColoredTextBox.SetReplaceForm(FastColoredTextBoxNS.IReplaceForm)">
+            <summary>
+            Set replace form
+            </summary>
+            <param name="_replaceForm">IReplaceForm value</param>
         </member>
         <member name="M:FastColoredTextBoxNS.FastColoredTextBox.GetLineLength(System.Int32)">
             <summary>

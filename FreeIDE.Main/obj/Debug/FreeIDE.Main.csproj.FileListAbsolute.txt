@@ -31,3 +31,4 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Dynamic.xml
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Scripting.xml
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Scripting.Metadata.xml
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.Components.CustomFindForm.resources
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.Components.CustomReplaceForm.resources

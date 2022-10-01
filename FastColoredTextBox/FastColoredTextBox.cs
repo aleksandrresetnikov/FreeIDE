@@ -2433,6 +2433,10 @@ namespace FastColoredTextBoxNS
             findForm.Focus();
         }
 
+        /// <summary>
+        /// Set fin dialog
+        /// </summary>
+        /// <param name="_findForm">IFindForm value</param>
         public virtual void SetFindDialog(IFindForm _findForm)
         {
             this.findForm = _findForm;
@@ -2457,13 +2461,22 @@ namespace FastColoredTextBoxNS
                 replaceForm = new ReplaceForm(this);
 
             if (findText != null)
-                replaceForm.tbFind.Text = findText;
+                replaceForm.TbFind_SetText(findText);
             else if (!Selection.IsEmpty && Selection.Start.iLine == Selection.End.iLine)
-                replaceForm.tbFind.Text = Selection.Text;
+                replaceForm.TbFind_SetText(Selection.Text);
 
-            replaceForm.tbFind.SelectAll();
+            replaceForm.TbReplace_SelectAll();
             replaceForm.Show();
             replaceForm.Focus();
+        }
+
+        /// <summary>
+        /// Set replace form
+        /// </summary>
+        /// <param name="_replaceForm">IReplaceForm value</param>
+        public virtual void SetReplaceForm(IReplaceForm _replaceForm)
+        {
+            this.replaceForm = _replaceForm;
         }
 
         /// <summary>

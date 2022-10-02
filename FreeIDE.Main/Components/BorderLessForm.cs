@@ -374,9 +374,14 @@ namespace FreeIDE.Components
 
         private protected virtual void OnTimerElapsed(ElapsedEventArgs e)
         {
-            BeginInvoke((Action)delegate {
-                SettingRegions();
-            });
+            try
+            {
+                this.BeginInvoke((Action)delegate
+                {
+                    SettingRegions();
+                });
+            }
+            catch (Exception ex) { }
         }
 
         public virtual void Clean()

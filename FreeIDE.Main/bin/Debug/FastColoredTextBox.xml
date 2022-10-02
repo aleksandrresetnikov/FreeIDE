@@ -1700,6 +1700,17 @@
             </summary>
             <param name="_replaceForm">IReplaceForm value</param>
         </member>
+        <member name="M:FastColoredTextBoxNS.FastColoredTextBox.ShowGoToDialog">
+            <summary>
+            Shows Goto dialog form
+            </summary>
+        </member>
+        <member name="M:FastColoredTextBoxNS.FastColoredTextBox.SetGoToForm(FastColoredTextBoxNS.IGoToForm)">
+            <summary>
+            Set goto form
+            </summary>
+            <param name="_goToForm">IGoToForm value</param>
+        </member>
         <member name="M:FastColoredTextBoxNS.FastColoredTextBox.GetLineLength(System.Int32)">
             <summary>
             Gets length of given line
@@ -2296,11 +2307,6 @@
         <member name="M:FastColoredTextBoxNS.FastColoredTextBox.GetVisibleState(System.Int32)">
             <summary>
             Returns VisibleState of the line
-            </summary>
-        </member>
-        <member name="M:FastColoredTextBoxNS.FastColoredTextBox.ShowGoToDialog">
-            <summary>
-            Shows Goto dialog form
             </summary>
         </member>
         <member name="M:FastColoredTextBoxNS.FastColoredTextBox.SetSelectedLine(System.Int32)">

@@ -100,6 +100,7 @@ namespace FreeIDE.Forms
                 tb.Language = Language.Custom;
                 tb.SetFindDialog(new CustomFindForm(tb));
                 tb.SetReplaceForm(new CustomReplaceForm(tb));
+                tb.SetGoToForm(new CustomGoToForm());
                 tb.AddStyle(CSharpSyntax.sameWordsStyle);
                 //tb.BackColor = GetTextEditorSettings.getTextEditorTextBackground();
                 //tb.ForeColor = GetTextEditorSettings.getTextEditorTextForeround();
@@ -378,29 +379,26 @@ namespace FreeIDE.Forms
 
         private void addLabelToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            this.SelectSmartTextBox.Do_AddLabel();
         }
-
         private void removeLabelToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            this.SelectSmartTextBox.Do_RemoveLabel();
         }
 
         private void commentSelectLineToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            this.SelectSmartTextBox.Do_CommentSelected();
         }
 
         private void saveToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            this.SelectSmartTextBox.Do_Save();
         }
-
         private void saveAsToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            this.SelectSmartTextBox.Do_SaveAs();
         }
-
         private void saveAllToolStripMenuItem2_Click(object sender, EventArgs e)
         {
 

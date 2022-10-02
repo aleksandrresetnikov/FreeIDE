@@ -1326,6 +1326,9 @@ namespace FastColoredTextBoxNS
         [Browsable(false)]
         public IReplaceForm replaceForm { get; set; }
 
+        [Browsable(false)]
+        public IGoToForm goToForm { get; set; }
+
         /// <summary>
         /// Do not change this property
         /// </summary>
@@ -2477,6 +2480,33 @@ namespace FastColoredTextBoxNS
         public virtual void SetReplaceForm(IReplaceForm _replaceForm)
         {
             this.replaceForm = _replaceForm;
+        }
+
+        /// <summary>
+        /// Shows Goto dialog form
+        /// </summary>
+        public virtual void ShowGoToDialog()
+        {
+            if (goToForm == null)
+                goToForm = new GoToForm();
+
+            goToForm.SetTotalLineCount(LinesCount);
+            goToForm.SetSelectedLineNumber(Selection.Start.iLine + 1);
+
+            if (goToForm.ShowDialog() == DialogResult.OK)
+                SetSelectedLine(goToForm.GetSelectedLineNumber());
+
+            goToForm.Dispose();
+            goToForm = null;
+        }
+
+        /// <summary>
+        /// Set goto form
+        /// </summary>
+        /// <param name="_goToForm">IGoToForm value</param>
+        public virtual void SetGoToForm(IGoToForm _goToForm)
+        {
+            this.goToForm = _goToForm;
         }
 
         /// <summary>
@@ -7650,24 +7680,9 @@ window.status = ""#print"";
         /// <summary>
         /// Returns VisibleState of the line
         /// </summary>
-        public VisibleState GetVisibleState(int iLine)
+        public virtual VisibleState GetVisibleState(int iLine)
         {
             return LineInfos[iLine].VisibleState;
-        }
-
-        /// <summary>
-        /// Shows Goto dialog form
-        /// </summary>
-        public void ShowGoToDialog()
-        {
-            var form = new GoToForm();
-            form.TotalLineCount = LinesCount;
-            form.SelectedLineNumber = Selection.Start.iLine + 1;
-
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                SetSelectedLine(form.SelectedLineNumber);
-            }
         }
 
         /// <summary>

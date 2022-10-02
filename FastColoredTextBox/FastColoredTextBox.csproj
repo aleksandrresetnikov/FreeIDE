@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Bookmarks.cs" />
     <Compile Include="Char.cs" />
+    <Compile Include="IGoToForm.cs" />
     <Compile Include="DocumentMap.cs">
       <SubType>Component</SubType>
     </Compile>

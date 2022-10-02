@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace FastColoredTextBoxNS
 {
-    public partial class GoToForm : Form
+    public partial class GoToForm : Form, IGoToForm
     {
-        public static string FormTitleText = "Go To Line";
+        public string LabelText = "Line number ";
+
+        /*public static string FormTitleText = "Go To Line";
         public static Color backFormColor = SystemColors.Control;
         public static string LabelText = "Line number ";
         public static Color foreTextBoxColor = SystemColors.WindowText;
@@ -16,9 +17,7 @@ namespace FastColoredTextBoxNS
         public static Color backButtonsColor = SystemColors.Control;
         public static Font textBoxFont = new Font("Microsoft Tai Le", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         public static string btnOKText = "OK";
-        public static string btnCancelText = "Cancel";
-
-
+        public static string btnCancelText = "Cancel";*/
 
         public int SelectedLineNumber { get; set; }
         public int TotalLineCount { get; set; }
@@ -26,10 +25,10 @@ namespace FastColoredTextBoxNS
         public GoToForm()
         {
             InitializeComponent();
-            LPI_LibsRemaster();
+            //IDE_LibsRemaster();
         }
 
-        private void LPI_LibsRemaster()
+        /*private void IDE_LibsRemaster()
         {
             //  This method is not copyright infringement.
             //This method only allows me to slightly edit the form
@@ -53,7 +52,7 @@ namespace FastColoredTextBoxNS
             btnOk.FlatStyle         = buttonsStyle;
             btnCancel.Text          = btnCancelText;
             btnOk.Text              = btnOKText;
-        }
+        }*/
 
         protected override void OnLoad(EventArgs e)
         {
@@ -61,7 +60,7 @@ namespace FastColoredTextBoxNS
 
             this.tbLineNumber.Text = this.SelectedLineNumber.ToString();
 
-            this.label.Text = String.Format($"{LabelText}(1 - {0}):", this.TotalLineCount);
+            this.label.Text = String.Format($"{this.LabelText}(1 - {0}):", this.TotalLineCount);
         }
 
         protected override void OnShown(EventArgs e)
@@ -91,5 +90,25 @@ namespace FastColoredTextBoxNS
             this.DialogResult = DialogResult.Cancel;
             this.Close();
          }
+
+        public int GetSelectedLineNumber()
+        {
+            return this.SelectedLineNumber;
+        }
+
+        public void SetTotalLineCount(int totalLineCount)
+        {
+            this.TotalLineCount = totalLineCount;
+        }
+
+        public void SetSelectedLineNumber(int selectedLineNumber)
+        {
+            this.SelectedLineNumber = selectedLineNumber;
+        }
+
+        public Form GetForm()
+        {
+            return this;
+        }
     }
 }

@@ -5,7 +5,6 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.Co
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Common.dll
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.Common.pdb
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.CopyComplete
-C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.SuggestedBindingRedirects.cache
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.EditorForm.resources
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Components.BorderLessFormController.resources
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\FreeIDE.exe.config
@@ -33,3 +32,4 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\bin\Debug\Microsoft.Scripting.Me
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.Components.CustomFindForm.resources
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.Components.CustomReplaceForm.resources
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.Components.CustomGoToForm.resources
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.MessageBoxResource.resources

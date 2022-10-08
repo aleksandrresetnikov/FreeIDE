@@ -125,7 +125,7 @@ namespace FreeIDE.Forms.Components
 
             this.UpdateSize();
 
-            MessageSounds.MessageSound.Play();
+            //MessageSounds.MessageSound.Play();
         }
         private void LPI_MessageBox_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -261,31 +261,31 @@ namespace FreeIDE.Forms.Components
         {
             switch (this.MessageIcon)
             {
-                case LPI_MessageBoxIcon.None:
+                case CustomMessageBoxIcon.None:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.message_icon_4X;
                     return;
-                case LPI_MessageBoxIcon.Hand:
+                case CustomMessageBoxIcon.Hand:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.hand_icon_4X;
                     return;
-                case LPI_MessageBoxIcon.Stop:
+                case CustomMessageBoxIcon.Stop:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.stop_icon_4X;
                     return;
-                case LPI_MessageBoxIcon.Error:
+                case CustomMessageBoxIcon.Error:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.error_icon_4X;
                     return;
-                case LPI_MessageBoxIcon.Question:
+                case CustomMessageBoxIcon.Question:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.question_icon_4X;
                     return;
-                case LPI_MessageBoxIcon.Exclamation:
+                case CustomMessageBoxIcon.Exclamation:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.exclamation_icon_4X;
                     return;
-                case LPI_MessageBoxIcon.Warning:
+                case CustomMessageBoxIcon.Warning:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.warning_icon_4X;
                     return;
-                case LPI_MessageBoxIcon.Asterisk:
+                case CustomMessageBoxIcon.Asterisk:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.asterisk_icon_4X;
                     return;
-                case LPI_MessageBoxIcon.Information:
+                case CustomMessageBoxIcon.Information:
                     this.PictureBoxMessageIcon.Image = MessageBoxResource.info_icon_4X;
                     return;
             }

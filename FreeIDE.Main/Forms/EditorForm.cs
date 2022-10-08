@@ -57,6 +57,8 @@ namespace FreeIDE.Forms
             this.InitializeTags();
             this.InitializeTheme();
             this.InitializeSolutionFileTreeView();
+
+            CustomMessageBoxMethods.Show("Hello", "Kekkkkkk");
         }
 
         private void InitializeSolutionFileTreeView()

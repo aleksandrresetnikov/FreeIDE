@@ -102,6 +102,7 @@
       <DependentUpon>BorderLessFormController.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\CustomMessageBoxIcon.cs" />
+    <Compile Include="Components\CustomMessageBoxMethods.cs" />
     <Compile Include="Components\FormDisigner.cs" />
     <Compile Include="Components\Renderers\CustomMenuStripColors.cs" />
     <Compile Include="Components\Solution.cs" />
@@ -221,16 +222,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FastColoredTextBox\FastColoredTextBox.csproj">
-      <Project>{6dd14a85-ccfc-4774-bd26-0f5772512319}</Project>
-      <Name>FastColoredTextBox</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FreeIDE.Common\FreeIDE.Common.csproj">
-      <Project>{6064680f-9ae4-4851-894d-e5847ab21371}</Project>
-      <Name>FreeIDE.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="logo.ico" />
     <None Include="Resources\info_icon.png" />
     <None Include="Resources\info_icon_2x.png" />
@@ -310,6 +301,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FastColoredTextBox\FastColoredTextBox.csproj">
+      <Project>{6dd14a85-ccfc-4774-bd26-0f5772512319}</Project>
+      <Name>FastColoredTextBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FreeIDE.Common\FreeIDE.Common.csproj">
+      <Project>{6064680f-9ae4-4851-894d-e5847ab21371}</Project>
+      <Name>FreeIDE.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

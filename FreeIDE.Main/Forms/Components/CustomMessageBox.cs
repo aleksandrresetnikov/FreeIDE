@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+using FreeIDE.Tags;
 using FreeIDE.Components;
 
 namespace FreeIDE.Forms.Components
@@ -90,7 +91,27 @@ namespace FreeIDE.Forms.Components
             this.SetButtons();
             this.ApplyDataSettings();
             this.SetMessageIcon();
+            this.InitializeTags();
+            this.InitializeTheme();
             this.CenterToScreen();
+        }
+
+        private void InitializeTags()
+        {
+            this.richTextBox1.Tag = new FreeTag(0, 1);
+
+            this.buttonAbort.Tag = new ButtonTag(0, 1);
+            this.buttonCancel.Tag = new ButtonTag(0, 1);
+            this.buttonIgnore.Tag = new ButtonTag(0, 1);
+            this.buttonNo.Tag = new ButtonTag(0, 1);
+            this.buttonYes.Tag = new ButtonTag(0, 1);
+            this.buttonRetry.Tag = new ButtonTag(0, 1);
+            this.buttonOK.Tag = new ButtonTag(0, 1);
+        }
+
+        private void InitializeTheme()
+        {
+            ThemeMaster.ApplyTheme(this);
         }
 
         private void ApplyDataSettings()

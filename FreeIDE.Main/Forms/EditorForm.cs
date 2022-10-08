@@ -58,7 +58,7 @@ namespace FreeIDE.Forms
             this.InitializeTheme();
             this.InitializeSolutionFileTreeView();
 
-            CustomMessageBoxMethods.Show("Hello", "Kekkkkkk");
+            CustomMessageBoxMethods.Show("Hello", "To develop any type of application or learn a language, you'll work in the Visual Studio Integrated Development Environment (IDE). In addition to code modification, the Visual Studio IDE brings together graphical designers, compilers, code completion tools, version control systems, extensions, and more in one place. Watch this short video to get familiar with the IDE and how to use it for basic tasks.", CustomMessageBoxIcon.Exclamation);
         }
 
         private void InitializeSolutionFileTreeView()

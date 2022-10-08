@@ -27,7 +27,6 @@ A:\Александр\C#\!!! FastColoredTextBox-master\FastColoredTextBox\obj\De
 C:\Users\user\source\repos\fastLPI engine\libs\FastColoredTextBox.dll
 C:\Users\user\source\repos\fastLPI engine\libs\FastColoredTextBox.pdb
 C:\Users\user\source\repos\fastLPI engine\libs\FastColoredTextBox.XML
-C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.AssemblyReference.cache
 C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.FastColoredTextBox.resources
 C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.FindForm.resources
 C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBoxNS.GoToForm.resources

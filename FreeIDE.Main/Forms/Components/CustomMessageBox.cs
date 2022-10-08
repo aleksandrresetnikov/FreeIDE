@@ -16,16 +16,16 @@ namespace FreeIDE.Forms.Components
         public string Caption;
         public string Message;
         public bool ShowCheckBox = false;
-        public bool WordWrap = false;
+        public bool WordWrap = true;
         public bool OverAllWindows = true;
-        public string CheckBoxText = "Не показывать снова";
+        public string CheckBoxText = "Don't show again";
 
         public CustomMessageBox(string Message)
         {
             this.Buttons = MessageBoxButtons.OK;
             this.Message = Message;
 
-            Init();
+            this.Init();
         }
         public CustomMessageBox(string Caption, string Message)
         {
@@ -33,7 +33,7 @@ namespace FreeIDE.Forms.Components
             this.Buttons = MessageBoxButtons.OK;
             this.Message = Message;
 
-            Init();
+            this.Init();
         }
         public CustomMessageBox(string Caption, string Message, MessageBoxButtons Buttons)
         {
@@ -41,7 +41,7 @@ namespace FreeIDE.Forms.Components
             this.Buttons = Buttons;
             this.Message = Message;
 
-            Init();
+            this.Init();
         }
         public CustomMessageBox(string Caption, string Message, CustomMessageBoxIcon MessageIcon)
         {
@@ -49,14 +49,14 @@ namespace FreeIDE.Forms.Components
             this.MessageIcon = MessageIcon;
             this.Message = Message;
 
-            Init();
+            this.Init();
         }
         public CustomMessageBox(string Message, MessageBoxButtons Buttons)
         {
             this.Buttons = Buttons;
             this.Message = Message;
 
-            Init();
+            this.Init();
         }
         public CustomMessageBox(string Message, MessageBoxButtons Buttons, CustomMessageBoxIcon MessageIcon)
         {
@@ -64,7 +64,7 @@ namespace FreeIDE.Forms.Components
             this.Message = Message;
             this.MessageIcon = MessageIcon;
 
-            Init();
+            this.Init();
         }
         public CustomMessageBox(string Message, CustomMessageBoxIcon MessageIcon)
         {
@@ -72,7 +72,7 @@ namespace FreeIDE.Forms.Components
             this.Message = Message;
             this.MessageIcon = MessageIcon;
 
-            Init();
+            this.Init();
         }
         public CustomMessageBox(string Caption, string Message, MessageBoxButtons Buttons, CustomMessageBoxIcon MessageIcon)
         {
@@ -81,7 +81,7 @@ namespace FreeIDE.Forms.Components
             this.Message = Message;
             this.MessageIcon = MessageIcon;
 
-            Init();
+            this.Init();
         }
 
         private void Init()
@@ -98,20 +98,37 @@ namespace FreeIDE.Forms.Components
 
         private void InitializeTags()
         {
-            this.richTextBox1.Tag = new FreeTag(0, 1);
+            this.richTextBox1.Tag = new FreeTag(0, 0);
+            this.label1.Tag = new ButtonTag(1, 1);
+            this.checkBox.Tag = new ButtonTag(1, 1);
+            this.panel1.Tag = new ButtonTag(1, 1);
 
-            this.buttonAbort.Tag = new ButtonTag(0, 1);
-            this.buttonCancel.Tag = new ButtonTag(0, 1);
-            this.buttonIgnore.Tag = new ButtonTag(0, 1);
-            this.buttonNo.Tag = new ButtonTag(0, 1);
-            this.buttonYes.Tag = new ButtonTag(0, 1);
-            this.buttonRetry.Tag = new ButtonTag(0, 1);
-            this.buttonOK.Tag = new ButtonTag(0, 1);
+            this.buttonAbort.Tag = new ButtonTag(0, 0);
+            this.buttonCancel.Tag = new ButtonTag(0, 0);
+            this.buttonIgnore.Tag = new ButtonTag(0, 0);
+            this.buttonNo.Tag = new ButtonTag(0, 0);
+            this.buttonYes.Tag = new ButtonTag(0, 0);
+            this.buttonRetry.Tag = new ButtonTag(0, 0);
+            this.buttonOK.Tag = new ButtonTag(0, 0);
+            this.buttonClose.Tag = new ButtonTag(1, 1);
         }
 
         private void InitializeTheme()
         {
             ThemeMaster.ApplyTheme(this);
+
+            ThemeMaster.ApplyTheme(this.label1);
+            ThemeMaster.ApplyTheme(this.richTextBox1);
+            ThemeMaster.ApplyTheme(this.panel1);
+
+            ThemeMaster.ApplyTheme(this.buttonAbort);
+            ThemeMaster.ApplyTheme(this.buttonCancel);
+            ThemeMaster.ApplyTheme(this.buttonIgnore);
+            ThemeMaster.ApplyTheme(this.buttonNo);
+            ThemeMaster.ApplyTheme(this.buttonYes);
+            ThemeMaster.ApplyTheme(this.buttonRetry);
+            ThemeMaster.ApplyTheme(this.buttonOK);
+            ThemeMaster.ApplyTheme(this.buttonClose);
         }
 
         private void ApplyDataSettings()

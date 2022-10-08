@@ -186,6 +186,9 @@
     <EmbeddedResource Include="Forms\Components\CustomGoToForm.resx">
       <DependentUpon>CustomGoToForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Components\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Components\CustomReplaceForm.resx">
       <DependentUpon>CustomReplaceForm.cs</DependentUpon>
     </EmbeddedResource>

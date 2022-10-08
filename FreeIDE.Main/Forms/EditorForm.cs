@@ -27,8 +27,9 @@ namespace FreeIDE.Forms
     {
         private FastColoredTextBox tb;
         private static bool zoomInvokeStatys = true;
-        private static SmartTextBox GetSmartTextBoxInTab(TabPage tabPage) => (tabPage.Controls[0] as SmartTextBox);
-        private SmartTextBox SelectSmartTextBox => GetSmartTextBoxInTab(mainTabControl.SelectedTab);
+        private SmartTextBox GetSmartTextBoxInTab(TabPage tabPage) => (tabPage.Controls[0] as SmartTextBox);
+        private SmartTextBox SelectSmartTextBox => this.GetSmartTextBoxInTab(mainTabControl.SelectedTab);
+        private SmartTextBox[] SmartTextBoxesInTab => this.GetSmartTextBoxesInTab();
 
         private protected Solution _OpenSolution;
         private protected Solution OpenSolution 
@@ -84,6 +85,17 @@ namespace FreeIDE.Forms
                     this.CodePanel_open(e.Paths.PathItemFrom.ToString());
                     return;
             }
+        }
+
+        private SmartTextBox[] GetSmartTextBoxesInTab()
+        {
+            SmartTextBox[] outputValue = new SmartTextBox[this.mainTabControl.TabCount];
+
+            for (int itemIndex = 0; itemIndex < this.mainTabControl.TabPages.Count; itemIndex++)
+                outputValue[itemIndex] = (this.mainTabControl.TabPages[itemIndex].Controls[0] as SmartTextBox);
+
+            GC.Collect();
+            return outputValue;
         }
 
         private void CodePanel_createTab(string path)
@@ -402,6 +414,12 @@ namespace FreeIDE.Forms
             this.SelectSmartTextBox.Do_SaveAs();
         }
         private void saveAllToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            foreach (SmartTextBox textBox in this.SmartTextBoxesInTab)
+                textBox.Do_Save();
+        }
+
+        private void gotoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

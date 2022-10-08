@@ -443,6 +443,7 @@
             this.gotoToolStripMenuItem.Name = "gotoToolStripMenuItem";
             this.gotoToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
             this.gotoToolStripMenuItem.Text = "Goto";
+            this.gotoToolStripMenuItem.Click += new System.EventHandler(this.gotoToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -587,59 +588,59 @@
             // overAllWindowsToolStripMenuItem
             // 
             this.overAllWindowsToolStripMenuItem.Name = "overAllWindowsToolStripMenuItem";
-            this.overAllWindowsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.overAllWindowsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.overAllWindowsToolStripMenuItem.Text = "Over All Windows";
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(163, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(177, 6);
             // 
             // theCodeToolStripMenuItem
             // 
             this.theCodeToolStripMenuItem.Name = "theCodeToolStripMenuItem";
-            this.theCodeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.theCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.theCodeToolStripMenuItem.Text = "The code";
             // 
             // constructorToolStripMenuItem
             // 
             this.constructorToolStripMenuItem.Name = "constructorToolStripMenuItem";
-            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.constructorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.constructorToolStripMenuItem.Text = "Constructor";
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(163, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(177, 6);
             // 
             // solutionTreeToolStripMenuItem
             // 
             this.solutionTreeToolStripMenuItem.Name = "solutionTreeToolStripMenuItem";
-            this.solutionTreeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.solutionTreeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.solutionTreeToolStripMenuItem.Text = "Solution Tree";
             // 
             // propertiesPanelToolStripMenuItem
             // 
             this.propertiesPanelToolStripMenuItem.Name = "propertiesPanelToolStripMenuItem";
-            this.propertiesPanelToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.propertiesPanelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.propertiesPanelToolStripMenuItem.Text = "Properties Panel";
             // 
             // outputPanelToolStripMenuItem
             // 
             this.outputPanelToolStripMenuItem.Name = "outputPanelToolStripMenuItem";
-            this.outputPanelToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.outputPanelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.outputPanelToolStripMenuItem.Text = "Output Panel";
             // 
             // terminalToolStripMenuItem
             // 
             this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
-            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.terminalToolStripMenuItem.Text = "Terminal";
             // 
             // propertiesWindowToolStripMenuItem
             // 
             this.propertiesWindowToolStripMenuItem.Name = "propertiesWindowToolStripMenuItem";
-            this.propertiesWindowToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.propertiesWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.propertiesWindowToolStripMenuItem.Text = "Project Properties";
             // 
             // projectToolStripMenuItem3
@@ -736,7 +737,7 @@
             this.saveAsToolStripMenuItem2,
             this.saveAllToolStripMenuItem2});
             this.CodePanel_contextMenuStrip.Name = "cmMain";
-            this.CodePanel_contextMenuStrip.Size = new System.Drawing.Size(316, 546);
+            this.CodePanel_contextMenuStrip.Size = new System.Drawing.Size(316, 524);
             // 
             // cutToolStripMenuItem2
             // 

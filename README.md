@@ -23,3 +23,6 @@ Icons I took from Visual Studio 12. They are available <strong><a href="https://
 
 ## ⚠️ Important
 I am using <strong><a href="https://github.com/PavelTorgashov/FastColoredTextBox">PavelTorgashov/FastColoredTextBox</a></strong> library in this project. Since this library is open source, I've made small changes to suit my needs (for example, recoloring many of the dialogue forms). I do not claim ownership of this project (FastColoredTextBox). Project copyright reserved.
+
+## 📰 Information and news
+Information and news of the development of the project, as well as detailed information, history and previous versions can be found in the telegram channel of this project: https://t.me/+3500S76nXz1jNTRi

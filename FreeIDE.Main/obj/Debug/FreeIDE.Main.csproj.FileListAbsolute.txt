@@ -34,3 +34,4 @@ C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.Componen
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.Components.CustomGoToForm.resources
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.MessageBoxResource.resources
 C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Forms.Components.CustomMessageBox.resources
+C:\Users\user\source\repos\FreeIDE\FreeIDE.Main\obj\Debug\FreeIDE.Main.csproj.SuggestedBindingRedirects.cache

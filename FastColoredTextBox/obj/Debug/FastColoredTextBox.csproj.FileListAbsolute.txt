@@ -36,3 +36,4 @@ C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextB
 C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.dll
 C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.pdb
+C:\Users\user\source\repos\FreeIDE\FastColoredTextBox\obj\Debug\FastColoredTextBox.csproj.AssemblyReference.cache

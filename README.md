@@ -1,5 +1,5 @@
 # 📒 FreeIDE
-<strong>It is a simple source code editor.</strong>
+### <strong>It is a simple source code editor.</strong>
 ![Image alt](https://github.com/aleksandrresetnikov/FreeIDE/blob/main/Screenshots/Screenshot_base(beta%20version).jpg)
 
 ## ⚡ Notiz

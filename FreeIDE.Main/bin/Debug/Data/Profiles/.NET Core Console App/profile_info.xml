@@ -1,8 +1,0 @@
-<Profile>
-	<Name>Console App</Name>
-	<Description>.NET Core Console App</Description>
-	<Type>Console</Type>
-	<Platform>Windows</Platform>
-	<Language>CSharp</Language>
-	<Version>beta - 0.1</Version>
-</Profile>
